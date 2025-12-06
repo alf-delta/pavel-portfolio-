@@ -2156,8 +2156,8 @@ h1.article-title {
 
     /* Expanded State */
     .seo-enhanced-block.expanded {
-        max-height: none !important;
-        /* Force expansion */
+        max-height: 5000px !important;
+        /* Force expansion with value for transition */
     }
 
     .seo-enhanced-block.expanded::after {
