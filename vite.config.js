@@ -12,7 +12,14 @@ export default defineConfig({
                 main: 'index.html',
                 experience: 'experience.html',
                 configurator: 'configurator.html',
-                caseBewell: 'case-bewell.html'
+                cases: 'cases.html',
+                caseBewell: 'case-bewell.html',
+                caseBorges: 'case-borges.html',
+                caseFmcgMda: 'case-fmcg-mda.html',
+                caseFragrance: 'case-fragrance.html',
+                caseNycwc: 'case-nycwc.html',
+                caseProcter: 'case-procter.html',
+                caseVivienne: 'case-vivienne.html'
             }
         }
     },
