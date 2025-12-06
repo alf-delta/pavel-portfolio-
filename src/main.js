@@ -8,15 +8,8 @@ import { Configurator } from './js/modules/Configurator';
 import { IdentityDecoder } from './js/modules/IdentityDecoder';
 import { CaseStudyNav } from './js/modules/CaseStudyNav';
 import { CaseFilter } from './js/modules/CaseFilter';
-import { SeoToggle } from './js/modules/SeoToggle';
-
-// Mobile Viewport Fix
-const setVh = () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-};
-setVh();
-window.addEventListener('resize', setVh);
+// Mobile Viewport Fix (Removed in favor of CSS svh)
+// const setVh = () => { ... }
 
 document.addEventListener("DOMContentLoaded", () => {
     // 1. System Core
