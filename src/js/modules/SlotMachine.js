@@ -24,17 +24,43 @@ export class SlotMachine {
         ];
 
         let currentIndex = 0;
+        let intervalId = null;
 
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % slotPairs.length;
-            const nextPair = slotPairs[currentIndex];
-            this.animateWord(this.trackLeft, nextPair.l);
-            this.animateWord(this.trackRight, nextPair.r);
-        }, 4000);
+        const startCycle = () => {
+            if (intervalId) clearInterval(intervalId);
+            intervalId = setInterval(() => {
+                // Double check visibility just in case
+                if (document.hidden) return;
+
+                currentIndex = (currentIndex + 1) % slotPairs.length;
+                const nextPair = slotPairs[currentIndex];
+                this.animateWord(this.trackLeft, nextPair.l);
+                this.animateWord(this.trackRight, nextPair.r);
+            }, 4000);
+        };
+
+        const stopCycle = () => {
+            if (intervalId) clearInterval(intervalId);
+            intervalId = null;
+        };
+
+        // Handle Tab Visibility
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopCycle();
+            } else {
+                startCycle();
+            }
+        });
+
+        // Start initially
+        startCycle();
     }
 
     animateWord(container, newText) {
-        const oldWord = container.querySelector('.slot-word');
+        // Safety: Remove any existing words that might be stuck ensuring clean slate
+        const existingWords = container.querySelectorAll('.slot-word');
+
         const newWord = document.createElement('div');
         newWord.classList.add('slot-word');
         newWord.innerText = newText;
@@ -51,9 +77,17 @@ export class SlotMachine {
         container.appendChild(newWord);
 
         const tl = gsap.timeline();
-        if (oldWord) {
-            tl.to(oldWord, { yPercent: -100, duration: 0.8, ease: "power2.inOut", onComplete: () => oldWord.remove() }, 0);
-        }
+
+        // Animate out ALL existing words
+        existingWords.forEach(word => {
+            tl.to(word, {
+                yPercent: -100,
+                duration: 0.8,
+                ease: "power2.inOut",
+                onComplete: () => word.remove()
+            }, 0);
+        });
+
         tl.to(newWord, { yPercent: 0, duration: 0.8, ease: "power2.inOut" }, 0);
     }
 }
