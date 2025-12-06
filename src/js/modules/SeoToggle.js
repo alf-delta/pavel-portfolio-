@@ -24,9 +24,9 @@ export class SeoToggle {
 
                 // Update button text
                 if (this.block.classList.contains('expanded')) {
-                    this.btn.textContent = '[ СВЕРНУТЬ ТЕКСТ ]';
+                    this.btn.textContent = '[ CLOSE TEXT ]';
                 } else {
-                    this.btn.textContent = '[ ЧИТАТЬ ВЕСЬ ТЕКСТ ]';
+                    this.btn.textContent = '[ VIEW THE FULL TEXT ]';
                 }
             });
         }
