@@ -2039,6 +2039,13 @@ h1.article-title {
     margin-bottom: 5px;
 }
 
+.nda-highlight {
+    color: #fca5a5;
+    /* Pale Red */
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
 .case-card:hover {
     transform: translateY(-3px);
 }
