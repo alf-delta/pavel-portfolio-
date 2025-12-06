@@ -25,6 +25,16 @@ export class CaseFilter {
                 this.filterGrid();
             });
         }
+
+        // Mobile Filter Toggle
+        const mobileToggle = document.getElementById('mobileFilterToggle');
+        const filterPanel = document.getElementById('filterPanel');
+        if (mobileToggle && filterPanel) {
+            mobileToggle.addEventListener('click', () => {
+                filterPanel.classList.toggle('open');
+                // Toggle icon text if needed, or handled via CSS rotation
+            });
+        }
     }
 
     filterGrid() {

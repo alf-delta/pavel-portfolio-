@@ -1963,15 +1963,117 @@ h1.article-title {
 @media (max-width: 900px) {
     .catalog-interface {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 
     .filter-panel {
         position: relative;
         top: 0;
         background: rgba(15, 23, 42, 0.8);
-        padding: 20px;
-        border-radius: 12px;
+        border-radius: 8px;
         border: 1px solid var(--border-color);
+        padding: 0;
+        /* Reset padding for fold */
+        overflow: hidden;
     }
+
+    .mobile-filter-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        cursor: pointer;
+        background: rgba(30, 41, 59, 0.5);
+    }
+
+    .mobile-filter-toggle span {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--text-main);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .filter-content-wrap {
+        display: none;
+        /* Hidden by default on mobile */
+        padding: 20px;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .filter-panel.open .filter-content-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .filter-panel.open .toggle-icon {
+        transform: rotate(45deg);
+    }
+}
+
+@media (min-width: 901px) {
+    .mobile-filter-toggle {
+        display: none;
+    }
+
+    .filter-content-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* Compact Card Styling */
+.case-card {
+    padding: 20px;
+    /* Reduced from 30px */
+    gap: 15px;
+    /* Reduced gap */
+    min-height: 120px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    /* Slightly smaller */
+    margin-bottom: 5px;
+}
+
+.case-card:hover {
+    transform: translateY(-3px);
+}
+
+.card-tags {
+    margin-bottom: 0;
+    gap: 6px;
+}
+
+.card-tags span {
+    font-size: 9px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+
+/* Identifier Colors */
+.tag-problem {
+    color: #fca5a5;
+    /* Red-300 */
+    border-color: rgba(248, 113, 113, 0.3);
+    background: rgba(248, 113, 113, 0.1);
+}
+
+.tag-impact {
+    color: #86efac;
+    /* Green-300 */
+    border-color: rgba(74, 222, 128, 0.3);
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.tag-asset {
+    color: #93c5fd;
+    /* Blue-300 */
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(59, 130, 246, 0.1);
 }
