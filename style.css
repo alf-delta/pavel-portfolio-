@@ -2100,3 +2100,65 @@ h1.article-title {
     border-color: rgba(59, 130, 246, 0.3);
     background: rgba(59, 130, 246, 0.1);
 }
+
+/* --- SEO BLOCK MOBILE TOGGLE --- */
+.seo-toggle-btn {
+    display: none;
+    /* Hidden on Desktop */
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--accent-green);
+    color: var(--accent-green);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.seo-toggle-btn:hover {
+    background: rgba(52, 211, 153, 0.1);
+}
+
+@media (max-width: 900px) {
+    .seo-enhanced-block {
+        position: relative;
+        max-height: 400px;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+
+    /* Gradient Mask for collapsed state */
+    .seo-enhanced-block::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 1));
+        pointer-events: none;
+        transition: opacity 0.3s;
+    }
+
+    .seo-toggle-btn {
+        display: block;
+        /* Visible on Mobile */
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Expanded State */
+    .seo-enhanced-block.expanded {
+        max-height: 2000px;
+        /* Arbitrary large height for transition */
+    }
+
+    .seo-enhanced-block.expanded::after {
+        opacity: 0;
+        pointer-events: none;
+    }
+}

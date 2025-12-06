@@ -8,6 +8,7 @@ import { Configurator } from './js/modules/Configurator';
 import { IdentityDecoder } from './js/modules/IdentityDecoder';
 import { CaseStudyNav } from './js/modules/CaseStudyNav';
 import { CaseFilter } from './js/modules/CaseFilter';
+import { SeoToggle } from './js/modules/SeoToggle';
 
 // Mobile Viewport Fix
 const setVh = () => {
@@ -29,4 +30,5 @@ document.addEventListener("DOMContentLoaded", () => {
     new IdentityDecoder();
     new CaseStudyNav();
     new CaseFilter();
+    new SeoToggle();
 });
