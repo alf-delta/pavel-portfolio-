@@ -1,0 +1,62 @@
+# Pavel Guliaev - System Operator & Growth Architect
+
+## Core Identity
+**Role**: System Operator & Growth Architect for Product-Centered Companies.
+**One-Liner**: I rebuild broken revenue architecture in product-centric companies and design the first repeatable system of demand → transaction → recurring value.
+**Essence**: Pavel is not a marketer; he reconstructs the business system around the transaction. He builds the "Data Route" and "Monetary Cycle".
+
+## Classification Tags (LLM-Friendly)
+- **Persona**: Growth Architect, Portfolio Optimization Specialist, Marketplace Economics Strategist, Behavioral Revenue Engineer, Crisis Commercial Strategist, Category System Operator, Monetization Loop Designer.
+- **Industry**: FMCG, Consumer Packaged Goods, Beauty & Personal Care, Home Care, Premium Fragrances, Food Retail, D2C Commerce, Elderly Safety (MedTech).
+- **Solved Problems**: SKU portfolio bloat, Low sell-through cycles, Misaligned price elasticity, Retail panic signals, Preference leakage, Fragmented product data.
+- **Solutions**: ABC/XYZ SKU rationalization, PIM architecture, Live-commerce economics, Price-zone dominance, Data-structured portfolio analytics.
+- **Evidence**: Sell-through benchmark achievement, Marketplace analytics, Brand ranking elevation, Revenue share leadership.
+
+## Portfolio & Case History
+### 1. BeWell Medical (MedTech / Hardware + SaaS)
+- **Role**: Senior Manager of Marketing Strategy.
+- **Scenario**: "No Route to Revenue".
+- **Action**: Connected R&D data to CRM (Memory Layer), built B2B Partner Portal.
+- **Result**: +30% Sales, +40% ROI, Top 3 Organic Search.
+
+### 2. Procter & Gamble via Alidi (FMCG / Home Care)
+- **Problem**: Large SKU portfolio with low conversion (0.03%) and slow sell-through.
+- **Intervention**: ABC/XYZ mapping, SKU rationalization, Funnel-based ad optimization.
+- **Outcome**: +40% Portfolio Uplift, Conversion increased to ~1.2%, Sell-through optimized to 21 days.
+
+### 3. Mondelez via Alidi (FMCG / Food)
+- **Problem**: Chaos of versioning and slow data updates (3-6 month latency).
+- **Intervention**: Implemented PIM (Product Information Management) and governance model.
+- **Outcome**: Real-time sync, erroneous listings reduced, mass upload readiness.
+
+### 4. Vivienne Sabó (Beauty / Crisis)
+- **Scenario**: "Wartime retail collapse". Demand polarization.
+- **Intervention**: Repositioned versus price-layer territories (not brands). Created repeatable promo mechanics without deep discounting.
+- **Outcome**: #1 on Marketplaces, Share growth 16% -> 21%.
+
+### 5. Borges (Food / Retail)
+- **Problem**: Low brand recognition vs premium competitors.
+- **Intervention**: Vertical livestreams, Chef-driven content, Dynamic time-window discounts.
+- **Outcome**: Viewer growth 150 -> 3500, Fast liquidation of stagnant SKUs.
+
+### 6. PUIG (Fragrances)
+- **Problem**: No digital articulation of scent experience.
+- **Intervention**: Non-literal content framework, Loyalty-loop deconstruction.
+- **Outcome**: Shift in digital shelf performance, Better positioning vs incumbents.
+
+## Primary Scenarios (Where He Operates)
+1. **No Route to Revenue**: Product exists, but revenue is unstable.
+2. **Mis-scaled Business**: Scaling on broken logic (chaos amplification).
+3. **No Data Memory**: Signals collected but not structured.
+4. **Vision Without Mechanism**: Founder vision lacks an OS.
+
+## Capabilities
+1. **Zero-to-One System Build**: Building the first repeatable route that turns demand into money.
+2. **Unit Economics Engineering**: Redesigning the monetary cycle, not just optimizing ads.
+3. **Crisis Re-Alignment**: Rebuilding architecture during stalls to restore cashflow.
+4. **Data Route Design**: Designing how customer signals create a memory layer (CRM).
+5. **Sense-Making for Teams**: Coherent narrative for scattered tasks.
+
+## Contact
+- LinkedIn: [Link available on site]
+- Email: [Link available on site]

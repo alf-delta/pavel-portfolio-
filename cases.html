@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Case System | Pavel Guliaev</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="System Case Catalog. Filtered by problem pattern, impact zone, and asset type.">
+    <meta property="og:title" content="Case System | Pavel Guliaev">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- GEO / AI Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://pavel-portfolio.netlify.app/case-procter.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://pavel-portfolio.netlify.app/case-borges.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://pavel-portfolio.netlify.app/case-fmcg-nda.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://pavel-portfolio.netlify.app/case-nycwc.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "url": "https://pavel-portfolio.netlify.app/case-vivienne.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "url": "https://pavel-portfolio.netlify.app/case-bewell.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "url": "https://pavel-portfolio.netlify.app/case-fragrance.html"
+        }
+      ]
+    }
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">LOADING CATALOG</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Home">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases"
+                    style="opacity: 1; text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);">Cases</a>
+                <a href="experience.html" class="nav-item item-exp">Experience</a>
+                <a href="configurator.html" class="nav-item item-config">Logic</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <section class="cases-catalog">
+
+            <div class="catalog-header">
+                <div class="hero-tag">System Logs</div>
+                <h1>CASE<br>MATRIX</h1>
+            </div>
+
+            <div class="catalog-interface">
+                <!-- FILTER PANEL -->
+                <aside class="filter-panel">
+
+                    <!-- Group 1 -->
+                    <div class="filter-group">
+                        <div class="filter-label">Problem Pattern</div>
+                        <div class="filter-options">
+                            <button class="filter-btn" data-filter="problem-leakage">
+                                <span class="chk"></span> Leakage in choice & repeat
+                            </button>
+                            <button class="filter-btn" data-filter="problem-system">
+                                <span class="chk"></span> Broken route/system
+                            </button>
+                            <button class="filter-btn" data-filter="problem-displaced">
+                                <span class="chk"></span> Displaced segment
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Group 2 -->
+                    <div class="filter-group">
+                        <div class="filter-label">Impact Zone</div>
+                        <div class="filter-options">
+                            <button class="filter-btn" data-filter="impact-market">
+                                <span class="chk"></span> Market share & dominance
+                            </button>
+                            <button class="filter-btn" data-filter="impact-system">
+                                <span class="chk"></span> System integrity
+                            </button>
+                            <button class="filter-btn" data-filter="impact-economics">
+                                <span class="chk"></span> Economics & scalability
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Group 3 -->
+                    <div class="filter-group">
+                        <div class="filter-label">System Asset Type</div>
+                        <div class="filter-options">
+                            <button class="filter-btn" data-filter="asset-route">
+                                <span class="chk"></span> Route/engine
+                            </button>
+                            <button class="filter-btn" data-filter="asset-infra">
+                                <span class="chk"></span> Infrastructure/platform
+                            </button>
+                            <button class="filter-btn" data-filter="asset-segment">
+                                <span class="chk"></span> Segment architecture
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="filter-reset-wrap">
+                        <button class="reset-btn" id="reset-filters">[ RESET VIEW ]</button>
+                    </div>
+
+                </aside>
+
+                <!-- CASE GRID -->
+                <div class="case-grid">
+
+                    <!-- CASE 1: BEWELL -->
+                    <a href="case-bewell.html" class="case-card"
+                        data-tags="problem-system impact-system impact-economics asset-infra">
+                        <div class="card-meta">MEDTECH // INFRASTRUCTURE</div>
+                        <h3 class="card-title">BeWell Medical</h3>
+                        <p class="card-desc">
+                            Engineered an internal ecosystem, linking R&D with CRM and automating B2B demand capture.
+                        </p>
+                        <div class="card-tags">
+                            <span>Infrastructure</span>
+                            <span>Automation</span>
+                        </div>
+                        <div class="card-link">OPEN CASE ↗</div>
+                    </a>
+
+                    <!-- CASE 4: PROCTER (ALIDI) -->
+                    <a href="case-procter.html" class="case-card"
+                        data-tags="problem-system impact-economics asset-segment">
+                        <div class="card-meta">FMCG // PORTFOLIO</div>
+                        <h3 class="card-title">Procter & Gamble</h3>
+                        <p class="card-desc">
+                            Reorganizing a multi-brand portfolio using ABC/XYZ logic to repair marketplace rotation.
+                        </p>
+                        <div class="card-tags">
+                            <span>Inventory Rotation</span>
+                            <span>Portfolio Arch</span>
+                        </div>
+                        <div class="card-link">OPEN CASE ↗</div>
+                    </a>
+
+                    <!-- CASE 5: BORGES (ALIDI) -->
+                    <a href="case-borges.html" class="case-card"
+                        data-tags="problem-leakage impact-market impact-economics asset-route">
+                        <div class="card-meta">FMCG // LIVE COMMERCE</div>
+                        <h3 class="card-title">Borges Olive Oil</h3>
+                        <p class="card-desc">
+                            Vertical live streams with shock-discounts to clear stuck inventory and spike awareness.
+                        </p>
+                        <div class="card-tags">
+                            <span>Live Stream</span>
+                            <span>Inventory Flow</span>
+                        </div>
+                        <div class="card-link">OPEN CASE ↗</div>
+                    </a>
+
+                    <!-- CASE 6: FMCG NDA (PIM) -->
+                    <a href="case-fmcg-mda.html" class="case-card" data-tags="problem-system impact-system asset-infra">
+                        <div class="card-meta">FMCG // DATA ARCHITECTURE</div>
+                        <h3 class="card-title">Global Confectionery Brand</h3>
+                        <p class="card-desc">
+                            Stopping catalog entropy by building a PIM spine that connected HQ to 50+ retail endpoints.
+                        </p>
+                        <div class="card-tags">
+                            <span>PIM Backbone</span>
+                            <span>System Operations</span>
+                        </div>
+                        <div class="card-link">OPEN CASE ↗</div>
+                    </a>
+
+                    <!-- CASE 7: NYC WATER CRUISES -->
+                    <a href="case-nycwc.html" class="case-card"
+                        data-tags="problem-displaced impact-market asset-segment">
+                        <div class="card-meta">TOURISM // REPUTATION</div>
+                        <h3 class="card-title">NYC Water Cruises</h3>
+                        <p class="card-desc">
+                            Turning a single-ship operator into a double-listed top brand via reputation architecture.
+                        </p>
+                        <div class="card-tags">
+                            <span>Reputation Arch</span>
+                            <span>VIP Segmentation</span>
+                        </div>
+                        <div class="card-link">OPEN CASE ↗</div>
+                    </a>
+
+                    <!-- CASE 2: VIVIENNE SABO -->
+                    <a href="case-vivienne.html" class="case-card"
+                        data-tags="problem-displaced impact-market asset-route">
+                        <div class="card-meta">BEAUTY // CRISIS MGMT</div>
+                        <h3 class="card-title">Vivienne Sabó</h3>
+                        <p class="card-desc">
+                            Rebuilt the sales route on marketplaces during market turbulence. #1 Rank achieved.
+                        </p>
+                        <div class="card-tags">
+                            <span>Route/Engine</span>
+                            <span>Crisis Mgmt</span>
+                        </div>
+                        <div class="card-link">OPEN CASE ↗</div>
+                    </a>
+
+                    <!-- CASE 3: FRAGRANCE (NDA) -->
+                    <a href="case-fragrance.html" class="case-card"
+                        data-tags="problem-leakage impact-market asset-segment">
+                        <div class="card-meta">FRAGRANCE // NDA</div>
+                        <h3 class="card-title">Global Fragrance House</h3>
+                        <p class="card-desc">
+                            Fixing preference leakage and designing loyalty loops for a major global portfolio.
+                        </p>
+                        <div class="card-tags">
+                            <span>Loyalty Loop</span>
+                            <span>Segment Arch</span>
+                        </div>
+                        <div class="card-link">OPEN CASE ↗</div>
+                    </a>
+
+                    <!-- NO RESULTS STATE -->
+                    <div class="no-results" style="display: none;">
+                        <div class="term-line">Errors: 0</div>
+                        <div class="term-line">Matches: 0</div>
+                        <div class="term-line">> SYSTEM: NO PATTERNS FOUND FOR THIS FILTER COMBINATION.</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>BeWell Case Study | Pavel Guliaev</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="BeWell Case Study. Turning a hardware startup into an ecosystem.">
+    <meta property="og:title" content="BeWell Case Study | Pavel Guliaev">
+    <meta property="og:description"
+        content="Turning a hardware startup into an ecosystem. Finding the void and building the route.">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- GEO / AI Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Architecture of Peace: Scaling BeWell Medical",
+      "description": "How to turn a hardware startup into an ecosystem. A case study on fixing the route, not the engine.",
+      "author": {
+        "@type": "Person",
+        "name": "Pavel Guliaev",
+        "url": "https://pavel-portfolio.netlify.app"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Pavel Guliaev Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pavel-portfolio.netlify.app/assets/logo.png"
+        }
+      },
+      "datePublished": "2024-01-15",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://pavel-portfolio.netlify.app/case-bewell.html"
+      },
+      "about": [
+        { "@type": "Thing", "name": "MedTech Marketing" },
+        { "@type": "Thing", "name": "System Architecture" },
+        { "@type": "Thing", "name": "B2B Ecosystems" }
+      ]
+    }
+    </script>
+
+    <style>
+        .article-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 100px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        h1.article-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+
+        .article-lead {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 90%;
+        }
+
+        .chapter {
+            margin-bottom: 100px;
+            position: relative;
+            scroll-margin-top: 20vh;
+        }
+
+        .chapter-marker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+            border-left: 2px solid var(--accent-purple);
+            padding-left: 10px;
+        }
+
+        .chapter h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .text-block {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .highlight-quote {
+            border-left: 2px solid var(--accent-green);
+            padding-left: 30px;
+            margin: 40px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .stat-panel {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-box .val {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .stat-box .lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot.active {
+            background: var(--accent-purple);
+            box-shadow: 0 0 10px var(--accent-purple);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 1024px) {
+            .back-nav {
+                display: none;
+            }
+
+            .article-wrapper {
+                padding-top: 100px;
+            }
+        }
+    </style>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">LOADING CASE STUDY</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Home">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Cases</a>
+                <a href="experience.html" class="nav-item item-exp">Experience</a>
+                <a href="configurator.html" class="nav-item item-config">Logic</a>
+            </div>
+        </div>
+
+        <div class="ui-corner top-right">
+            <a href="experience.html" class="nav-item"
+                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ CLOSE LOG ]</a>
+        </div>
+
+    </nav>
+
+    <!-- Side Navigation Indicators -->
+    <div class="back-nav">
+        <div class="nav-dot active" data-target="intro"></div>
+        <div class="nav-dot" data-target="ch1"></div>
+        <div class="nav-dot" data-target="ch2"></div>
+        <div class="nav-dot" data-target="ch3"></div>
+        <div class="nav-dot" data-target="ch4"></div>
+        <div class="nav-dot" data-target="ch5"></div>
+        <div class="nav-dot" data-target="summary"></div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div class="article-wrapper">
+
+            <header class="article-header" id="intro">
+                <div class="article-meta">
+                    <span>CASE STUDY</span>
+                    <span>//</span>
+                    <span>MEDTECH</span>
+                    <span>//</span>
+                    <span>2024</span>
+                </div>
+                <h1 class="article-title">Architecture of Peace:<br>Scaling BeWell Medical</h1>
+                <p class="article-lead">
+                    How we turned a hardware startup into an ecosystem by fixing the route, not the engine. This is a
+                    story about "The Void," physical billboards, and the shift from B2C gadgets to B2B infrastructure.
+                </p>
+            </header>
+
+            <article>
+                <div class="chapter" id="ch1">
+                    <span class="chapter-marker">01 // THE ESSENCE</span>
+                    <h2>Not a Gadget, But a Pulse</h2>
+                    <p class="text-block">
+                        If you look at BeWell superficially, you see a small, stubborn piece of hardware designed for
+                        the elderly. A panic button. But to an investor, a button is a commodity. It’s hard hardware to
+                        sell.
+                    </p>
+                    <p class="text-block">
+                        We realized early on: <strong>we are not selling a box; we are selling the absence of
+                            anxiety.</strong>
+                    </p>
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 1.0 // VALUE ARCHITECTURE</span>
+                        <div class="stack-visual">
+                            <div class="stack-layer"
+                                style="border-color: var(--accent-purple); background: rgba(168,85,247,0.05);">
+                                <span class="layer-name">THE PORTAL (ECOSYSTEM)</span>
+                                <span class="layer-val">High Margin / B2B</span>
+                            </div>
+                            <div class="stack-arrow"></div>
+                            <div class="stack-layer">
+                                <span class="layer-name">SUBSCRIPTION (SAAS)</span>
+                                <span class="layer-val">Recurring Revenue</span>
+                            </div>
+                            <div class="stack-arrow"></div>
+                            <div class="stack-layer" style="opacity: 0.7;">
+                                <span class="layer-name">HARDWARE (ENTRY POINT)</span>
+                                <span class="layer-val">Commodity</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-block">
+                        The device works where smartphones fail. It is the resilient entry point. But the subscription
+                        model is the economy, and the Portal is the brain. We built a "Mission Control Center" for
+                        families, social services, and clinics.
+                    </p>
+                </div>
+
+                <!-- ... Rest of content same as before ... -->
+                <!-- Copy pasting previous chapters 2-5 and summary to ensure full file integrity -->
+                <div class="chapter" id="ch2">
+                    <span class="chapter-marker">02 // THE VOID</span>
+                    <h2>An Empty Construction Site</h2>
+                    <p class="text-block">When I arrived as Growth Architect, I expected a broken machine I needed to
+                        fix. Instead, I found a void. There was no machine. No team, no process, no infrastructure. Just
+                        the product and the ambition.</p>
+                    <div class="highlight-quote">"It wasn't chaos. Chaos implies moving parts colliding. This was
+                        silence. An empty construction site waiting for a blueprint."</div>
+                    <p class="text-block">I didn't step in to "optimize." I stepped in to build. I assembled the
+                        contractors for PR, SMM, Dev, CRM, and Outreach. I sourced manufacturing partners in China. We
+                        rebuilt the visual identity from the ground up because the old one couldn't support the weight
+                        of our new ambition. It wasn't about drama; it was the realization that if I didn't architect
+                        the system, it simply wouldn't exist.</p>
+                </div>
+
+                <div class="chapter" id="ch3">
+                    <span class="chapter-marker">03 // THE ARCHITECTURE</span>
+                    <h2>Repairing the Route, Not the Engine</h2>
+                    <p class="text-block">The most common mistake in startups is to pour traffic into a black hole.
+                        Everyone wanted to "run ads." But I saw that the device worked fine—the *process* around it was
+                        fractured.</p>
+                    <p class="text-block">CRM lived in one dimension; R&D in another. A lead would come in and fall into
+                        an abyss. Traffic without infrastructure is vanity. The insight was simple: <strong>Don't fix
+                            the product. Fix the route.</strong></p>
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 2.0 // THE "BROKEN ROUTE" FIX</span>
+                        <div style="margin-bottom: 15px; font-size: 11px; color: #64748b;"><strong
+                                style="color: #ef4444;">BEFORE:</strong> Traffic → Landing Page → <span
+                                style="text-decoration: line-through;">Black Hole</span></div>
+                        <div class="flow-visual">
+                            <div class="flow-node">R&D DATA</div>
+                            <div class="flow-connector"></div>
+                            <div class="flow-node" style="border-color: #fff; color: #fff;">END-TO-END ANALYTICS</div>
+                            <div class="flow-connector"></div>
+                            <div class="flow-node">CRM ACTION</div>
+                        </div>
+                        <div style="margin-top: 15px; font-size: 11px; color: #64748b; text-align: right;"><strong
+                                style="color: var(--accent-green);">AFTER:</strong> Seamless Feedback Loop</div>
+                    </div>
+                    <p class="text-block">I connected the R&D data flow directly into our CRM. I aligned the contractors
+                        so they weren't just executing tasks but building a cohesive journey. We didn't just "get
+                        leads"; we engineered a path where a user could flow seamlessly from curiosity to purchase to
+                        onboarding.</p>
+                    <div class="stat-panel">
+                        <div class="stat-box">
+                            <div class="val">+40%</div>
+                            <div class="lbl">Visibility</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="val">AUTO</div>
+                            <div class="lbl">Data Flow</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter" id="ch4">
+                    <span class="chapter-marker">04 // PHYSICAL FRICTION</span>
+                    <h2>The Permanent Billboard</h2>
+                    <p class="text-block">Why would a software-driven company source physical kiosks in China? It sounds
+                        like logistical hell. But it solved a problem digital ads couldn't touch.</p>
+                    <p class="text-block">Our audience visits clinics and senior centers daily. A website explains, but
+                        a website is transient. A kiosk standing in a hallway is a fact. It is a permanent billboard
+                        that lives where the problem is most acute.</p>
+                </div>
+
+                <div class="chapter" id="ch5">
+                    <span class="chapter-marker">05 // THE SCALE</span>
+                    <h2>From Gadget to Infrastructure</h2>
+                    <p class="text-block">The pivot to B2B wasn't born of desperation; it was born of maturity. We saw
+                        that partners—clinics, insurers, enterprises—were tired of manual management. They wanted an
+                        API. They wanted a dashboard.</p>
+                    <div class="highlight-quote">"We stopped trying to just meet requirements and started setting the
+                        standard."</div>
+                    <p class="text-block">We built the Partner Portal not just to sell more, but to transition from
+                        being a "vendor of boxes" to an "infrastructure provider." We moved from selling devices to
+                        selling the ecosystem that manages safety. That is where the scale lies.</p>
+                </div>
+
+                <div class="summary-section" id="summary">
+                    <div class="summary-header"><span>// FINAL EXECUTION LOG</span><span>STATUS: ALL SYSTEMS
+                            OPERATIONAL</span></div>
+                    <div class="summary-matrix">
+                        <div class="matrix-item">
+                            <div class="matrix-head"><span class="matrix-title">Marketing Ecosystem</span><span
+                                    class="matrix-status">INSTALLED</span></div>
+                            <p class="matrix-desc">Built the entire function from scratch. Turned zero processes into a
+                                full network.</p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head"><span class="matrix-title">Visual System Refactor</span><span
+                                    class="matrix-status">UPDATED</span></div>
+                            <p class="matrix-desc">Reworked the visual layer completely. Rebuilt design system and
+                                brand.</p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head"><span class="matrix-title">User Flow Patching</span><span
+                                    class="matrix-status">FIXED</span></div>
+                            <p class="matrix-desc">Connected CRM and communications. Eliminated lead leakage.</p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head"><span class="matrix-title">Offline Node Deployment</span><span
+                                    class="matrix-status">LIVE</span></div>
+                            <p class="matrix-desc">Launched physical kiosks as permanent touchpoints in high-density
+                                locations.</p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head"><span class="matrix-title">B2B Infrastructure</span><span
+                                    class="matrix-status">DEPLOYED</span></div>
+                            <p class="matrix-desc">Rolled out API and Partner Portal to meet enterprise baseline
+                                expectations.</p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head"><span class="matrix-title">Strategic Shift</span><span
+                                    class="matrix-status">COMPLETE</span></div>
+                            <p class="matrix-desc">Shifted positioning from “selling a device” to “safety ecosystem”.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="result-header"><span>// IMPACT TELEMETRY</span><span>DATA SOURCE: Q3-Q4 REPORTS</span>
+                    </div>
+                    <div class="results-matrix">
+                        <div class="result-item">
+                            <div class="result-cat">STREAM: PERFORMANCE</div>
+                            <div>
+                                <div class="result-val">+30% <span class="trend-up">▲</span></div>
+                                <div class="result-lbl">Total Sales Growth</div>
+                                <div class="result-context">Driven by automated email flows and segmented retention
+                                    logic.</div>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <div class="result-val">+40% <span class="trend-up">▲</span></div>
+                                <div class="result-lbl">ROI Efficiency</div>
+                                <div class="result-context">Cut wasteful spend on broad targeting.</div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">STREAM: BRAND RESO</div>
+                            <div>
+                                <div class="result-val">15+ <span class="trend-stable">●</span></div>
+                                <div class="result-lbl">Tier-1 Publications</div>
+                                <div class="result-context">Secured coverage in key medical & tech outlets.</div>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <div class="result-val">3M+ <span class="trend-up">▲</span></div>
+                                <div class="result-lbl">Monthly Reach</div>
+                                <div class="result-context">Cumulative audience exposure via articles and events.</div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">STREAM: ORGANIC & UX</div>
+                            <div>
+                                <div class="result-val">TOP 3 <span class="trend-up">▲</span></div>
+                                <div class="result-lbl">Organic Search</div>
+                                <div class="result-context">Moved from "Invisible" to "Top 3" for high-intent keywords.
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <div class="result-val">-15% <span class="trend-up">▼</span></div>
+                                <div class="result-lbl">Checkout Drop-off</div>
+                                <div class="result-context">UX optimization of the cart flow.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="article-header"
+                style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
+                <a href="experience.html" class="btn-glitch"
+                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
+                    ← Return to Experience Logs
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

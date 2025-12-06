@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Logic Simulator | Pavel Guliaev</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="System Logic Simulator. Interactive architectural blueprint generator.">
+    <meta property="og:title" content="System Logic Simulator | Pavel Guliaev">
+    <meta property="og:description"
+        content="Interactive architectural blueprint generator. Demonstrate how I deconstruct business challenges.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- GEO / AI Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "System Logic Simulator",
+      "description": "Interactive architectural blueprint generator demonstrating business logic deconstruction.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "author": {
+        "@type": "Person",
+        "name": "Pavel Guliaev"
+      }
+    }
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">LOADING LOGIC MODULE</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Home">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Cases</a>
+                <a href="experience.html" class="nav-item item-exp">Experience</a>
+                <a href="configurator.html" class="nav-item item-config"
+                    style="opacity: 1; box-shadow: 0 0 15px rgba(251, 113, 133, 0.2);">Logic</a>
+            </div>
+        </div>
+
+    </nav>
+
+    <main id="smooth-wrapper">
+        <section class="config-container">
+
+            <div style="margin-bottom: 60px;">
+                <div class="hero-tag" style="display: inline-block;">Logic Simulator</div>
+                <h1 style="font-size: 2.5rem; margin-top: 20px; line-height: 1.1;">HOW I THINK<br>SCENARIO MODE</h1>
+
+                <p
+                    style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-top: 20px; max-width: 500px;">
+                    This isn't a sales form. It's a demonstration of my architectural approach. Select a scenario to see
+                    how I deconstruct specific business challenges.
+                </p>
+
+                <div class="hero-note">
+                    <strong>NON-LINEARITY NOTICE:</strong> Real ecosystems do not follow templates. Every project
+                    requires a bespoke architecture based on unique constraints and variables. This simulation is a
+                    high-level abstraction of my logic, not a rigid execution plan.
+                </div>
+            </div>
+
+            <!-- THE MAD LIBS FORM -->
+            <form class="config-form">
+
+                <span>If I enter a </span>
+                <div class="config-select-wrapper">
+                    <select id="type" class="config-select">
+                        <option value="" disabled selected>[ ...select context... ]</option>
+                        <option value="product">Product-focused</option>
+                        <option value="sales">Sales-driven</option>
+                        <option value="enterprise">Corporate/Enterprise</option>
+                    </select>
+                </div>
+                <span> environment,</span>
+                <br><br>
+
+                <span>that is suffering from </span>
+                <div class="config-select-wrapper">
+                    <select id="frustration" class="config-select">
+                        <option value="" disabled selected>[ ...identify pain... ]</option>
+                        <option value="burn">inefficient spend (cash burn)</option>
+                        <option value="chaos">operational chaos</option>
+                        <option value="stagnation">growth ceiling (stagnation)</option>
+                    </select>
+                </div>
+                <span>,</span>
+                <br><br>
+
+                <span>my primary architectural priority becomes </span>
+                <div class="config-select-wrapper">
+                    <select id="action" class="config-select">
+                        <option value="" disabled selected>[ ...choose strategy... ]</option>
+                        <option value="system">building a scalable system</option>
+                        <option value="economics">fixing unit economics</option>
+                        <option value="scale">aggressive market expansion</option>
+                    </select>
+                </div>
+                <span>.</span>
+
+                <div class="config-actions">
+                    <button id="generate-btn" class="btn-glitch"
+                        style="font-size: 14px; padding: 20px 40px; cursor: pointer; background: transparent;">
+                        [ GENERATE BLUEPRINT ]
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- OUTPUT TERMINAL -->
+            <div class="projection-output">
+                <div class="processing-line"></div>
+
+                <div class="terminal-content">
+                    <div class="terminal-header">
+                        <span>// ARCHITECTURAL BLUEPRINT</span>
+                        <span>LOGIC: DEFINED</span>
+                    </div>
+
+                    <!-- 1. DIAGNOSIS -->
+                    <div class="diagnosis-block">
+                        <div class="diagnosis-title">THE APPROACH:</div>
+                        <div class="diagnosis-text" id="result-diagnosis">
+                            <!-- JS INJECTED TEXT -->
+                        </div>
+                    </div>
+
+                    <!-- 2. TIMELINE -->
+                    <div class="timeline-tree" id="result-timeline">
+                        <!-- JS INJECTED TIMELINE -->
+                    </div>
+
+                    <!-- 3. TARGET STATE (Outcome) -->
+                    <div id="result-outcome">
+                        <!-- JS INJECTED OUTCOME -->
+                    </div>
+
+                    <!-- 4. CONTINUOUS LOOP (Cycle) -->
+                    <div id="result-cycle">
+                        <!-- JS INJECTED LOOP -->
+                    </div>
+
+                    <!-- FOOTNOTE -->
+                    <div class="result-footnote">
+                        <strong>SYSTEM CALIBRATION:</strong> The specific mix of channels, technology stacks, and
+                        operational leverage is never static. It is derived strictly from market reality and competitive
+                        density. The outputs above represent strategic milestones, not tactical limitations.
+                    </div>
+
+                    <div class="terminal-footer">
+                        <a href="mailto:pavel.gulyaev88@gmail.com" class="nav-item"
+                            style="color: #fff; border-bottom: 1px solid #fff; text-decoration: none;">
+                            [ DISCUSS THIS LOGIC ]
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+
+</html>

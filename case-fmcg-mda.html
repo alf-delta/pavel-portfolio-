@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Global Brand PIM Case | Pavel Guliaev</title>
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="How a global confectionery brand used a PIM spine to stop losing months on catalog chaos between HQ, distributors and marketplaces.">
+    <meta property="og:title" content="PIM Spine for a Global Brand | Pavel Guliaev">
+    <meta property="og:description"
+        content="From 3–6 month catalog lag to near real-time updates: a case study on building a PIM backbone for a global confectionery portfolio.">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- GEO / AI Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Building a PIM Spine for a Global Confectionery Brand",
+      "description": "How a global confectionery brand stopped losing months to catalog chaos and built a PIM backbone that aligned HQ, distributors and marketplaces.",
+      "author": {
+        "@type": "Person",
+        "name": "Pavel Guliaev",
+        "url": "https://pavel-portfolio.netlify.app"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Pavel Guliaev Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pavel-portfolio.netlify.app/assets/logo.png"
+        }
+      },
+      "datePublished": "2024-02-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://pavel-portfolio.netlify.app/case-fmcg-nda.html"
+      },
+      "about": [
+        { "@type": "Thing", "name": "PIM" },
+        { "@type": "Thing", "name": "Catalog Management" },
+        { "@type": "Thing", "name": "FMCG Data Architecture" },
+        { "@type": "Thing", "name": "Marketplace Optimization" }
+      ]
+    }
+    </script>
+
+    <style>
+        /* УДАЛЕН КОНФЛИКТНЫЙ БЛОК body/html overflow */
+
+        .nda-badge {
+            display: inline-block;
+            background: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: #f87171;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            margin-left: 10px;
+        }
+
+        .article-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 100px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        h1.article-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+
+        .article-lead {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 90%;
+        }
+
+        .chapter {
+            margin-bottom: 100px;
+            position: relative;
+            scroll-margin-top: 20vh;
+        }
+
+        .chapter-marker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+            border-left: 2px solid var(--accent-purple);
+            padding-left: 10px;
+        }
+
+        .chapter h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .text-block {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .highlight-quote {
+            border-left: 2px solid var(--accent-green);
+            padding-left: 30px;
+            margin: 40px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .diagram-container {
+            margin: 40px 0;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: radial-gradient(circle at top left,
+                    rgba(59, 130, 246, 0.16),
+                    rgba(15, 23, 42, 0.96));
+        }
+
+        .diagram-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        /* Infographic 1: Latency Map (Before/After) */
+        .latency-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .latency-card {
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.96);
+            padding: 18px;
+            font-size: 0.94rem;
+            color: #e5e7eb;
+        }
+
+        .latency-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+        }
+
+        .latency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .latency-badge span.dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(248, 113, 113, 1);
+        }
+
+        .latency-badge.good span.dot {
+            background: rgba(52, 211, 153, 1);
+        }
+
+        .latency-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .latency-node {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+        }
+
+        .latency-time {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--accent-green);
+        }
+
+        .latency-note {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* Infographic 2: Data Spine */
+        .spine-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+            gap: 22px;
+            align-items: center;
+        }
+
+        .spine-rail {
+            position: relative;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: rgba(15, 23, 42, 0.98);
+            padding: 18px 18px 20px;
+        }
+
+        .spine-axis {
+            position: relative;
+            margin: 12px 0 16px;
+            padding-left: 80px;
+        }
+
+        .spine-line {
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            border-radius: 999px;
+            background: linear-gradient(to bottom,
+                    rgba(56, 189, 248, 0.9),
+                    rgba(52, 211, 153, 0.9));
+        }
+
+        .spine-node {
+            position: relative;
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        .spine-node:last-child {
+            margin-bottom: 0;
+        }
+
+        .spine-dot {
+            position: absolute;
+            left: -44px;
+            top: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 1);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+        }
+
+        .spine-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .spine-desc {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .spine-side {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .spine-side strong {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* Infographic 3: Error Heat Strip */
+        .heat-strip {
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            background: rgba(15, 23, 42, 0.96);
+            padding: 18px;
+        }
+
+        .heat-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .heat-bar {
+            position: relative;
+            height: 16px;
+            border-radius: 999px;
+            background: linear-gradient(90deg,
+                    rgba(248, 113, 113, 0.9),
+                    rgba(251, 191, 36, 0.85),
+                    rgba(52, 211, 153, 0.2));
+            overflow: hidden;
+        }
+
+        .heat-marker-before,
+        .heat-marker-after {
+            position: absolute;
+            top: -2px;
+            width: 2px;
+            height: 20px;
+            border-radius: 999px;
+        }
+
+        .heat-marker-before {
+            left: 68%;
+            background: rgba(248, 250, 252, 0.9);
+        }
+
+        .heat-marker-after {
+            left: 28%;
+            background: rgba(52, 211, 153, 0.9);
+        }
+
+        .heat-legend {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #e5e7eb;
+        }
+
+        .heat-legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .heat-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(248, 250, 252, 0.9);
+        }
+
+        .heat-dot.after {
+            background: rgba(52, 211, 153, 0.9);
+        }
+
+        /* Summary / results */
+        .summary-section {
+            margin-top: 60px;
+        }
+
+        .summary-header,
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .summary-matrix,
+        .results-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .matrix-item,
+        .result-item {
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(15, 23, 42, 0.9);
+            padding: 20px;
+        }
+
+        .matrix-head,
+        .result-cat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+        }
+
+        .matrix-title {
+            color: var(--text-main);
+        }
+
+        .matrix-status {
+            font-size: 10px;
+            color: var(--accent-green);
+        }
+
+        .matrix-desc,
+        .result-context {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .result-main {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .result-val {
+            font-family: var(--font-mono);
+            font-size: 1.7rem;
+            color: var(--accent-green);
+        }
+
+        .result-lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+
+        .trend-up {
+            font-size: 1rem;
+            margin-left: 3px;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot.active {
+            background: var(--accent-purple);
+            box-shadow: 0 0 10px var(--accent-purple);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 1024px) {
+            .back-nav {
+                display: none;
+            }
+
+            .article-wrapper {
+                padding-top: 100px;
+            }
+
+            .latency-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .spine-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">LOADING CASE STUDY</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Home">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Cases</a>
+                <a href="experience.html" class="nav-item item-exp">Experience</a>
+                <a href="configurator.html" class="nav-item item-config">Logic</a>
+            </div>
+        </div>
+
+        <div class="ui-corner top-right">
+            <a href="experience.html" class="nav-item"
+                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ CLOSE LOG ]</a>
+        </div>
+
+    </nav>
+
+    <!-- Side Navigation Indicators -->
+    <div class="back-nav">
+        <div class="nav-dot active" data-target="intro"></div>
+        <div class="nav-dot" data-target="ch1"></div>
+        <div class="nav-dot" data-target="ch2"></div>
+        <div class="nav-dot" data-target="ch3"></div>
+        <div class="nav-dot" data-target="summary"></div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div class="article-wrapper">
+
+            <header class="article-header hero" id="intro">
+                <div class="article-meta">
+                    <span>CASE STUDY</span>
+                    <span>//</span>
+                    <span>FMCG / DATA SPINE</span>
+                    <span>//</span>
+                    <span>GLOBAL BRAND <span class="nda-badge">NDA PROTECTED</span></span>
+                </div>
+                <h1 class="article-title">When Chocolate Has No Spine:<br>PIM as the Catalog Nervous System</h1>
+                <p class="article-lead">
+                    A global confectionery brand with dozens of SKUs, flavors, formats and bundles looked powerful
+                    on a slide, but fragile in reality. Changes in packaging, naming or composition took months
+                    to reach distributors and marketplaces. We didn’t “polish the catalog”. We gave it a spine.
+                </p>
+            </header>
+
+            <article>
+                <div class="chapter" id="ch1">
+                    <span class="chapter-marker">01 // THE LAG</span>
+                    <h2>Three to Six Months of Being Technically Wrong</h2>
+                    <p class="text-block">
+                        At this scale, “product” is not a single bar or box. It’s a tree: SKUs, flavors, grammage,
+                        multipacks, seasonal editions, bundles. For a brand like this, the catalog is reality.
+                        When the catalog is wrong, reality doesn’t reach the shelf.
+                    </p>
+                    <p class="text-block">
+                        Before we touched anything, the cycle looked like this: HQ changes something in a product
+                        — packaging design, wording on the label, size, composition. Then everyone waits. Distributors
+                        update their systems on their own schedule. Sellers update graphics when they have time.
+                        Marketplaces eventually show some version of the truth.
+                    </p>
+
+                    <div class="highlight-quote">
+                        "By the time the new chocolate bar ‘existed’ online, it was already old news in the factory."
+                    </div>
+
+                    <p class="text-block">
+                        In practice this meant 3 to 6 months of latency between “we decided” and “the customer actually
+                        sees it correctly”. For a brand fighting for space in the cart, that’s not just sloppiness,
+                        that’s direct economic loss.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 1.0 // CATALOG UPDATE LATENCY (BEFORE VS AFTER)</span>
+                        <div class="latency-grid">
+                            <div class="latency-card">
+                                <div class="latency-title">Before PIM Spine</div>
+                                <div class="latency-badge">
+                                    <span class="dot"></span>
+                                    <span>Fragmented</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">HQ → Distributors</span>
+                                    <span class="latency-time">4–8 weeks</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">Distributors → Sellers</span>
+                                    <span class="latency-time">2–8 weeks</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">Sellers → Marketplaces</span>
+                                    <span class="latency-time">“When we get to it”</span>
+                                </div>
+                                <div class="latency-note">
+                                    Multiple local files, manually patched layouts, e-mails and chats. At the end of
+                                    the chain, chocolate bars on screen simply didn’t match what was shipping out
+                                    of the warehouse.
+                                </div>
+                            </div>
+                            <div class="latency-card">
+                                <div class="latency-title">After PIM Spine</div>
+                                <div class="latency-badge good">
+                                    <span class="dot"></span>
+                                    <span>Centralized</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">HQ → PIM</span>
+                                    <span class="latency-time">Same day</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">PIM → Distributors</span>
+                                    <span class="latency-time">Hours</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">PIM → Marketplaces</span>
+                                    <span class="latency-time">Export window</span>
+                                </div>
+                                <div class="latency-note">
+                                    One canonical source of truth for every SKU and bundle. When something changes
+                                    in a product, it doesn’t go into an email thread — it flows through the spine.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        For the team this was the first “oh” moment: the problem wasn’t that someone was lazy.
+                        The problem was that there was no nervous system.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch2">
+                    <span class="chapter-marker">02 // WHAT THE PIM ACTUALLY DID</span>
+                    <h2>Not a Database. A Backbone.</h2>
+                    <p class="text-block">
+                        When I first described a PIM solution, it sounded to them like “one more system”.
+                        Only after mapping their SKU universe did it become clear: this isn’t yet another tool,
+                        this is the only place where the whole brand can be seen at once.
+                    </p>
+                    <p class="text-block">
+                        We structured not just SKUs, but the logic around them: flavors, multipacks, boxes,
+                        limited editions, seasonal packaging — the real portfolio, not just a price list.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 2.0 // DATA SPINE: FROM HQ TO SHELF</span>
+                        <div class="spine-layout">
+                            <div class="spine-rail">
+                                <div class="spine-axis">
+                                    <div class="spine-line"></div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">HQ (Brand Team)</div>
+                                        <div class="spine-desc">
+                                            Owns the meaning of each SKU: recipe, messaging, visual identity and role
+                                            in the portfolio. Previously: locked in decks and local files.
+                                        </div>
+                                    </div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">PIM Core</div>
+                                        <div class="spine-desc">
+                                            Canonical record of every product variant and bundle.
+                                            Attributes, images, descriptions, constraints. The place where “we changed
+                                            something” becomes structured data instead of a story.
+                                        </div>
+                                    </div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">Distributors</div>
+                                        <div class="spine-desc">
+                                            No longer retyping or reinventing specs. Pulling from the same spine, with
+                                            clear mapping to their own systems and languages.
+                                        </div>
+                                    </div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">Marketplaces / Retailers</div>
+                                        <div class="spine-desc">
+                                            Receive consistent, up-to-date product cards and bundles ready to publish.
+                                            When a label changes, the shelf reflects it without a seasonal delay.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="spine-side">
+                                <strong>What Changed in Practice</strong>
+                                Instead of waiting months until “all the sellers update their cards”, headquarters
+                                finally had a lever. New packaging? New flavor? Corrected ingredient line?
+                                It went into the spine once, then flowed to the market as a controlled export,
+                                not as hundreds of manual edits.
+                                <br><br>
+                                The funniest part: for them it was a “discovery” that such a solution even exists.
+                                For the brand, this “one more system” quietly removed a whole layer of operational
+                                waiting and errors.
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        You can’t seriously build modern FMCG presence across marketplaces if every part of your
+                        catalog lives in a different file. The PIM spine turned “messy but familiar” into “boring but
+                        predictable”. Which is exactly what you want for product data.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch3">
+                    <span class="chapter-marker">03 // LESS ROMANCE, MORE CORRECTNESS</span>
+                    <h2>The Silent Effect: Fewer Errors, Faster Moves</h2>
+                    <p class="text-block">
+                        No customer will ever say “thank you for your PIM implementation”. They will simply stop
+                        encountering wrong images, obsolete packaging and random differences between online and
+                        offline shelves.
+                    </p>
+                    <p class="text-block">
+                        Internally, though, the difference was obvious: what previously took quarters could now
+                        be planned in weeks — because time was no longer spent unblocking the same catalog problems
+                        over and over again.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 3.0 // ERROR HEAT STRIP</span>
+                        <div class="heat-strip">
+                            <div class="heat-label-row">
+                                <span>Catalog Inconsistency</span>
+                                <span>Across Regions & Channels</span>
+                            </div>
+                            <div class="heat-bar">
+                                <div class="heat-marker-before"></div>
+                                <div class="heat-marker-after"></div>
+                            </div>
+                            <div class="heat-legend">
+                                <span><span class="heat-dot"></span> Error cluster “before” – misaligned images, names,
+                                    compositions</span>
+                                <span><span class="heat-dot after"></span> Residual noise “after” – edge cases, not
+                                    systemic chaos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        There is no dramatic “before/after” graph here. Just the very specific relief of brand and
+                        distributor teams that no longer had to spend entire seasons synchronizing what should have
+                        been synchronized from the beginning.
+                    </p>
+                </div>
+
+                <div class="summary-section" id="summary">
+                    <div class="summary-header">
+                        <span>// FINAL EXECUTION LOG</span>
+                        <span>STATUS: PIM SPINE INSTALLED</span>
+                    </div>
+                    <div class="summary-matrix">
+                        <div class="matrix-item">
+                            <div class="matrix-head">
+                                <span class="matrix-title">Portfolio Mapping</span>
+                                <span class="matrix-status">COMPLETE</span>
+                            </div>
+                            <p class="matrix-desc">
+                                Full structure of SKUs, flavors, packs, bundles and seasonal editions captured in a
+                                single model instead of scattering across decks and local files.
+                            </p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head">
+                                <span class="matrix-title">PIM Implementation</span>
+                                <span class="matrix-status">DEPLOYED</span>
+                            </div>
+                            <p class="matrix-desc">
+                                Introduced a proper PIM solution as the canonical source of truth, connecting HQ,
+                                distributors and marketplaces via one controlled backbone.
+                            </p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head">
+                                <span class="matrix-title">Export Discipline</span>
+                                <span class="matrix-status">IN USE</span>
+                            </div>
+                            <p class="matrix-desc">
+                                Established a cadence for pushing updates out of PIM instead of relying on ad hoc
+                                seller-by-seller edits, which previously took months.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="result-header">
+                        <span>// IMPACT TELEMETRY</span>
+                        <span>DATA SOURCE: POST-ROLL OUT</span>
+                    </div>
+                    <div class="results-matrix">
+                        <div class="result-item">
+                            <div class="result-cat">STREAM: SPEED</div>
+                            <div class="result-main">
+                                <div class="result-val">3–6&nbsp;months → weeks<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Catalog Update Latency</div>
+                            <div class="result-context">
+                                Packaging and composition changes now reach the shelf within planning cycles,
+                                not long after campaigns have ended.
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">STREAM: ERRORS</div>
+                            <div class="result-main">
+                                <div class="result-val">Systemic → Local<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Nature of Catalog Issues</div>
+                            <div class="result-context">
+                                “Everyone has a different version” turned into isolated edge cases, not a permanent
+                                background condition.
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">STREAM: EXECUTION</div>
+                            <div class="result-main">
+                                <div class="result-val">Unlocked<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Campaign & Launch Planning</div>
+                            <div class="result-context">
+                                Brand and trade teams could finally plan launches and promos knowing the catalog would
+                                follow, instead of budgeting time to clean up after it.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="article-header"
+                style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
+                <a href="experience.html" class="btn-glitch"
+                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
+                    ← Return to Experience Logs
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+
+</html>

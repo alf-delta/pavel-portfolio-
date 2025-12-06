@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>NYC Water Cruises | Pavel Guliaev</title>
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="Strategic case study: Entering a closed tourism market by engineering reputation layers and creating demand where scale did not exist.">
+    <meta property="og:title" content="NYC Water Cruises | Pavel Guliaev">
+    <meta property="og:description"
+        content="Turning a single-ship operator into a double-listed top brand via reputation architecture.">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- GEO / AI Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Engineering Reputation: NYC Water Cruises",
+      "description": "How to enter a locked market. A case study on reputation architecture and VIP segmentation.",
+      "author": {
+        "@type": "Person",
+        "name": "Pavel Guliaev",
+        "url": "https://pavel-portfolio.netlify.app"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Pavel Guliaev Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pavel-portfolio.netlify.app/assets/logo.png"
+        }
+      },
+      "about": [
+        {"@type": "Thing", "name": "Tourism Strategy"},
+        {"@type": "Thing", "name": "Luxury Segmentation"},
+        {"@type": "Thing", "name": "Brand Positioning"}
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://pavel-portfolio.netlify.app/case-nycwc.html"
+      }
+    }
+    </script>
+
+    <style>
+        /* CSS Variables for this specific case - Premium Gold Theme */
+        :root {
+            --case-accent: #f4d58a;
+            /* Gold */
+            --case-accent-dim: rgba(244, 213, 138, 0.1);
+        }
+
+        .article-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 120px 20px 100px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--case-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        h1.article-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+
+        .article-lead {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 90%;
+        }
+
+        .chapter {
+            margin-bottom: 120px;
+            position: relative;
+            scroll-margin-top: 20vh;
+        }
+
+        .chapter-marker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+            border-left: 2px solid var(--case-accent);
+            padding-left: 10px;
+        }
+
+        .chapter h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .text-block {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .highlight-quote {
+            border-left: 3px solid var(--case-accent);
+            padding-left: 30px;
+            margin: 60px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        /* INFOGRAPHIC: THREE FORCES TRIANGLE */
+        .forces-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .forces-header {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .forces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .force-node {
+            position: relative;
+            padding-left: 20px;
+            border-left: 1px solid var(--case-accent);
+        }
+
+        .force-node h4 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .force-node p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* INFOGRAPHIC: DUAL LAYER LADDER */
+        .layer-box {
+            margin: 60px 0;
+            display: grid;
+            gap: 20px;
+        }
+
+        .layer-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(20, 20, 25, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .layer-item:hover {
+            border-color: var(--case-accent);
+            background: rgba(244, 213, 138, 0.05);
+        }
+
+        .layer-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--case-accent), #c2a156);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000;
+            font-family: var(--font-mono);
+        }
+
+        .layer-content strong {
+            display: block;
+            color: var(--case-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .layer-content span {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        /* IMPACT MATRIX overrides */
+        .results-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .result-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .result-val {
+            font-family: var(--font-mono);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--case-accent);
+            margin-bottom: 10px;
+        }
+
+        .result-lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot.active {
+            background: var(--case-accent);
+            box-shadow: 0 0 10px var(--case-accent);
+            transform: scale(1.2);
+        }
+
+        /* Operational List */
+        .ops-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ops-list li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 15px;
+        }
+
+        .ops-list li::before {
+            content: ">>";
+            color: var(--case-accent);
+        }
+
+        @media (max-width: 1024px) {
+            .back-nav {
+                display: none;
+            }
+
+            .article-wrapper {
+                padding-top: 100px;
+            }
+
+            h1.article-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .forces-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .layer-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .forces-wrapper {
+                padding: 25px;
+            }
+        }
+    </style>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">LOADING PROTOCOL</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Home">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Cases</a>
+                <a href="experience.html" class="nav-item item-exp">Experience</a>
+                <a href="configurator.html" class="nav-item item-config">Logic</a>
+            </div>
+        </div>
+        <div class="ui-corner top-right">
+            <a href="experience.html" class="nav-item"
+                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ CLOSE LOG ]</a>
+        </div>
+    </nav>
+
+    <!-- Side Navigation Indicators -->
+    <div class="back-nav">
+        <div class="nav-dot active" data-target="intro"></div>
+        <div class="nav-dot" data-target="ch1"></div>
+        <div class="nav-dot" data-target="ch2"></div>
+        <div class="nav-dot" data-target="ch3"></div>
+        <div class="nav-dot" data-target="ch4"></div>
+        <div class="nav-dot" data-target="summary"></div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div class="article-wrapper">
+
+            <header class="article-header hero" id="intro">
+                <div class="article-meta">
+                    <span>CASE STUDY</span>
+                    <span>//</span>
+                    <span>NYC TOURISM</span>
+                    <span>//</span>
+                    <span>REPUTATION ARCHITECTURE</span>
+                </div>
+                <h1 class="article-title">Creating Demand Where<br>It Was Already Captured</h1>
+                <p class="article-lead">
+                    New York’s cruise market is not just crowded — it's inherited. Most consumers do not choose; they
+                    default.
+                    We entered this environment with a single vessel and zero legacy, competing against giants that
+                    effectively define what a “New York cruise” is essentially supposed to be.
+                </p>
+            </header>
+
+            <article>
+                <div class="chapter" id="ch1">
+                    <span class="chapter-marker">01 // THE LOCK</span>
+                    <h2>The Market Wasn't Open</h2>
+                    <p class="text-block">
+                        In tourism, structural positions are cemented by years of momentum. Emotional preferences are
+                        inherited.
+                        Reviews are accumulated historically. Search rankings are fossilized long before you even show
+                        up.
+                        Shelf space in aggregator platforms is distributed like territory, not inventory.
+                    </p>
+                    <div class="highlight-quote">
+                        “We were selling the same end result, but we were not selling the same expectation.”
+                    </div>
+                    <p class="text-block">
+                        Competing on price? Pointless. Being louder? ROI negative.
+                        So we didn't change the price. We changed the <strong>context of choice</strong>.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch2">
+                    <span class="chapter-marker">02 // THE RESISTANCE</span>
+                    <h2>What We Were Fighting Against</h2>
+                    <p class="text-block">
+                        It was impossible to just "run ads". We needed to prove the existence of a new peak, and then
+                        make people feel like it had always been there.
+                    </p>
+
+                    <div class="forces-wrapper">
+                        <div class="forces-header">
+                            <span
+                                style="width: 8px; height: 8px; background: var(--case-accent); border-radius: 50%;"></span>
+                            THE THREE FORCES LOCKING THE MARKET
+                        </div>
+                        <div class="forces-grid">
+                            <div class="force-node">
+                                <h4>Historical Reputation</h4>
+                                <p>Decades of reviews create unfair, immovable momentum.</p>
+                            </div>
+                            <div class="force-node">
+                                <h4>Search Defaults</h4>
+                                <p>Aggregators favor what users already recognize.</p>
+                            </div>
+                            <div class="force-node">
+                                <h4>Experience Bias</h4>
+                                <p>Consumers assume legacy "winners" are the safe bet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter" id="ch3">
+                    <span class="chapter-marker">03 // THE STRATEGY</span>
+                    <h2>Double-Layered Brand</h2>
+                    <p class="text-block">
+                        We split the company into two distinct UX layers. Then we forced the market to visualize this
+                        separation through aggregators, rankings, and publications.
+                    </p>
+
+                    <div class="layer-box">
+                        <div class="layer-item">
+                            <div class="layer-icon">A</div>
+                            <div class="layer-content">
+                                <strong>Standard Tier</strong>
+                                <span>Solving "A Beautiful Evening in NY"</span>
+                            </div>
+                        </div>
+                        <div class="layer-item">
+                            <div class="layer-icon">B</div>
+                            <div class="layer-content">
+                                <strong>VIP Tier</strong>
+                                <span>Solving "A Meaningful Celebration Event"</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-quote">
+                        “The moment a company appears twice in an editorial list — under two different motivations —
+                        it's no longer just a provider. It becomes a source of choice.”
+                    </div>
+                </div>
+
+                <div class="chapter" id="ch4">
+                    <span class="chapter-marker">04 // EXECUTION</span>
+                    <h2>Operational Layer</h2>
+                    <p class="text-block">
+                        Marketing promises didn't drive quality. The ceremonial nature of the experience did. Here is
+                        what we made mutable and responsive to support this double architecture:
+                    </p>
+                    <ul class="ops-list">
+                        <li>Live capacity tracking → Generated urgency</li>
+                        <li>Service choreography at boarding points → Produced instant emotional rating</li>
+                        <li>Automated guest handling → Drastically reduced friction</li>
+                        <li>Review routing → Prioritized post-experience signals</li>
+                    </ul>
+                </div>
+
+                <div class="summary-section" id="summary">
+                    <div class="article-header" style="border-bottom: none; margin-bottom: 20px;">
+                        <span class="chapter-marker">05 // TELEMETRY</span>
+                        <h2>The Inflection Point</h2>
+                        <p class="article-lead">
+                            Many companies buy demand because they can't hold attention. This case is the opposite.
+                            Demand was engineered in advance, then reinforced by experience.
+                        </p>
+                    </div>
+
+                    <div class="highlight-quote" style="margin: 30px 0 60px 0; font-size: 1.4rem;">
+                        Time Out placed the company twice — in both the “Celebration” category and the “Standard
+                        Experience” category. You can't buy that. The industry recognized the difference.
+                    </div>
+
+                    <div class="results-matrix">
+                        <div class="result-item">
+                            <div class="result-val">+180%</div>
+                            <div class="result-lbl">Total Revenue</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-val">40</div>
+                            <div class="result-lbl">Verified Publications</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-val">+80%</div>
+                            <div class="result-lbl">Website Traffic</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-val">3.5%</div>
+                            <div class="result-lbl">Conversation Rate (from 0.8%)</div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <div class="article-header"
+                style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
+                <a href="experience.html" class="btn-glitch"
+                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
+                    ← Return to Experience Logs
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
