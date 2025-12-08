@@ -2165,3 +2165,53 @@ h1.article-title {
         pointer-events: none;
     }
 }
+
+/* =========================================
+   LANGUAGE SWITCHER
+   ========================================= */
+.lang-switch {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    pointer-events: auto;
+    /* Enable clicks inside UI layer */
+}
+
+.lang-opt {
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.lang-opt:hover {
+    color: var(--text-main);
+}
+
+.lang-opt.active {
+    color: var(--accent-green);
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.lang-sep {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 600px) {
+    .lang-switch {
+        top: 20px;
+        right: 20px;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}

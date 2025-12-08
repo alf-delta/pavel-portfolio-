@@ -19,7 +19,19 @@ export default defineConfig({
                 caseFragrance: 'case-fragrance.html',
                 caseNycwc: 'case-nycwc.html',
                 caseProcter: 'case-procter.html',
-                caseVivienne: 'case-vivienne.html'
+                caseVivienne: 'case-vivienne.html',
+                // RU Versions
+                ruMain: 'ru/index.html',
+                ruExperience: 'ru/experience.html',
+                ruConfigurator: 'ru/configurator.html',
+                ruCases: 'ru/cases.html',
+                ruCaseBewell: 'ru/case-bewell.html',
+                ruCaseBorges: 'ru/case-borges.html',
+                ruCaseFmcgMda: 'ru/case-fmcg-mda.html',
+                ruCaseFragrance: 'ru/case-fragrance.html',
+                ruCaseNycwc: 'ru/case-nycwc.html',
+                ruCaseProcter: 'ru/case-procter.html',
+                ruCaseVivienne: 'ru/case-vivienne.html'
             }
         }
     },

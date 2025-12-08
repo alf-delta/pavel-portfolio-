@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <title>PIM как Цифровой Хребет FMCG Бренда | Кейс Павел Гуляев</title>
+
+    <meta name="description"
+        content="Кейс внедрения PIM-системы для глобального кондитерского бренда. Как мы сократили лаг обновления каталога с 6 месяцев до нескольких дней и синхронизировали HQ, дистрибьюторов и маркетплейсы.">
+    <meta property="og:title" content="Когда у Шоколада Нет Хребта: PIM Кейс | Павел Гуляев">
+    <meta property="og:description"
+        content="От хаоса в файлах к единому источнику правды: история построения архитектуры данных для глобального портфеля.">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://pavel-portfolio.netlify.app/#person",
+          "name": "Pavel Guliaev",
+          "jobTitle": "Marketing Strategist",
+          "url": "https://pavel-portfolio.netlify.app",
+          "sameAs": [
+            "https://www.linkedin.com/in/pavelguliaev",
+            "https://twitter.com/pavelguliaev"
+          ]
+        },
+        {
+          "@type": "CaseStudy",
+          "headline": "Когда у Шоколада Нет Хребта: PIM как Нервная Система",
+          "description": "Внедрение PIM-системы для глобального FMCG бренда: устранение 6-месячного лага в обновлении каталогов и создание единого источника данных.",
+          "author": { "@id": "https://pavel-portfolio.netlify.app/#person" },
+          "datePublished": "2024-02-20",
+          "mainEntityOfPage": { "@id": "https://pavel-portfolio.netlify.app/ru/case-fmcg-nda.html" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Pavel Guliaev Portfolio",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://pavel-portfolio.netlify.app/assets/logo.png"
+            }
+          },
+          "about": [
+            { "@type": "Thing", "name": "PIM Implementation" },
+            { "@type": "Thing", "name": "Data Architecture" },
+            { "@type": "Thing", "name": "FMCG Operations" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Зачем глобальному бренду нужен PIM (Product Information Management)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Без PIM изменения в продукте (упаковка, состав) доходят до полки маркетплейса с задержкой в 3-6 месяцев. PIM создает 'цифровой хребет', позволяя обновлять данные централизованно и мгновенно."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Как PIM влияет на Time-to-Market?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Внедрение единого реестра данных сокращает цикл обновления информации у дистрибьюторов и селлеров с нескольких месяцев до нескольких дней или часов."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        .nda-badge {
+            display: inline-block;
+            background: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: #f87171;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            margin-left: 10px;
+        }
+
+        .article-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 100px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        h1.article-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+
+        .article-lead {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 90%;
+        }
+
+        .chapter {
+            margin-bottom: 100px;
+            position: relative;
+            scroll-margin-top: 20vh;
+        }
+
+        .chapter-marker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+            border-left: 2px solid var(--accent-purple);
+            padding-left: 10px;
+        }
+
+        .chapter h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .text-block {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .highlight-quote {
+            border-left: 2px solid var(--accent-green);
+            padding-left: 30px;
+            margin: 40px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .diagram-container {
+            margin: 40px 0;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: radial-gradient(circle at top left,
+                    rgba(59, 130, 246, 0.16),
+                    rgba(15, 23, 42, 0.96));
+        }
+
+        .diagram-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .latency-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .latency-card {
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.96);
+            padding: 18px;
+            font-size: 0.94rem;
+            color: #e5e7eb;
+        }
+
+        .latency-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+        }
+
+        .latency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .latency-badge span.dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(248, 113, 113, 1);
+        }
+
+        .latency-badge.good span.dot {
+            background: rgba(52, 211, 153, 1);
+        }
+
+        .latency-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .latency-node {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+        }
+
+        .latency-time {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--accent-green);
+        }
+
+        .latency-note {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .spine-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+            gap: 22px;
+            align-items: center;
+        }
+
+        .spine-rail {
+            position: relative;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: rgba(15, 23, 42, 0.98);
+            padding: 18px 18px 20px;
+        }
+
+        .spine-axis {
+            position: relative;
+            margin: 12px 0 16px;
+            padding-left: 80px;
+        }
+
+        .spine-line {
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            border-radius: 999px;
+            background: linear-gradient(to bottom,
+                    rgba(56, 189, 248, 0.9),
+                    rgba(52, 211, 153, 0.9));
+        }
+
+        .spine-node {
+            position: relative;
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        .spine-node:last-child {
+            margin-bottom: 0;
+        }
+
+        .spine-dot {
+            position: absolute;
+            left: -44px;
+            top: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 1);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+        }
+
+        .spine-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .spine-desc {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .spine-side {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .spine-side strong {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .heat-strip {
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            background: rgba(15, 23, 42, 0.96);
+            padding: 18px;
+        }
+
+        .heat-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .heat-bar {
+            position: relative;
+            height: 16px;
+            border-radius: 999px;
+            background: linear-gradient(90deg,
+                    rgba(248, 113, 113, 0.9),
+                    rgba(251, 191, 36, 0.85),
+                    rgba(52, 211, 153, 0.2));
+            overflow: hidden;
+        }
+
+        .heat-marker-before,
+        .heat-marker-after {
+            position: absolute;
+            top: -2px;
+            width: 2px;
+            height: 20px;
+            border-radius: 999px;
+        }
+
+        .heat-marker-before {
+            left: 68%;
+            background: rgba(248, 250, 252, 0.9);
+        }
+
+        .heat-marker-after {
+            left: 28%;
+            background: rgba(52, 211, 153, 0.9);
+        }
+
+        .heat-legend {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #e5e7eb;
+        }
+
+        .heat-legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .heat-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(248, 250, 252, 0.9);
+        }
+
+        .heat-dot.after {
+            background: rgba(52, 211, 153, 0.9);
+        }
+
+        .summary-section {
+            margin-top: 60px;
+        }
+
+        .summary-header,
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .summary-matrix,
+        .results-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .matrix-item,
+        .result-item {
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(15, 23, 42, 0.9);
+            padding: 20px;
+        }
+
+        .matrix-head,
+        .result-cat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+        }
+
+        .matrix-title {
+            color: var(--text-main);
+        }
+
+        .matrix-status {
+            font-size: 10px;
+            color: var(--accent-green);
+        }
+
+        .matrix-desc,
+        .result-context {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .result-main {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .result-val {
+            font-family: var(--font-mono);
+            font-size: 1.7rem;
+            color: var(--accent-green);
+        }
+
+        .result-lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+
+        .trend-up {
+            font-size: 1rem;
+            margin-left: 3px;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot.active {
+            background: var(--accent-purple);
+            box-shadow: 0 0 10px var(--accent-purple);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 1024px) {
+            .back-nav {
+                display: none;
+            }
+
+            .article-wrapper {
+                padding-top: 100px;
+            }
+
+            .latency-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .spine-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">ЗАГРУЗКА КЕЙСА</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Главная">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Кейсы</a>
+                <a href="experience.html" class="nav-item item-exp">Опыт</a>
+                <a href="configurator.html" class="nav-item item-config">Логика</a>
+            </div>
+        </div>
+
+        <div class="ui-corner top-right">
+            <a href="experience.html" class="nav-item"
+                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ ЗАКРЫТЬ ЛОГ ]</a>
+        </div>
+
+    </nav>
+
+    <div class="back-nav">
+        <div class="nav-dot active" data-target="intro"></div>
+        <div class="nav-dot" data-target="ch1"></div>
+        <div class="nav-dot" data-target="ch2"></div>
+        <div class="nav-dot" data-target="ch3"></div>
+        <div class="nav-dot" data-target="summary"></div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div class="article-wrapper">
+
+            <header class="article-header hero" id="intro">
+                <div class="article-meta">
+                    <span>CASE STUDY</span>
+                    <span>//</span>
+                    <span>FMCG / DATA SPINE</span>
+                    <span>//</span>
+                    <span>GLOBAL BRAND <span class="nda-badge">NDA</span></span>
+                </div>
+                <h1 class="article-title">Когда у Шоколада Нет Хребта:<br>PIM как Нервная Система</h1>
+                <p class="article-lead">
+                    Глобальный кондитерский бренд с десятками SKU, вкусов и бандлов выглядел мощно на слайдах,
+                    но был хрупок в реальности. Изменения в упаковке или составе шли до полок маркетплейсов месяцами.
+                    Мы не стали "полировать каталог". Мы дали ему хребет.
+                </p>
+            </header>
+
+            <article>
+                <div class="chapter" id="ch1">
+                    <span class="chapter-marker">01 // ЗАДЕРЖКА (LAG)</span>
+                    <h2>Три-Шесть Месяцев Быть "Технически Неправым"</h2>
+                    <p class="text-block">
+                        На таком масштабе "продукт" — это не просто плитка или коробка. Это дерево: SKU, вкусы,
+                        граммовка,
+                        мультипаки, сезонные издания. Для бренда такого уровня каталог — это реальность.
+                        Когда каталог ошибается, реальность не доезжает до полки.
+                    </p>
+                    <p class="text-block">
+                        До нас цикл выглядел так: Штаб-квартира меняет что-то (дизайн, текст на этикетке, состав).
+                        Затем все ждут. Дистрибьюторы обновляют базы в своем темпе. Селлеры меняют картинки, когда есть
+                        время.
+                        Маркетплейсы в итоге показывают "какую-то" версию правды.
+                    </p>
+
+                    <div class="highlight-quote">
+                        "К моменту, когда новый батончик 'появлялся' в онлайне, на заводе он уже считался старой
+                        новостью."
+                    </div>
+
+                    <p class="text-block">
+                        На практике это означало 3–6 месяцев задержки (latency) между "мы решили" и "клиент увидел".
+                        Для бренда, который бьется за место в корзине, это не просто неаккуратность. Это прямая потеря
+                        денег.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 1.0 // ЗАДЕРЖКА ОБНОВЛЕНИЯ (ДО / ПОСЛЕ)</span>
+                        <div class="latency-grid">
+                            <div class="latency-card">
+                                <div class="latency-title">До PIM-Хребта</div>
+                                <div class="latency-badge">
+                                    <span class="dot"></span>
+                                    <span>Фрагментировано</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">Штаб → Дистрибьюторы</span>
+                                    <span class="latency-time">4–8 недель</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">Дистрибьюторы → Селлеры</span>
+                                    <span class="latency-time">2–8 недель</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">Селлеры → Маркетплейсы</span>
+                                    <span class="latency-time">"Как получится"</span>
+                                </div>
+                                <div class="latency-note">
+                                    Множество локальных файлов, ручные правки в чатах. В конце цепочки
+                                    шоколад на экране просто не совпадал с тем, что уезжало со склада.
+                                </div>
+                            </div>
+                            <div class="latency-card">
+                                <div class="latency-title">После PIM-Хребта</div>
+                                <div class="latency-badge good">
+                                    <span class="dot"></span>
+                                    <span>Централизовано</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">Штаб → PIM</span>
+                                    <span class="latency-time">День в день</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">PIM → Дистрибьюторы</span>
+                                    <span class="latency-time">Часы</span>
+                                </div>
+                                <div class="latency-row">
+                                    <span class="latency-node">PIM → Маркетплейсы</span>
+                                    <span class="latency-time">Окно экспорта</span>
+                                </div>
+                                <div class="latency-note">
+                                    Один канонический источник истины для каждого SKU. Когда что-то меняется в продукте,
+                                    это не уходит в почтовую ветку — это течет по цифровому хребту.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        Для команды это стало первым инсайтом: проблема не в лени сотрудников.
+                        Проблема в отсутствии нервной системы.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch2">
+                    <span class="chapter-marker">02 // РОЛЬ СИСТЕМЫ</span>
+                    <h2>Не База Данных. Хребет.</h2>
+                    <p class="text-block">
+                        Когда я впервые описал PIM, это звучало как "еще одна программа".
+                        Только после маппинга всей вселенной SKU стало ясно: это не софт, это единственное место,
+                        где бренд можно увидеть целиком.
+                    </p>
+                    <p class="text-block">
+                        Мы структурировали не просто артикулы, а логику вокруг них: вкусы, спайки, коробки,
+                        лимитированные серии, сезонную упаковку — реальный портфель, а не прайс-лист.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 2.0 // ПОТОК ДАННЫХ: ОТ ШТАБА К ПОЛКЕ</span>
+                        <div class="spine-layout">
+                            <div class="spine-rail">
+                                <div class="spine-axis">
+                                    <div class="spine-line"></div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">Штаб-квартира (Бренд)</div>
+                                        <div class="spine-desc">
+                                            Владеет смыслом SKU: рецептура, месседж, визуал.
+                                            Раньше: заперто в презентациях и локальных папках.
+                                        </div>
+                                    </div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">Ядро PIM</div>
+                                        <div class="spine-desc">
+                                            Каноническая запись каждого товара и бандла. Атрибуты, фото, описания.
+                                            Место, где фраза "мы что-то поменяли" становится структурированными данными.
+                                        </div>
+                                    </div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">Дистрибьюторы</div>
+                                        <div class="spine-desc">
+                                            Больше не перепечатывают спецификации вручную. Тянут данные из хребта
+                                            с четким маппингом в свои системы.
+                                        </div>
+                                    </div>
+
+                                    <div class="spine-node">
+                                        <div class="spine-dot"></div>
+                                        <div class="spine-label">Маркетплейсы / Ритейл</div>
+                                        <div class="spine-desc">
+                                            Получают готовые, согласованные карточки.
+                                            Когда этикетка меняется, полка отражает это без сезонной задержки.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="spine-side">
+                                <strong>Что Изменилось на Практике</strong>
+                                Вместо того чтобы ждать месяцами, пока "все селлеры обновят карточки",
+                                у штаб-квартиры появился рычаг. Новая упаковка? Новый вкус? Исправленный состав?
+                                Это попадает в систему один раз и течет на рынок как управляемый экспорт,
+                                а не как сотня ручных правок.
+                                <br><br>
+                                Самое забавное: для них само существование таких решений стало открытием.
+                                Для бренда эта "еще одна программа" тихо убрала целый пласт операционного ожидания.
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        Нельзя всерьез строить современное FMCG-присутствие, если каждая часть каталога живет
+                        в разном файле. PIM превратил "творческий беспорядок" в "скучную предсказуемость".
+                        Именно это и нужно для товарных данных.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch3">
+                    <span class="chapter-marker">03 // МЕНЬШЕ РОМАНТИКИ, БОЛЬШЕ ТОЧНОСТИ</span>
+                    <h2>Тихий Эффект: Меньше Ошибок, Быстрее Ходы</h2>
+                    <p class="text-block">
+                        Ни один покупатель не скажет "спасибо за внедрение PIM". Они просто перестанут встречать
+                        неправильные фото, старую упаковку и странные различия между онлайн и офлайн полкой.
+                    </p>
+                    <p class="text-block">
+                        Внутри разница была очевидна: то, что раньше занимало кварталы, теперь планировалось за недели.
+                        Время больше не тратилось на разблокировку одних и тех же проблем каталога по кругу.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 3.0 // ТЕПЛОВАЯ КАРТА ОШИБОК</span>
+                        <div class="heat-strip">
+                            <div class="heat-label-row">
+                                <span>Рассинхрон Каталога</span>
+                                <span>По всем каналам</span>
+                            </div>
+                            <div class="heat-bar">
+                                <div class="heat-marker-before"></div>
+                                <div class="heat-marker-after"></div>
+                            </div>
+                            <div class="heat-legend">
+                                <span><span class="heat-dot"></span> Кластер ошибок "до" – неверные фото, названия,
+                                    состав</span>
+                                <span><span class="heat-dot after"></span> Остаточный шум "после" – единичные
+                                    случаи</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        Здесь нет драматичного графика "до/после". Есть только конкретное облегчение команд бренда и
+                        трейда,
+                        которым больше не нужно тратить целые сезоны на синхронизацию того, что должно быть синхронным
+                        по умолчанию.
+                    </p>
+                </div>
+
+                <div class="summary-section" id="summary">
+                    <div class="summary-header">
+                        <span>// ФИНАЛЬНЫЙ ЛОГ ИСПОЛНЕНИЯ</span>
+                        <span>СТАТУС: PIM-ХРЕБЕТ УСТАНОВЛЕН</span>
+                    </div>
+                    <div class="summary-matrix">
+                        <div class="matrix-item">
+                            <div class="matrix-head">
+                                <span class="matrix-title">Маппинг Портфеля</span>
+                                <span class="matrix-status">ГОТОВО</span>
+                            </div>
+                            <p class="matrix-desc">
+                                Полная структура SKU, вкусов, паков, бандлов и сезонных изданий собрана в единую модель
+                                вместо того, чтобы быть разбросанной по презентациям.
+                            </p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head">
+                                <span class="matrix-title">Внедрение PIM</span>
+                                <span class="matrix-status">РАЗВЕРНУТО</span>
+                            </div>
+                            <p class="matrix-desc">
+                                Установлен канонический источник истины, соединяющий HQ, дистрибьюторов и маркетплейсы
+                                через один контролируемый канал.
+                            </p>
+                        </div>
+                        <div class="matrix-item">
+                            <div class="matrix-head">
+                                <span class="matrix-title">Дисциплина Экспорта</span>
+                                <span class="matrix-status">АКТИВНА</span>
+                            </div>
+                            <p class="matrix-desc">
+                                Настроен ритм обновлений из PIM вместо хаотичных правок селлер-за-селлером,
+                                которые раньше занимали месяцы.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="result-header">
+                        <span>// ТЕЛЕМЕТРИЯ ИМПАКТА</span>
+                        <span>ДАННЫЕ: ПОСЛЕ ВНЕДРЕНИЯ</span>
+                    </div>
+                    <div class="results-matrix">
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: СКОРОСТЬ</div>
+                            <div class="result-main">
+                                <div class="result-val">3–6 мес → недели<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Лаг Обновления Каталога</div>
+                            <div class="result-context">
+                                Изменения упаковки и состава теперь доходят до полки в рамках цикла планирования,
+                                а не после окончания рекламной кампании.
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: ОШИБКИ</div>
+                            <div class="result-main">
+                                <div class="result-val">Системные → Единичные<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Природа Проблем Каталога</div>
+                            <div class="result-context">
+                                Ситуация "у каждого своя версия" превратилась в редкие частные случаи,
+                                а не постоянный фоновый шум.
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: ИСПОЛНЕНИЕ</div>
+                            <div class="result-main">
+                                <div class="result-val">Разблокировано<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Планирование Запусков</div>
+                            <div class="result-context">
+                                Бренд и трейд-команды наконец могут планировать запуски и промо, зная,
+                                что каталог "подтянется", вместо того чтобы закладывать время на его починку.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="article-header"
+                style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
+                <a href="experience.html" class="btn-glitch"
+                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
+                    ← Вернуться к Логам Опыта
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

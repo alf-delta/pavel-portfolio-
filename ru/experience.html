@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <title>Павел Гуляев | Опыт и Трек-Рекорд</title>
+
+    <meta name="description"
+        content="Лог профессионального опыта. Детальный разбор построенных систем, архитектурных решений и финансовых результатов на ключевых ролях.">
+    <meta property="og:title" content="Павел Гуляев | Опыт">
+    <meta property="og:description"
+        content="Архив ключевых ролей: от BeWell и NYC Water Cruises до глобальных FMCG проектов.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- GEO Schema: Карьерный путь для ИИ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Senior Strategy Manager at BeWell Medical",
+          "description": "Построение маркетинговой экосистемы с нуля, связка R&D и CRM, запуск B2B портала.",
+          "url": "https://pavel-portfolio.netlify.app/ru/case-bewell.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Strategy Consultant at Yandex Practicum",
+          "description": "Разработка методологии курсов: фильтрация знаний, фокус на прикладных метриках."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sr. Digital Manager at NYC Water Cruises",
+          "description": "Оптимизация воронки продаж на насыщенном рынке туризма. +300% выручки, снижение CAC."
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        .job-site {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: 8px;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+
+        .job-site:hover {
+            color: var(--accent-purple);
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+        }
+    </style>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">ЗАГРУЗКА ЛОГОВ</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Главная">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Кейсы</a>
+                <a href="experience.html" class="nav-item item-exp"
+                    style="opacity: 1; text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);">Опыт</a>
+                <a href="configurator.html" class="nav-item item-config">Логика</a>
+            </div>
+        </div>
+
+        <div class="ui-corner bottom-left">
+            РЕЖИМ: <span class="loader-counter">ЧТЕНИЕ</span>
+        </div>
+        <div class="ui-corner bottom-right">
+            SCROLL TO READ
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+
+        <section class="hero" style="height: 60vh; min-height: 500px;">
+            <h1>ПРОФЕССИОНАЛЬНЫЙ<br>ОПЫТ</h1>
+            <p class="hero-desc">
+                Детальный разбор построенных систем, управления кризисами и сгенерированной выручки на ключевых ролях.
+            </p>
+            <div class="scroll-down-line"></div>
+        </section>
+
+        <section class="experience-feed" id="experience" style="padding-top: 50px;">
+
+            <!-- 1. BeWell -->
+            <div class="job-block">
+                <div class="job-sticky-side">
+                    <div class="timeline-visual">
+                        <span class="year-text">2024</span>
+                        <div class="year-line"></div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="case-id">MEDTECH // НЬЮ-ЙОРК</div>
+                        <h3 class="job-company">BeWell Medical</h3>
+                        <div class="job-title">Senior Manager of<br>Marketing Strategy</div>
+                        <a href="https://bewellalert.com" target="_blank" class="job-site">bewellalert.com ↗</a>
+                    </div>
+                </div>
+
+                <div class="job-scroll-content">
+                    <div class="content-card">
+                        <div class="card-label">КОНТЕКСТ</div>
+                        <p>
+                            Типичный стартап с одним продуктом, застрявший в хаосе. Отсутствие структуры,
+                            разрозненные инициативы и нулевой поток данных. Им нужно было перестать вести себя как
+                            мелкий вендор
+                            и начать работать как масштабируемое предприятие.
+                        </p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-label">АРХИТЕКТУРА</div>
+                        <p>
+                            Я не просто "починил маркетинг". Я спроектировал <strong>внутреннюю экосистему</strong>.
+                            Связал R&D напрямую с CRM для создания петли обратной связи, с нуля построил B2B API-портал
+                            для захвата корпоративных клиентов и автоматизировал весь путь пользователя.
+                        </p>
+                    </div>
+
+                    <div class="content-card kpi-highlight">
+                        <div class="card-label">РЕЗУЛЬТАТЫ СИСТЕМЫ</div>
+                        <div class="kpi-grid">
+                            <div class="kpi-unit">
+                                <div class="val">+40%</div>
+                                <div class="lbl">Видимость</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">B2B</div>
+                                <div class="lbl">Запуск Портала</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">АВТО</div>
+                                <div class="lbl">Поток Данных</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 10px; display: flex;">
+                        <a href="case-bewell.html" class="btn-glitch" style="width: 100%; justify-content: center;">
+                            [ ОТКРЫТЬ КЕЙС ]
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Yandex -->
+            <div class="job-block">
+                <div class="job-sticky-side">
+                    <div class="timeline-visual">
+                        <span class="year-text">2024</span>
+                        <div class="year-line"></div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="case-id">EDTECH // МЕТОДОЛОГИЯ</div>
+                        <h3 class="job-company">Яндекс Практикум</h3>
+                        <div class="job-title">Автор и Методолог</div>
+                        <a href="https://practicum.yandex.ru" target="_blank" class="job-site">practicum.yandex.ru ↗</a>
+                    </div>
+                </div>
+                <div class="job-scroll-content">
+                    <div class="content-card">
+                        <div class="card-label">КОНТЕКСТ</div>
+                        <p>Рынок образования переполнен абстрактными "креативными" курсами, но не учит тому,
+                            как маркетинг на самом деле генерирует деньги. Яндексу нужна была программа, выходящая за
+                            рамки основ
+                            и обучающая реальной операционной логике: как считать, как планировать и как конвертировать.
+                        </p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-label">АРХИТЕКТУРА</div>
+                        <p>Я сфокусировался на фундаментальной математике и логике. Вместо теории я построил курс
+                            вокруг жестких систем: CJM, Архитектура Воронки, Юнит-Экономика и Метрики Эффективности.
+                            Цель — научить студентов строить стратегии на данных, а не на интуиции.</p>
+                    </div>
+
+                    <div class="content-card kpi-highlight">
+                        <div class="card-label">РЕЗУЛЬТАТЫ СИСТЕМЫ</div>
+                        <div class="kpi-grid">
+                            <div class="kpi-unit">
+                                <div class="val">ПОЛНАЯ</div>
+                                <div class="lbl">ЛОГИКА ВОРОНКИ</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">REAL</div>
+                                <div class="lbl">МЕТРИКИ & CJM</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">ЭКСПЕРТ</div>
+                                <div class="lbl">СТАТУС YANDEX</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 10px; display: flex;">
+                        <a href="#" class="btn-glitch"
+                            style="width: 100%; justify-content: center; opacity: 0.5; pointer-events: none;">[ ЛОГ
+                            ЗАБЛОКИРОВАН ]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. NYC Water Cruises -->
+            <div class="job-block">
+                <div class="job-sticky-side">
+                    <div class="timeline-visual">
+                        <span class="year-text">2023</span>
+                        <div class="year-line"></div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="case-id">TOURISM // РЕПУТАЦИЯ</div>
+                        <h3 class="job-company">NYC Water Cruises</h3>
+                        <div class="job-title">Head of Growth<br>/ Strategist</div>
+                        <a href="https://nycwatercruises.com" target="_blank" class="job-site">nycwatercruises.com ↗</a>
+                    </div>
+                </div>
+                <div class="job-scroll-content">
+                    <div class="content-card">
+                        <div class="card-label">КОНТЕКСТ</div>
+                        <p>Рынок круизов Нью-Йорка — это олигополия, заблокированная историческими отзывами.
+                            Оператор с одним судном не может конкурировать объемом. Вызов заключался в том, чтобы
+                            создать искусственный спрос там, где потребители действуют на "автопилоте".</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-label">АРХИТЕКТУРА</div>
+                        <p>Я внедрил стратегию "Двухуровневого Бренда". Вместо продажи одной услуги я разделил опыт
+                            на два продукта: "Стандарт" и "VIP". Это заставило агрегаторы и медиа (Time Out) разместить
+                            компанию дважды,
+                            захватывая и массовый трафик, и высокомаржинальный спрос одновременно.</p>
+                    </div>
+
+                    <div class="content-card kpi-highlight">
+                        <div class="card-label">РЕЗУЛЬТАТЫ СИСТЕМЫ</div>
+                        <div class="kpi-grid">
+                            <div class="kpi-unit">
+                                <div class="val">+180%</div>
+                                <div class="lbl">РОСТ ВЫРУЧКИ</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">3.5%</div>
+                                <div class="lbl">КОНВЕРСИЯ (С 0.8%)</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">40+</div>
+                                <div class="lbl">ПУБЛИКАЦИИ СМИ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 10px; display: flex;">
+                        <a href="case-nycwc.html" class="btn-glitch" style="width: 100%; justify-content: center;">
+                            [ ОТКРЫТЬ КЕЙС ]
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. ALIDI -->
+            <div class="job-block">
+                <div class="job-sticky-side">
+                    <div class="timeline-visual">
+                        <span class="year-text">2023</span>
+                        <div class="year-line"></div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="case-id">FMCG // ИНФРАСТРУКТУРА</div>
+                        <h3 class="job-company">Группа ALIDI</h3>
+                        <div class="job-title">Digital Strategy Lead</div>
+                        <a href="https://alidi.ru" target="_blank" class="job-site">alidi.ru ↗</a>
+                    </div>
+                </div>
+                <div class="job-scroll-content">
+                    <div class="content-card">
+                        <div class="card-label">КОНТЕКСТ</div>
+                        <p>ALIDI — гигант логистики, но на цифровых полках размер стал недостатком. Мы столкнулись с
+                            тремя кризисами:
+                            зависший сток (Borges), энтропия портфеля (P&G) и 6-месячный лаг данных (Global
+                            Confectionery).
+                            Задача: превратить тяжелого дистрибьютора в гибкого digital-оператора.</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-label">АРХИТЕКТУРА</div>
+                        <p>Я развернул три протокола для разных типов активов:</p>
+                        <ul
+                            style="margin-top: 10px; padding-left: 20px; list-style-type: none; border-left: 2px solid var(--accent-purple);">
+                            <li style="margin-bottom: 8px;"><strong style="color: var(--text-main);">Инжиниринг
+                                    Спроса</strong>: Ликвидация стока Borges через Live Commerce с триггерными скидками.
+                            </li>
+                            <li style="margin-bottom: 8px;"><strong style="color: var(--text-main);">Ремонт
+                                    Портфеля</strong>: Использование логики ABC/XYZ для починки воронки P&G.</li>
+                            <li><strong style="color: var(--text-main);">Хребет Данных</strong>: Построение PIM-системы,
+                                сократившей лаг каталога с месяцев до часов.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card kpi-highlight">
+                        <div class="card-label">РЕЗУЛЬТАТЫ СИСТЕМЫ</div>
+                        <div class="kpi-grid">
+                            <div class="kpi-unit">
+                                <div class="val">+40%</div>
+                                <div class="lbl">P&G ВЫРУЧКА</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">300%</div>
+                                <div class="lbl">ЗНАНИЕ BORGES</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">x10</div>
+                                <div class="lbl">СКОРОСТЬ ДАННЫХ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+                        <a href="case-procter.html" class="btn-glitch" style="width: 100%; justify-content: center;">
+                            КЕЙС - PROCTER & GAMBLE ↗
+                        </a>
+                        <a href="case-borges.html" class="btn-glitch" style="width: 100%; justify-content: center;">
+                            КЕЙС - BORGES STREAMS ↗
+                        </a>
+                        <a href="case-fmcg-nda.html" class="btn-glitch" style="width: 100%; justify-content: center;">
+                            КЕЙС - PIM SPINAL (NDA) ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Socialist / Vivienne Sabó -->
+            <div class="job-block">
+                <div class="job-sticky-side">
+                    <div class="timeline-visual">
+                        <span class="year-text">2022</span>
+                        <div class="year-line"></div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="case-id">BEAUTY // АНТИКРИЗИС</div>
+                        <h3 class="job-company">Socialist Agency</h3>
+                        <div class="job-title">Head of E-com Department</div>
+                        <a href="https://socialist.pro" target="_blank" class="job-site">socialist.pro ↗</a>
+                    </div>
+                </div>
+                <div class="job-scroll-content">
+                    <div class="content-card">
+                        <div class="card-label">КОНТЕКСТ</div>
+                        <p>В 2022 рынок поляризовался. Паника опустошила полки, разделив людей на "режим выживания"
+                            (дешево)
+                            и "эскапизм" (премиум). Между ними образовался "вакуум среднего сегмента". Пока конкуренты
+                            участвовали в гонке на дно,
+                            мы увидели структурную возможность занять центр.</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-label">АРХИТЕКТУРА</div>
+                        <p>Я применил Сегментную Архитектуру. Вместо обычного биддинга я перестроил логику медиазакупок
+                            под
+                            ценовые коридоры. Мы позиционировали бренд не как "доступный", а как "гарантию
+                            стабильности".
+                            Алгоритмически доминируя в вакууме, мы захватили аудиторию, мигрирующую с обоих полюсов.</p>
+                    </div>
+
+                    <div class="content-card kpi-highlight">
+                        <div class="card-label">РЕЗУЛЬТАТЫ СИСТЕМЫ</div>
+                        <div class="kpi-grid">
+                            <div class="kpi-unit">
+                                <div class="val">#1</div>
+                                <div class="lbl">РАНГ НА МАРКЕТПЛЕЙСЕ</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">21%</div>
+                                <div class="lbl">ДОЛЯ РЫНКА (С 16%)</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">+40%</div>
+                                <div class="lbl">РОСТ CTR</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 10px; display: flex;">
+                        <a href="case-vivienne.html" class="btn-glitch" style="width: 100%; justify-content: center;">
+                            [ ОТКРЫТЬ КЕЙС ]
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Publicis -->
+            <div class="job-block">
+                <div class="job-sticky-side">
+                    <div class="timeline-visual">
+                        <span class="year-text">2021</span>
+                        <div class="year-line"></div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="case-id">BEAUTY // ИНЖИНИРИНГ ПУТИ</div>
+                        <h3 class="job-company">Publicis Groupe</h3>
+                        <div class="job-title">Group Head (E-com Practice)</div>
+                        <a href="https://publicisgroupe.com" target="_blank" class="job-site">publicisgroupe.com ↗</a>
+                    </div>
+                </div>
+                <div class="job-scroll-content">
+                    <div class="content-card">
+                        <div class="card-label">КОНТЕКСТ</div>
+                        <p>Глобальный парфюмерный гигант доминировал в "Знании", но терял клиентов на этапе
+                            "Предпочтения" и "Лояльности".
+                            Они тратили миллионы на видимость, но проигрывали в момент выбора. Цифровая полка
+                            рассматривалась как статический каталог,
+                            не способный передать сенсорику аромата.</p>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-label">АРХИТЕКТУРА</div>
+                        <p>Я внедрил Сенсорный Фреймворк для перевода ольфакторных нот в визуальные данные, исправив
+                            утечку предпочтения.
+                            Параллельно я перестроил их присутствие у ритейлеров в "Петли Лояльности" (Loyalty Loops).
+                            Мы перестали относиться к экосистемам как к фону и начали использовать их как активные
+                            двигатели удержания.</p>
+                    </div>
+
+                    <div class="content-card kpi-highlight">
+                        <div class="card-label">РЕЗУЛЬТАТЫ СИСТЕМЫ</div>
+                        <div class="kpi-grid">
+                            <div class="kpi-unit">
+                                <div class="val">FIXED</div>
+                                <div class="lbl">УТЕЧКА ВОРОНКИ</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">LOOP</div>
+                                <div class="lbl">ЛОЯЛЬНОСТЬ АКТИВНА</div>
+                            </div>
+                            <div class="kpi-unit">
+                                <div class="val">GLOBAL</div>
+                                <div class="lbl">МАСШТАБИРОВАНИЕ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 10px; display: flex;">
+                        <a href="case-fragrance.html" class="btn-glitch" style="width: 100%; justify-content: center;">
+                            [ ОТКРЫТЬ КЕЙС ]
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+
+</html>

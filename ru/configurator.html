@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <title>Симулятор Логики | Павел Гуляев</title>
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="Системный симулятор логики. Интерактивный генератор стратегических блупринтов. Демонстрация метода декомпозиции бизнес-задач.">
+    <meta property="og:title" content="Симулятор Логики | Павел Гуляев">
+    <meta property="og:description"
+        content="Интерактивный генератор архитектурных решений. Посмотрите, как я декомпозирую сложные бизнес-вызовы.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- GEO / AI Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "System Logic Simulator",
+      "alternateName": "Симулятор Стратегической Логики",
+      "description": "Интерактивный инструмент, демонстрирующий алгоритм принятия стратегических решений в маркетинге и бизнесе.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "author": {
+        "@type": "Person",
+        "name": "Pavel Guliaev"
+      }
+    }
+    </script>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">ЗАГРУЗКА МОДУЛЯ ЛОГИКИ</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Главная">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Кейсы</a>
+                <a href="experience.html" class="nav-item item-exp">Опыт</a>
+                <a href="configurator.html" class="nav-item item-config"
+                    style="opacity: 1; box-shadow: 0 0 15px rgba(251, 113, 133, 0.2);">Логика</a>
+            </div>
+        </div>
+
+    </nav>
+
+    <main id="smooth-wrapper">
+        <section class="config-container">
+
+            <div style="margin-bottom: 60px;">
+                <div class="hero-tag" style="display: inline-block;">Симулятор Логики</div>
+                <h1 style="font-size: 2.5rem; margin-top: 20px; line-height: 1.1;">КАК Я ДУМАЮ:<br>СЦЕНАРНЫЙ РЕЖИМ</h1>
+
+                <p
+                    style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-top: 20px; max-width: 500px;">
+                    Это не форма заявки. Это демонстрация архитектурного подхода. Выберите сценарий, чтобы увидеть,
+                    как я декомпозирую конкретные бизнес-вызовы в готовые стратегии.
+                </p>
+
+                <div class="hero-note">
+                    <strong>ЗАМЕТКА О НЕЛИНЕЙНОСТИ:</strong> Реальные экосистемы не следуют шаблонам.
+                    Каждый проект требует уникальной архитектуры, основанной на ограничениях и переменных.
+                    Эта симуляция — абстракция логики высокого уровня, а не жесткий план действий.
+                </div>
+            </div>
+
+            <!-- THE MAD LIBS FORM -->
+            <form class="config-form">
+
+                <span>Если я захожу в проект типа </span>
+                <div class="config-select-wrapper">
+                    <!-- VALUES оставлены на английском для работы JS-скрипта -->
+                    <select id="type" class="config-select">
+                        <option value="" disabled selected>[ ...контекст... ]</option>
+                        <option value="product">Product-First (Продуктовый)</option>
+                        <option value="sales">Sales-Driven (От продаж)</option>
+                        <option value="enterprise">Enterprise (Корпорация)</option>
+                    </select>
+                </div>
+                <span>,</span>
+                <br><br>
+
+                <span>который страдает от </span>
+                <div class="config-select-wrapper">
+                    <select id="frustration" class="config-select">
+                        <option value="" disabled selected>[ ...тип боли... ]</option>
+                        <option value="burn">сжигания бюджета (Cash Burn)</option>
+                        <option value="chaos">операционного хаоса</option>
+                        <option value="stagnation">потолка роста (Стагнация)</option>
+                    </select>
+                </div>
+                <span>,</span>
+                <br><br>
+
+                <span>моим архитектурным приоритетом становится </span>
+                <div class="config-select-wrapper">
+                    <select id="action" class="config-select">
+                        <option value="" disabled selected>[ ...стратегия... ]</option>
+                        <option value="system">построение масштабируемой системы</option>
+                        <option value="economics">починка юнит-экономики</option>
+                        <option value="scale">агрессивная экспансия</option>
+                    </select>
+                </div>
+                <span>.</span>
+
+                <div class="config-actions">
+                    <button id="generate-btn" class="btn-glitch"
+                        style="font-size: 14px; padding: 20px 40px; cursor: pointer; background: transparent;">
+                        [ СГЕНЕРИРОВАТЬ РЕШЕНИЕ ]
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- OUTPUT TERMINAL -->
+            <div class="projection-output">
+                <div class="processing-line"></div>
+
+                <div class="terminal-content">
+                    <div class="terminal-header">
+                        <span>// АРХИТЕКТУРНЫЙ БЛУПРИНТ</span>
+                        <span>ЛОГИКА: ОПРЕДЕЛЕНА</span>
+                    </div>
+
+                    <!-- 1. DIAGNOSIS -->
+                    <div class="diagnosis-block">
+                        <div class="diagnosis-title">ПОДХОД (THE APPROACH):</div>
+                        <div class="diagnosis-text" id="result-diagnosis">
+                            <!-- JS INJECTED TEXT -->
+                        </div>
+                    </div>
+
+                    <!-- 2. TIMELINE -->
+                    <div class="timeline-tree" id="result-timeline">
+                        <!-- JS INJECTED TIMELINE -->
+                    </div>
+
+                    <!-- 3. TARGET STATE (Outcome) -->
+                    <div id="result-outcome">
+                        <!-- JS INJECTED OUTCOME -->
+                    </div>
+
+                    <!-- 4. CONTINUOUS LOOP (Cycle) -->
+                    <div id="result-cycle">
+                        <!-- JS INJECTED LOOP -->
+                    </div>
+
+                    <!-- FOOTNOTE -->
+                    <div class="result-footnote">
+                        <strong>КАЛИБРОВКА СИСТЕМЫ:</strong> Конкретный микс каналов, технологического стека и
+                        операционных рычагов
+                        никогда не бывает статичным. Он диктуется реальностью рынка и плотностью конкуренции.
+                        Вывод выше — это стратегические вехи, а не тактические ограничения.
+                    </div>
+
+                    <div class="terminal-footer">
+                        <a href="mailto:pavel.gulyaev88@gmail.com" class="nav-item"
+                            style="color: #fff; border-bottom: 1px solid #fff; text-decoration: none;">
+                            [ ОБСУДИТЬ ЭТУ ЛОГИКУ ]
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+
+</html>

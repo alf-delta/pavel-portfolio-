@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Глобальный Парфюмерный Дом (NDA) | Стратегический Кейс | Павел Гуляев</title>
+
+    <meta name="description"
+        content="Кейс Павла Гуляева: Как глобальный парфюмерный бренд перестроил позиции в сегментах масс-маркет и мастиж. Работа с воронкой предпочтения, Loyalty Loop и сенсорным контентом.">
+    <meta property="og:title" content="Глобальный Парфюмерный Дом (NDA) | Кейс | Павел Гуляев">
+    <meta property="og:description"
+        content="Трансформация парфюмерной группы: от утечки клиентов к управляемой лояльности. Инструменты: Journey Map, Sensory Framework, Eco-system loops.">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://pavel-portfolio.netlify.app/#person",
+          "name": "Pavel Guliaev",
+          "jobTitle": "Marketing Strategist",
+          "url": "https://pavel-portfolio.netlify.app",
+          "sameAs": [
+            "https://www.linkedin.com/in/pavelguliaev", 
+            "https://twitter.com/pavelguliaev"
+          ],
+          "knowsAbout": ["FMCG Strategy", "Fragrance Market", "Customer Journey", "Loyalty Loops"]
+        },
+        {
+          "@type": "Article",
+          "headline": "Разбивая Стекло: Глобальный Парфюмерный Дом (NDA)",
+          "alternativeHeadline": "Стратегия роста лояльности и предпочтения для парфюмерного бренда",
+          "description": "Как глобальный производитель парфюмерии трансформировал свои позиции в масс-маркете и мастиже, исправив воронку предпочтения и язык аромата.",
+          "author": { "@id": "https://pavel-portfolio.netlify.app/#person" },
+          "datePublished": "2024-01-25",
+          "mainEntityOfPage": { "@id": "https://pavel-portfolio.netlify.app/ru/case-fragrance-nda.html" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Pavel Guliaev Portfolio",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://pavel-portfolio.netlify.app/assets/logo.png"
+            }
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "В чем была проблема парфюмерного бренда?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "При высокой узнаваемости (Awareness) бренд терял клиентов на этапах предпочтения (Preference) и повторной покупки (Loyalty) из-за слабого сенсорного контента и отсутствия работы с экосистемами."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Что такое Сенсорный Фреймворк в кейсе?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Это методология оценки контента, позволяющая передавать ощущение аромата через цифровые каналы, делая ассеты отличимыми и сенсорно-ясными."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Как изменилась работа с лояльностью?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Бренд перешел от разовых промо-акций к модели «Петля Лояльности» (Loyalty Loop), используя триггеры ритейл-экосистем для возврата клиента в момент рефилла."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        .article-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 100px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        h1.article-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+
+        .article-lead {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 90%;
+        }
+
+        .chapter {
+            margin-bottom: 100px;
+            position: relative;
+            scroll-margin-top: 20vh;
+        }
+
+        .chapter-marker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+            border-left: 2px solid var(--accent-purple);
+            padding-left: 10px;
+        }
+
+        .chapter h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .text-block {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .highlight-quote {
+            border-left: 2px solid var(--accent-green);
+            padding-left: 30px;
+            margin: 40px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .diagram-container {
+            margin: 40px 0;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.9));
+        }
+
+        .diagram-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .journey-rail {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .rail-line {
+            position: relative;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg,
+                    rgba(148, 163, 184, 0.5),
+                    rgba(94, 234, 212, 0.9),
+                    rgba(129, 140, 248, 0.9));
+            margin-bottom: 12px;
+        }
+
+        .rail-node {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.9);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .rail-node span.label {
+            color: var(--text-main);
+        }
+
+        .rail-node span.state-ok {
+            color: var(--accent-green);
+        }
+
+        .rail-node span.state-leak {
+            color: #f97373;
+        }
+
+        .rail-notes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .rail-note {
+            font-size: 0.85rem;
+            color: #e5e7eb;
+            line-height: 1.5;
+        }
+
+        .rail-note strong {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-dim);
+        }
+
+        .axes-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+        }
+
+        .axes-header span.axis {
+            opacity: 0.9;
+        }
+
+        .axes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .axes-cell {
+            border-radius: 12px;
+            padding: 14px;
+            border: 1px dashed rgba(148, 163, 184, 0.5);
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .axes-cell.bad {
+            border-style: solid;
+            border-color: #f97373;
+            background: radial-gradient(circle at top left,
+                    rgba(248, 113, 113, 0.15),
+                    rgba(15, 23, 42, 0.95));
+        }
+
+        .axes-cell.good {
+            border-style: solid;
+            border-color: var(--accent-green);
+            background: radial-gradient(circle at top left,
+                    rgba(45, 212, 191, 0.15),
+                    rgba(15, 23, 42, 0.95));
+        }
+
+        .axes-tag {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+        }
+
+        .loop-wrapper {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+            gap: 22px;
+            align-items: center;
+        }
+
+        .loop-diagram {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%,
+                    rgba(129, 140, 248, 0.35),
+                    rgba(15, 23, 42, 1));
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            overflow: hidden;
+        }
+
+        .loop-ring {
+            position: absolute;
+            inset: 16%;
+            border-radius: 999px;
+            border: 1px dashed rgba(148, 163, 184, 0.7);
+        }
+
+        .loop-node {
+            position: absolute;
+            padding: 6px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(248, 250, 252, 0.7);
+            background: rgba(15, 23, 42, 0.95);
+            font-family: var(--font-mono);
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #e5e7eb;
+            white-space: normal;
+            max-width: 90px;
+            text-align: center;
+            line-height: 1.2;
+            z-index: 10;
+        }
+
+        .loop-node.n1 {
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .loop-node.n2 {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .loop-node.n3 {
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .loop-node.n4 {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .loop-center {
+            position: absolute;
+            inset: 38%;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: var(--accent-green);
+            z-index: 1;
+        }
+
+        .loop-notes {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .loop-notes strong {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+        }
+
+        .strip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .strip-col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .strip-label {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+        }
+
+        .strip-bar {
+            position: relative;
+            height: 5px;
+            border-radius: 999px;
+            background: rgba(30, 64, 175, 0.5);
+            overflow: hidden;
+        }
+
+        .strip-fill {
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: linear-gradient(90deg,
+                    rgba(56, 189, 248, 0.2),
+                    rgba(56, 189, 248, 0.9));
+        }
+
+        .strip-fill.low {
+            width: 35%;
+        }
+
+        .strip-fill.mid {
+            width: 60%;
+        }
+
+        .strip-fill.high {
+            width: 85%;
+        }
+
+        .strip-note {
+            font-size: 0.85rem;
+            color: #e5e7eb;
+        }
+
+        .summary-section {
+            margin-top: 60px;
+        }
+
+        .summary-header,
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .summary-card {
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            background: linear-gradient(135deg,
+                    rgba(15, 23, 42, 0.95),
+                    rgba(30, 64, 175, 0.65));
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .summary-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #e5e7eb;
+        }
+
+        .summary-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .summary-pill {
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(226, 232, 240, 0.4);
+            font-family: var(--font-mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: #e5e7eb;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .results-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .result-item {
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: rgba(15, 23, 42, 0.9);
+            padding: 18px 18px 20px;
+        }
+
+        .result-cat {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .result-main {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .result-val {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--accent-green);
+        }
+
+        .trend-up {
+            font-size: 1rem;
+            margin-left: 3px;
+        }
+
+        .trend-stable {
+            font-size: 0.95rem;
+            margin-left: 3px;
+        }
+
+        .result-lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .result-context {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot.active {
+            background: var(--accent-purple);
+            box-shadow: 0 0 10px var(--accent-purple);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 1024px) {
+            .back-nav {
+                display: none;
+            }
+
+            .article-wrapper {
+                padding-top: 100px;
+            }
+
+            .loop-wrapper {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .summary-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+
+<body>
+
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">ЗАГРУЗКА ДАННЫХ КЕЙСА</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Главная">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Кейсы</a>
+                <a href="experience.html" class="nav-item item-exp">Опыт</a>
+                <a href="configurator.html" class="nav-item item-config">Логика</a>
+            </div>
+        </div>
+
+        <div class="ui-corner top-right">
+            <a href="experience.html" class="nav-item"
+                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ ЗАКРЫТЬ ЛОГ ]</a>
+        </div>
+
+    </nav>
+
+    <div class="back-nav">
+        <div class="nav-dot active" data-target="intro"></div>
+        <div class="nav-dot" data-target="ch1"></div>
+        <div class="nav-dot" data-target="ch2"></div>
+        <div class="nav-dot" data-target="ch3"></div>
+        <div class="nav-dot" data-target="ch4"></div>
+        <div class="nav-dot" data-target="ch5"></div>
+        <div class="nav-dot" data-target="summary"></div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div class="article-wrapper">
+
+            <header class="article-header" id="intro">
+                <div class="article-meta">
+                    <span>CASE STUDY</span>
+                    <span>//</span>
+                    <span>BEAUTY / FRAGRANCE</span>
+                    <span>//</span>
+                    <span>GLOBAL (NDA)</span>
+                </div>
+                <h1 class="article-title">Разбивая Стекло:<br>Глобальный Парфюмерный Дом (NDA)</h1>
+                <p class="article-lead">
+                    Кейс под NDA, имя я назвать не могу. Но если вы когда-нибудь заходили в крупные бьюти-сети
+                    или отделы парфюмерии — вы точно видели эти флаконы.
+                    История о том, как мы пересобрали позиции парфюмерной группы в сегментах масс-маркет и мастиж,
+                    починив механику выбора, лояльность и научив ароматы "говорить" с экранов.
+                </p>
+            </header>
+
+            <article>
+                <div class="chapter" id="ch1">
+                    <span class="chapter-marker">01 // ВОПРОС</span>
+                    <h2>"Где мы реально выигрываем, а где теряем?"</h2>
+                    <p class="text-block">
+                        Клиент — глобальный парфюмерный гигант с портфелем, разбросанным по масс-маркету,
+                        категории мастиж (masstige) и селективу. Из-за контракта имена скрыты,
+                        но это именно тот тип портфеля, при виде которого люди говорят:
+                        <strong>"А, это наверняка одна из тех огромных групп, которые есть везде"</strong>.
+                    </p>
+                    <p class="text-block">
+                        Их вопрос не был тактическим. Это не из серии "какую кампанию запустим в следующем месяце?".
+                        Вопрос стоял структурно:
+                    </p>
+                    <p class="text-block">
+                        <strong>"По всему пути клиента — где именно мы выигрываем, где из воронки утекают люди,
+                            и как нарастить долю рынка, не заливая проблему бюджетом?"</strong>
+                    </p>
+                    <div class="highlight-quote">
+                        "Это был не медиа-бриф. Это был запрос на рентген: дайте нам честную карту территории и
+                        покажите, где мы на ней находимся."
+                    </div>
+                    <p class="text-block">
+                        В Publicis я лидировал воркстрим, который разобрал категорию на этапы, сигналы
+                        и системы: национальные бьюти-сети, мультибрендовые маркетплейсы, поиск, соцсети,
+                        программы лояльности и зоны отзывов.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch2">
+                    <span class="chapter-marker">02 // УТЕЧКИ</span>
+                    <h2>Знание бренда в норме. Предпочтение — нет.</h2>
+                    <p class="text-block">
+                        Когда мы нанесли весь путь клиента на карту, картина стала пугающе ясной.
+                        С узнаваемостью (Awareness) проблем не было. Портфель был на виду везде, где это важно:
+                        на полках, во флагманских размещениях, в медиа.
+                    </p>
+                    <p class="text-block">
+                        Аудитория утекала на следующих этапах:
+                    </p>
+                    <p class="text-block">
+                        • <strong>Предпочтение (Preference)</strong> — момент, когда человек стоит перед стеллажом с
+                        духами или скроллит ленту каталога и должен выбрать конкретный флакон;<br>
+                        • <strong>Лояльность (Loyalty)</strong> — момент повторной покупки, когда привычки либо
+                        закрепляются, либо ломаются об акцию конкурента.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 1.0 // РЕЛЬСА УТЕЧЕК (JOURNEY LEAK RAIL)</span>
+                        <div class="journey-rail">
+                            <div class="rail-line"></div>
+                            <div class="rail-node">
+                                <span class="label">Знание (Awareness)</span>
+                                <span class="state-ok">Стабильно</span>
+                            </div>
+                            <div class="rail-node">
+                                <span class="label">Предпочтение</span>
+                                <span class="state-leak">Утечка</span>
+                            </div>
+                            <div class="rail-node">
+                                <span class="label">Лояльность</span>
+                                <span class="state-leak">Утечка</span>
+                            </div>
+                            <div class="rail-notes">
+                                <div class="rail-note">
+                                    <strong>Слой "Знание"</strong>
+                                    Видимость во всех каналах и охваты уже были на конкурентном уровне.
+                                    Вливание денег сюда давало все меньшую отдачу.
+                                </div>
+                                <div class="rail-note">
+                                    <strong>Слой "Предпочтение"</strong>
+                                    В точке выбора конкуренты выглядели более узнаваемо и четче били в эмоции.
+                                    Портфель проигрывал собственному уровню известности.
+                                </div>
+                                <div class="rail-note">
+                                    <strong>Слой "Лояльность"</strong>
+                                    Циклы повторных покупок были настроены слабо. Системы лояльности работали как фон,
+                                    а не как двигатель возврата.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        Проще говоря: группа <strong>оплачивала входной билет в игру</strong>, но не
+                        контролировала путь от "я знаю этот бренд" до "я выбираю его снова и снова".
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch3">
+                    <span class="chapter-marker">03 // ЯЗЫК АРОМАТА</span>
+                    <h2>Учим ароматы говорить на цифровом языке</h2>
+                    <p class="text-block">
+                        Большая часть контента в парфюмерии сделана по принципу: "просто положи цветы и фрукты
+                        рядом с флаконом".
+                        Этого мало. Это декорация, а не коммуникация. Такая картинка заполняет кадр, но не передает
+                        запах.
+                    </p>
+                    <p class="text-block">
+                        Я разработал <strong>фреймворк сенсорного контента</strong> — метод оценки того,
+                        насколько хорошо визуал и текст заставляют вас <em>почувствовать</em> аромат через экран.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 2.0 // СЕНСОРНАЯ МАТРИЦА 2×2</span>
+                        <div class="axes-header">
+                            <span class="axis">Низкая → Высокая Сенсорная Ясность</span>
+                            <span class="axis">Низкая → Высокая Узнаваемость Бренда</span>
+                        </div>
+                        <div class="axes-grid">
+                            <div class="axes-cell bad">
+                                <span class="axes-tag">Дженерик шум</span>
+                                <div>Красивые картинки, но ноль ощущения запаха. Такой контент может принадлежать любому
+                                    бренду.</div>
+                            </div>
+                            <div class="axes-cell">
+                                <span class="axes-tag">Свой, но размытый</span>
+                                <div>Коды бренда узнаются, но сам аромат, его ноты и настроение не считываются.
+                                </div>
+                            </div>
+                            <div class="axes-cell">
+                                <span class="axes-tag">Понятный, но безликий</span>
+                                <div>Хорошие сенсорные ключи (вы примерно "слышите" запах), но ассеты легко перепутать
+                                    с конкурентами.</div>
+                            </div>
+                            <div class="axes-cell good">
+                                <span class="axes-tag">Зона Сенсорного Якоря</span>
+                                <div>
+                                    Ассеты, которые транслируют запах и четко привязаны к портфелю.
+                                    Именно сюда мы направили новую креативную платформу.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        Мы сравнили ассеты клиента со всем конкурентным полем масс-маркета и создали "карту разрывов":
+                        куда нужно двигаться, чтобы выигрывать борьбу за предпочтение, а не просто за показы.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch4">
+                    <span class="chapter-marker">04 // СИСТЕМЫ: ЛОЯЛЬНОСТЬ</span>
+                    <h2>Экосистемы ритейлеров: двигатель, а не декорация</h2>
+                    <p class="text-block">
+                        Второе слепое пятно было структурным. У крупных игроков — национальных сетей,
+                        маркетплейсов, бьюти-боксов — есть свои вселенные лояльности: уровни, баллы,
+                        персональные офферы и закрытые доступы.
+                    </p>
+                    <p class="text-block">
+                        Многие бренды относятся к ним пассивно: "мы есть в каталоге, иногда мелькаем в ротации".
+                        Но узкая группа конкурентов использует эти системы как поле битвы и, ожидаемо,
+                        доминирует в повторных покупках.
+                    </p>
+                    <p class="text-block">
+                        Мы разобрали, как эти механизмы работают именно для парфюмерии, и превратили их в замкнутую
+                        петлю (Loop), а не набор случайных действий.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 3.0 // ПЕТЛЯ ЛОЯЛЬНОСТИ (LOYALTY LOOP)</span>
+                        <div class="loop-wrapper">
+                            <div class="loop-diagram">
+                                <div class="loop-ring"></div>
+                                <div class="loop-node n1">Событие: Открытие</div>
+                                <div class="loop-node n2">Триггер Программы</div>
+                                <div class="loop-node n3">Момент Рефилла</div>
+                                <div class="loop-node n4">Персональный Пуш</div>
+                                <div class="loop-center">
+                                    Привычка к Аромату
+                                </div>
+                            </div>
+                            <div class="loop-notes">
+                                <div>
+                                    <strong>От разового промо к Петле</strong>
+                                    Вместо изолированных акций мы спроектировали паттерн повтора:
+                                    как человек находит аромат, как экосистема "запоминает" это,
+                                    и как вернуть клиента ровно в момент, когда флакон пустеет.
+                                </div>
+                                <div>
+                                    <strong>Что изменилось для Клиента</strong>
+                                    Программы лояльности перестали быть "черным ящиком" ритейлера.
+                                    Они стали управляемой средой с понятными триггерами и циклами возврата.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        Для клиента это вылилось в <strong>конкретные плейбуки</strong>:
+                        как участвовать, как часто, с какими офферами и как выглядит реальный успех
+                        (за пределами отчета "мы провели промо").
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch5">
+                    <span class="chapter-marker">05 // РЕПУТАЦИЯ КАК ГОРИЗОНТ</span>
+                    <h2>Отзывы как ландшафт, а не просто "звездочки"</h2>
+                    <p class="text-block">
+                        В парфюмерии отзывы — это не метрика тщеславия. Это тихий, накопительный аргумент,
+                        который либо подтверждает решение "купить", либо молча уводит покупателя к другой полке.
+                    </p>
+                    <p class="text-block">
+                        Вместо подсчета рейтинга я построил <strong>репутационный горизонт</strong> по ключевым
+                        площадкам: насколько плотно, насколько свежо, насколько детально и согласованно
+                        с историей бренда выглядит поле отзывов.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 4.0 // РЕПУТАЦИОННЫЕ ПОЛОСЫ</span>
+                        <div class="strip-grid">
+                            <div class="strip-col">
+                                <span class="strip-label">Объем</span>
+                                <div class="strip-bar">
+                                    <div class="strip-fill mid"></div>
+                                </div>
+                                <div class="strip-note">
+                                    Количество отзывов солидное, но ниже топ-конкурентов на площадках с высокой
+                                    готовностью к покупке.
+                                </div>
+                            </div>
+                            <div class="strip-col">
+                                <span class="strip-label">Свежесть</span>
+                                <div class="strip-bar">
+                                    <div class="strip-fill low"></div>
+                                </div>
+                                <div class="strip-note">
+                                    Слишком много "старых" записей. Оценка высокая, но сигнал, что аромат "жив" и
+                                    популярен прямо сейчас — слабый.
+                                </div>
+                            </div>
+                            <div class="strip-col">
+                                <span class="strip-label">Детализация</span>
+                                <div class="strip-bar">
+                                    <div class="strip-fill high"></div>
+                                </div>
+                                <div class="strip-note">
+                                    Когда люди писали, они писали подробно: ноты, стойкость, шлейф.
+                                    Отличная база для работы.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-block">
+                        Для каждой крупной площадки мы прописали механики: когда просить отзыв и как
+                        ненавязчиво подтолкнуть человека оставить развернутое, полезное мнение,
+                        а не дежурную оценку.
+                    </p>
+                </div>
+
+                <div class="summary-section" id="summary">
+                    <div class="summary-header">
+                        <span>// ФИНАЛЬНЫЙ ЛОГ ИСПОЛНЕНИЯ</span>
+                        <span>СТАТУС: СИСТЕМЫ ОБНОВЛЕНЫ</span>
+                    </div>
+
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <div class="summary-title">Что было внедрено</div>
+                            <div class="summary-pill-row">
+                                <span class="summary-pill">Рентген Пути (Journey X-ray)</span>
+                                <span class="summary-pill">Сенсорный Фреймворк</span>
+                                <span class="summary-pill">Дизайн Петли Лояльности</span>
+                                <span class="summary-pill">Репутационный Горизонт</span>
+                            </div>
+                            <div class="summary-text">
+                                Бренд прошел путь от "мы заметны, но не понимаем, почему проигрываем" к четкому,
+                                инструментальному видению: где теряется доля рынка, как аромат (не) передается
+                                через контент, и какие рычаги дергать внутри бьюти-экосистем.
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-title">Смена Стратегии</div>
+                            <div class="summary-pill-row">
+                                <span class="summary-pill">От Media-First</span>
+                                <span class="summary-pill">К Preference-First</span>
+                                <span class="summary-pill">К Управляемой Лояльности</span>
+                            </div>
+                            <div class="summary-text">
+                                Вместо слепой погони за охватом и раздувания бюджета, клиент теперь принимает решения,
+                                отталкиваясь от спроектированного предпочтения и повтора. Результат: <strong>управляемая
+                                    лояльность</strong> и согласованная работа креатива, трейда и CRM.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-header">
+                        <span>// ТЕЛЕМЕТРИЯ ИМПАКТА</span>
+                        <span>ИСТОЧНИК: МУЛЬТИКАНАЛЬНАЯ ДИАГНОСТИКА</span>
+                    </div>
+                    <div class="results-matrix">
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: ПРЕДПОЧТЕНИЕ</div>
+                            <div class="result-main">
+                                <div class="result-val">РОСТ<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Сила в Точке Выбора</div>
+                            <div class="result-context">
+                                Четкий, сенсорно-точный контент и правильные бенчмарки повысили
+                                шансы портфеля быть выбранным на полке и в digital-каталогах,
+                                а не просто замеченным.
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: ЛОЯЛЬНОСТЬ</div>
+                            <div class="result-main">
+                                <div class="result-val">АКТИВИРОВАНО<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Механики Экосистем</div>
+                            <div class="result-context">
+                                Программы лояльности и триггеры повтора перестали быть "черным ящиком".
+                                Теперь это набор рычагов для защиты базы и возврата клиентов.
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: РЕПУТАЦИЯ</div>
+                            <div class="result-main">
+                                <div class="result-val">НАСЫЩЕННЕЕ<span class="trend-up">▲</span></div>
+                            </div>
+                            <div class="result-lbl">Профили Отзывов</div>
+                            <div class="result-context">
+                                Ландшафт отзывов стал плотнее, актуальнее и детальнее, усиливая
+                                "тихий аргумент" в пользу покупки в моменты принятия решений.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="article-header"
+                style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
+                <a href="experience.html" class="btn-glitch"
+                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
+                    ← Вернуться к Логам Опыта
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+
+</html>

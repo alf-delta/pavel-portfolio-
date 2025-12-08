@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <title>Инжиниринг Репутации: NYC Water Cruises | Кейс Павел Гуляев</title>
+
+    <meta name="description"
+        content="Стратегический кейс: Вход на закрытый туристический рынок Нью-Йорка. Как обойти исторических монополистов через архитектуру репутации и сегментацию VIP-опыта.">
+    <meta property="og:title" content="NYC Water Cruises: Взлом Рынка | Павел Гуляев">
+    <meta property="og:description"
+        content="Как превратить оператора с одним судном в бренд №1 в рейтингах, создав спрос там, где не было масштаба.">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://pavel-portfolio.netlify.app/#person",
+          "name": "Pavel Guliaev",
+          "jobTitle": "Marketing Strategist",
+          "url": "https://pavel-portfolio.netlify.app",
+          "sameAs": [
+            "https://www.linkedin.com/in/pavelguliaev",
+            "https://twitter.com/pavelguliaev"
+          ]
+        },
+        {
+          "@type": "CaseStudy",
+          "headline": "Инжиниринг Репутации: NYC Water Cruises",
+          "description": "Кейс по выходу на высококонкурентный рынок туризма в Нью-Йорке через создание двухуровневой архитектуры бренда и управление репутационными слоями.",
+          "author": { "@id": "https://pavel-portfolio.netlify.app/#person" },
+          "datePublished": "2024-01-28",
+          "mainEntityOfPage": { "@id": "https://pavel-portfolio.netlify.app/ru/case-nycwc.html" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Pavel Guliaev Portfolio",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://pavel-portfolio.netlify.app/assets/logo.png"
+            }
+          },
+          "about": [
+            { "@type": "Thing", "name": "Tourism Strategy" },
+            { "@type": "Thing", "name": "Reputation Management" },
+            { "@type": "Thing", "name": "Luxury Segmentation" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "В чем сложность рынка круизов в Нью-Йорке?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Рынок 'зацементирован' историческими игроками. Потребители выбирают по привычке (default choice), а агрегаторы и поиск отдают приоритет старым брендам с тысячами отзывов."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какая стратегия использовалась для обхода конкурентов?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Стратегия 'Двухуровневого Бренда'. Компания была разделена на два слоя: Стандарт (массовый продукт) и VIP (эксклюзивное событие), что позволило занять две разные ниши в выдаче и рейтингах."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        .article-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 100px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        h1.article-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+
+        .article-lead {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 90%;
+        }
+
+        .chapter {
+            margin-bottom: 100px;
+            position: relative;
+            scroll-margin-top: 20vh;
+        }
+
+        .chapter-marker {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+            border-left: 2px solid var(--accent-purple);
+            padding-left: 10px;
+        }
+
+        .chapter h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .text-block {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .highlight-quote {
+            border-left: 2px solid var(--accent-green);
+            padding-left: 30px;
+            margin: 40px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .diagram-container {
+            margin: 40px 0;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.9));
+        }
+
+        .diagram-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        /* Forces Grid (adapted to standard style) */
+        .forces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .force-node {
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px dashed rgba(148, 163, 184, 0.5);
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .force-title {
+            color: var(--accent-green);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .force-text {
+            color: #e5e7eb;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Stack visual styles */
+        .stack-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .stack-layer {
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .layer-name {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #fff;
+        }
+
+        .layer-val {
+            font-size: 10px;
+            color: var(--accent-green);
+            font-family: var(--font-mono);
+            opacity: 0.9;
+        }
+
+        .stack-arrow {
+            height: 12px;
+            width: 2px;
+            background: rgba(148, 163, 184, 0.3);
+            margin: 0 auto;
+        }
+
+        /* Operations List Style */
+        .ops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .ops-item {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 8px;
+            border-left: 2px solid var(--accent-purple);
+        }
+
+        .ops-arrow {
+            color: var(--accent-purple);
+            font-family: var(--font-mono);
+            font-size: 10px;
+        }
+
+        .ops-content {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #d1d5db;
+        }
+
+        /* Summary Matrix styles */
+        .summary-section {
+            margin-top: 60px;
+        }
+
+        .summary-header,
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .summary-matrix,
+        .results-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .matrix-item,
+        .result-item {
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(15, 23, 42, 0.7);
+            padding: 20px;
+        }
+
+        .matrix-head,
+        .result-cat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+        }
+
+        .matrix-title {
+            color: var(--text-main);
+        }
+
+        .matrix-status {
+            font-size: 10px;
+            color: var(--accent-green);
+        }
+
+        .matrix-desc,
+        .result-context {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .result-val {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--accent-green);
+        }
+
+        .result-lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+
+        .trend-up {
+            font-size: 0.9rem;
+            margin-left: 4px;
+        }
+
+        .trend-stable {
+            font-size: 0.9rem;
+            margin-left: 4px;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot.active {
+            background: var(--accent-purple);
+            box-shadow: 0 0 10px var(--accent-purple);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 1024px) {
+            .back-nav {
+                display: none;
+            }
+
+            .article-wrapper {
+                padding-top: 100px;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ugyxhfwceb");
+    </script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="case-id">ЗАГРУЗКА КЕЙСА</div>
+            <div class="loader-bar-wrap">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <canvas id="webgl"></canvas>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="ui-layer">
+
+        <div class="ui-corner top-center">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo-badge-lg">
+                    <span class="status-dot"></span>
+                    PAVEL GULIAEV
+                </div>
+            </a>
+        </div>
+
+        <div class="ui-corner bottom-center">
+            <div class="nav-group">
+                <a href="index.html" class="nav-item" aria-label="Главная">
+                    <svg class="home-icon-svg" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="cases.html" class="nav-item item-cases">Кейсы</a>
+                <a href="experience.html" class="nav-item item-exp">Опыт</a>
+                <a href="configurator.html" class="nav-item item-config">Логика</a>
+            </div>
+        </div>
+
+        <div class="ui-corner top-right">
+            <a href="experience.html" class="nav-item"
+                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ ЗАКРЫТЬ ЛОГ ]</a>
+        </div>
+
+    </nav>
+
+    <div class="back-nav">
+        <div class="nav-dot active" data-target="intro"></div>
+        <div class="nav-dot" data-target="ch1"></div>
+        <div class="nav-dot" data-target="ch2"></div>
+        <div class="nav-dot" data-target="ch3"></div>
+        <div class="nav-dot" data-target="ch4"></div>
+        <div class="nav-dot" data-target="summary"></div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div class="article-wrapper">
+
+            <header class="article-header" id="intro">
+                <div class="article-meta">
+                    <span>CASE STUDY</span>
+                    <span>//</span>
+                    <span>TOURISM / STRATEGY</span>
+                    <span>//</span>
+                    <span>NYC / USA</span>
+                </div>
+                <h1 class="article-title">Инжиниринг Репутации:<br>Взлом Рынка NYC Water Cruises</h1>
+                <p class="article-lead">
+                    Рынок круизов Нью-Йорка не просто переполнен — он унаследован. Большинство туристов не выбирают; они
+                    следуют инерции.
+                    Мы вошли в эту среду с одним судном и нулевым наследием, чтобы конкурировать с гигантами, которые
+                    фактически владели определением того, что такое «круиз по Гудзону».
+                </p>
+            </header>
+
+            <article>
+                <div class="chapter" id="ch1">
+                    <span class="chapter-marker">01 // БЛОКИРОВКА</span>
+                    <h2>Рынок Был Закрыт. Не Дверью, а Привычкой.</h2>
+                    <p class="text-block">
+                        В туризме позиции цементируются годами. Эмоциональные предпочтения передаются по наследству.
+                        Отзывы накапливаются десятилетиями. Поисковая выдача (SEO) окаменела задолго до нашего
+                        появления.
+                        Полки на агрегаторах (TripAdvisor, Viator) распределяются как территории, а не как товар.
+                    </p>
+                    <div class="highlight-quote">
+                        «Мы продавали тот же конечный результат (вид на статую Свободы), но мы не продавали то же
+                        ожидание.»
+                    </div>
+                    <p class="text-block">
+                        Конкурировать ценой? Бессмысленно. Быть громче? ROI отрицательный.
+                        Поэтому мы не стали менять цену. Мы изменили <strong>контекст выбора</strong>.
+                    </p>
+                </div>
+
+                <div class="chapter" id="ch2">
+                    <span class="chapter-marker">02 // СОПРОТИВЛЕНИЕ</span>
+                    <h2>С Чем Мы На Самом Деле Воевали</h2>
+                    <p class="text-block">
+                        Нельзя было просто "запустить рекламу". Нам нужно было доказать существование новой вершины, а
+                        затем заставить людей почувствовать, что она была там всегда.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 1.0 // ТРИ СИЛЫ БЛОКИРОВКИ</span>
+                        <div class="forces-grid">
+                            <div class="force-node">
+                                <span class="force-title">ИСТОРИЧЕСКАЯ РЕПУТАЦИЯ</span>
+                                <span class="force-text">Десятилетия отзывов создают несправедливую, неподъемную инерцию
+                                    конкурентов.</span>
+                            </div>
+                            <div class="force-node">
+                                <span class="force-title">ДЕФОЛТНЫЙ ВЫБОР</span>
+                                <span class="force-text">Агрегаторы и поиск отдают приоритет тому, что пользователи уже
+                                    узнают.</span>
+                            </div>
+                            <div class="force-node">
+                                <span class="force-title">ПРЕДУБЕЖДЕНИЕ ОПЫТА</span>
+                                <span class="force-text">Потребители считают старых игроков "безопасным выбором",
+                                    избегая нового.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter" id="ch3">
+                    <span class="chapter-marker">03 // СТРАТЕГИЯ</span>
+                    <h2>Двухуровневый Бренд</h2>
+                    <p class="text-block">
+                        Мы разделили компанию на два четких слоя (UX-Tiering). Затем мы заставили рынок визуализировать
+                        это разделение через агрегаторы, рейтинги и публикации.
+                    </p>
+
+                    <div class="diagram-container">
+                        <span class="diagram-label">FIG 2.0 // АРХИТЕКТУРА СЛОЕВ</span>
+                        <div class="stack-visual">
+                            <div class="stack-layer"
+                                style="border-color: var(--accent-purple); background: rgba(168,85,247,0.05);">
+                                <span class="layer-name">VIP TIER (ЭМОЦИЯ)</span>
+                                <span class="layer-val">Решение: «Значимое событие»</span>
+                            </div>
+                            <div class="stack-arrow"></div>
+                            <div class="stack-layer" style="opacity: 0.9;">
+                                <span class="layer-name">STANDARD TIER (ФУНКЦИЯ)</span>
+                                <span class="layer-val">Решение: «Вечер в Нью-Йорке»</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-quote">
+                        «В момент, когда компания появляется в редакционном списке дважды — под двумя разными
+                        мотивациями — она перестает быть просто провайдером. Она становится источником выбора.»
+                    </div>
+                </div>
+
+                <div class="chapter" id="ch4">
+                    <span class="chapter-marker">04 // ИСПОЛНЕНИЕ</span>
+                    <h2>Операционный Слой как Маркетинг</h2>
+                    <p class="text-block">
+                        Маркетинговые обещания не создавали качество. Церемониальная природа опыта делала это.
+                        Вот что мы сделали изменяемым и реактивным, чтобы поддержать эту двойную архитектуру:
+                    </p>
+                    <div class="ops-grid">
+                        <div class="ops-item">
+                            <span class="ops-arrow">>></span>
+                            <span class="ops-content">Трекинг загрузки в реальном времени → Создание срочности
+                                (Urgency)</span>
+                        </div>
+                        <div class="ops-item">
+                            <span class="ops-arrow">>></span>
+                            <span class="ops-content">Хореография посадки на борт → Мгновенный эмоциональный
+                                рейтинг</span>
+                        </div>
+                        <div class="ops-item">
+                            <span class="ops-arrow">>></span>
+                            <span class="ops-content">Автоматизация гостей → Радикальное снижение трения</span>
+                        </div>
+                        <div class="ops-item">
+                            <span class="ops-arrow">>></span>
+                            <span class="ops-content">Оркестрация отзывов → Приоритизация сигналов пост-опыта</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-section" id="summary">
+                    <div class="summary-header">
+                        <span>// ФИНАЛЬНЫЙ ЛОГ ИСПОЛНЕНИЯ</span>
+                        <span>СТАТУС: РЫНОК ВЗЛОМАН</span>
+                    </div>
+
+                    <p class="text-block" style="margin-bottom: 40px;">
+                        Time Out разместил компанию дважды — и в категории «Celebration», и в категории «Standard
+                        Experience».
+                        Это нельзя купить. Индустрия признала разницу, которую мы спроектировали.
+                    </p>
+
+                    <div class="results-matrix">
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: ВЫРУЧКА</div>
+                            <div>
+                                <div class="result-val">+180%<span class="trend-up">▲</span></div>
+                                <div class="result-lbl">Total Revenue</div>
+                                <div class="result-context">Взрывной рост за счет захвата высокомаржинального сегмента
+                                    VIP.</div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: РЕПУТАЦИЯ</div>
+                            <div>
+                                <div class="result-val">40+<span class="trend-stable">●</span></div>
+                                <div class="result-lbl">Верифицированные Публикации</div>
+                                <div class="result-context">Присутствие в топ-листах (Time Out, TripAdvisor) как двойной
+                                    лидер.</div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: ТРАФИК</div>
+                            <div>
+                                <div class="result-val">+80%<span class="trend-up">▲</span></div>
+                                <div class="result-lbl">Органика Сайта</div>
+                                <div class="result-context">Рост брендовых запросов благодаря эффекту "повсеместности".
+                                </div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-cat">ПОТОК: ЭФФЕКТИВНОСТЬ</div>
+                            <div>
+                                <div class="result-val">3.5%<span class="trend-up">▲</span></div>
+                                <div class="result-lbl">Конверсия (с 0.8%)</div>
+                                <div class="result-context">Попадание в ожидания пользователей и снижение трения при
+                                    бронировании.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="article-header"
+                style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
+                <a href="experience.html" class="btn-glitch"
+                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
+                    ← Вернуться к Логам Опыта
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

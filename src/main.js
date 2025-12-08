@@ -9,6 +9,7 @@ import { IdentityDecoder } from './js/modules/IdentityDecoder';
 import { CaseStudyNav } from './js/modules/CaseStudyNav';
 import { CaseFilter } from './js/modules/CaseFilter';
 import { SeoToggle } from './js/modules/SeoToggle';
+import { LanguageSwitch } from './js/modules/LanguageSwitch';
 // Mobile Viewport Fix (Removed in favor of CSS svh)
 // const setVh = () => { ... }
 
@@ -25,4 +26,5 @@ document.addEventListener("DOMContentLoaded", () => {
     new CaseStudyNav();
     new CaseFilter();
     new SeoToggle();
+    new LanguageSwitch();
 });
