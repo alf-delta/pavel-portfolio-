@@ -10,6 +10,7 @@ import { CaseStudyNav } from './js/modules/CaseStudyNav';
 import { CaseFilter } from './js/modules/CaseFilter';
 import { SeoToggle } from './js/modules/SeoToggle';
 import { LanguageSwitch } from './js/modules/LanguageSwitch';
+import { ScrollUI } from './js/modules/ScrollUI';
 // Mobile Viewport Fix (Removed in favor of CSS svh)
 // const setVh = () => { ... }
 
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new Preloader();
     new SmoothScroll();
     new Background();
+    new ScrollUI();
 
     // 2. Feature Modules
     new SlotMachine();

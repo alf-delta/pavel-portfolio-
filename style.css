@@ -116,6 +116,11 @@ body {
     width: auto;
     display: flex;
     justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.top-center.ui-hidden {
+    transform: translateX(-50%) translateY(-200%);
 }
 
 .bottom-center {
@@ -125,6 +130,11 @@ body {
     width: auto;
     display: flex;
     justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bottom-center.ui-hidden {
+    transform: translateX(-50%) translateY(200%);
 }
 
 /* --- LOGOS --- */
