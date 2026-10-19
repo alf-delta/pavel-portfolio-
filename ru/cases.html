@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+    <meta name="theme-color" content="#0f0e0c">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -17,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap"
         rel="stylesheet">
 
     <script type="application/ld+json">
@@ -47,58 +48,40 @@
 
 <body>
 
-    <div class="preloader">
-        <div class="loader-content">
-            <div class="case-id">ЗАГРУЗКА БАЗЫ</div>
-            <div class="loader-bar-wrap">
-                <div class="bar-fill"></div>
-            </div>
-        </div>
     </div>
 
-    <div class="bg-wrapper">
-        <canvas id="webgl"></canvas>
-        <div class="glass-overlay"></div>
-    </div>
+    
 
-    <nav class="ui-layer">
-        <div class="ui-corner top-center">
-            <a href="index.html" style="text-decoration: none;">
-                <div class="logo-badge-lg">
-                    <span class="status-dot"></span>
-                    PAVEL GULIAEV
-                </div>
-            </a>
-        </div>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-        <div class="ui-corner bottom-center">
-            <div class="nav-group">
-                <a href="index.html" class="nav-item" aria-label="Главная">
-                    <svg class="home-icon-svg" viewBox="0 0 24 24">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                </a>
-                <a href="cases.html" class="nav-item item-cases"
-                    style="opacity: 1; text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);">Кейсы</a>
-                <a href="experience.html" class="nav-item item-exp">Опыт</a>
-                <a href="configurator.html" class="nav-item item-config">Логика</a>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Павел Гуляев — главная">Павел <span>Гуляев</span></a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                    <a href="cases.html" aria-current="page">Кейсы</a>
+                    <a href="index.html#approach">Подход</a>
+                    <a href="index.html#services">Услуги</a>
+                    <a href="experience.html">Опыт</a>
+                    <a href="configurator.html">Логика</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-toggle" aria-label="Language"><a href="../cases.html" hreflang="en" lang="en">EN</a><span aria-current="true">RU</span></div>
+                <a class="btn header-cta" href="mailto:hello@gpaul.xyz">Связаться</a>
+                <button class="menu-btn" type="button" aria-label="Меню" aria-expanded="false" aria-controls="site-nav"><span></span></button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <main id="smooth-wrapper">
-        <section class="cases-catalog">
 
-            <div class="catalog-header">
-                <div class="hero-tag">Системные Решения</div>
-                <h1>МАТРИЦА<br>КЕЙСОВ</h1>
-            </div>
+    <main id="main">
+        <section class="cases-catalog wrap">
+
+            <div class="page-hero"><p class="eyebrow accent">Кейсы</p><h1>Семь систем, одна логика</h1><p>Проекты в FMCG, бьюти, MedTech и туризме. Фильтруйте по типу проблемы, зоне влияния и тому, что было построено.</p></div>
 
             <div class="catalog-interface">
                 <aside class="filter-panel" id="filterPanel">
                     <div class="mobile-filter-toggle" id="mobileFilterToggle">
-                        <span>ДИАГНОСТИКА</span>
+                        <span>Фильтры</span>
                         <span class="toggle-icon">+</span>
                     </div>
 
@@ -152,7 +135,7 @@
                         </div>
 
                         <div class="filter-reset-wrap">
-                            <button class="reset-btn" id="reset-filters">[ СБРОСИТЬ ВСЕ ]</button>
+                            <button class="reset-btn" id="reset-filters">Сбросить фильтры</button>
                         </div>
                     </div>
 
@@ -162,8 +145,10 @@
 
                     <a href="case-bewell.html" class="case-card"
                         data-tags="problem-system impact-system impact-economics asset-infra">
-                        <div class="market-badge">MEDTECH</div>
+                        <div class="market-badge">MedTech</div>
                         <h3 class="card-title">BeWell Medical</h3>
+                        <p class="card-brief">Починили маршрут, а не двигатель: данные R&amp;D в CRM и B2B-портал.</p>
+                        <div class="card-result"><b>+30%</b><span>рост общих продаж</span></div>
                         <div class="card-tags">
                             <span class="tag-problem">Сломанные процессы</span>
                             <span class="tag-impact">Систематизация</span>
@@ -173,8 +158,10 @@
 
                     <a href="case-vivienne.html" class="case-card"
                         data-tags="problem-displaced impact-market asset-segment">
-                        <div class="market-badge">BEAUTY</div>
+                        <div class="market-badge">Бьюти</div>
                         <h3 class="card-title">Vivienne Sabó</h3>
+                        <p class="card-brief">Захват вакуума между дешёвым выживанием и недоступным премиумом на паническом рынке.</p>
+                        <div class="card-result"><b>№1</b><span>бренд на маркетплейсах</span></div>
                         <div class="card-tags">
                             <span class="tag-problem">Ошибка Позиционирования</span>
                             <span class="tag-impact">Рыночное Лидерство</span>
@@ -184,8 +171,10 @@
 
                     <a href="case-fragrance.html" class="case-card"
                         data-tags="problem-leakage impact-market asset-segment">
-                        <div class="market-badge">FRAGRANCE</div>
+                        <div class="market-badge">Бьюти</div>
                         <h3 class="card-title">Global Fragrance <span class="nda-highlight">(NDA)</span></h3>
+                        <p class="card-brief">Пересобрали позиции парфюмерной группы: предпочтение, лояльность и язык аромата.</p>
+                        <div class="card-result"><b>Рост</b><span>сила выбора на полке</span></div>
                         <div class="card-tags">
                             <span class="tag-problem">Утечка Аудитории</span>
                             <span class="tag-impact">Рыночное Лидерство</span>
@@ -197,6 +186,8 @@
                         data-tags="problem-system impact-economics asset-segment">
                         <div class="market-badge">FMCG</div>
                         <h3 class="card-title">Procter & Gamble</h3>
+                        <p class="card-brief">Захламлённая полка на маркетплейсе превращена в стандарт оборачиваемости 21 день.</p>
+                        <div class="card-result"><b>+40%</b><span>рост выручки портфеля</span></div>
                         <div class="card-tags">
                             <span class="tag-problem">Сломанные процессы</span>
                             <span class="tag-impact">Масштабирование</span>
@@ -206,8 +197,10 @@
 
                     <a href="case-nycwc.html" class="case-card"
                         data-tags="problem-displaced impact-market asset-segment">
-                        <div class="market-badge">TOURISM</div>
+                        <div class="market-badge">Туризм</div>
                         <h3 class="card-title">NYC Water Cruises</h3>
+                        <p class="card-brief">Спрос, спроектированный на рынке, где большинство просто идёт за привычным лидером.</p>
+                        <div class="card-result"><b>+180%</b><span>общая выручка</span></div>
                         <div class="card-tags">
                             <span class="tag-problem">Ошибка Позиционирования</span>
                             <span class="tag-impact">Рыночное Лидерство</span>
@@ -218,6 +211,8 @@
                     <a href="case-borges.html" class="case-card" data-tags="problem-leakage impact-market asset-route">
                         <div class="market-badge">FMCG</div>
                         <h3 class="card-title">Borges Olive Oil</h3>
+                        <p class="card-brief">Эфиры и скидки по временным окнам, чтобы сделать видимым бренд с историей с 1896 года.</p>
+                        <div class="card-result"><b>150 &rarr; 3 500</b><span>зрителей на эфир</span></div>
                         <div class="card-tags">
                             <span class="tag-problem">Утечка Аудитории</span>
                             <span class="tag-impact">Рыночное Лидерство</span>
@@ -226,8 +221,10 @@
                     </a>
 
                     <a href="case-fmcg-mda.html" class="case-card" data-tags="problem-system impact-system asset-infra">
-                        <div class="market-badge">PHARMA</div>
+                        <div class="market-badge">FMCG</div>
                         <h3 class="card-title">PIM Spinal <span class="nda-highlight">(NDA)</span></h3>
+                        <p class="card-brief">Глобальному кондитерскому каталогу дали хребет: PIM и модель управления данными.</p>
+                        <div class="card-result"><b>Месяцы &rarr; недели</b><span>задержка обновления каталога</span></div>
                         <div class="card-tags">
                             <span class="tag-problem">Сломанные процессы</span>
                             <span class="tag-impact">Систематизация</span>
@@ -238,11 +235,30 @@
                 </div>
 
                 <div class="no-results" style="display: none;">
-                    РЕШЕНИЯ НЕ НАЙДЕНЫ. ПОПРОБУЙТЕ СБРОСИТЬ ФИЛЬТРЫ.
+                    По этим фильтрам кейсов нет. Попробуйте сбросить фильтры.
                 </div>
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-cta">
+                <h2>Давайте пересоберём <em>маршрут.</em></h2>
+                <p>Открыт к сложным консалтинговым проектам и full-time ролям, где выручку, данные и команды нужно собрать в одну систему.</p>
+                <div class="footer-actions">
+                    <a class="btn" href="mailto:hello@gpaul.xyz">Написать на почту <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    <a class="btn ghost" href="https://www.linkedin.com/in/paul-guliaev/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Павел Гуляев. Архитектура роста и RevOps.</span>
+                <nav aria-label="Footer">
+                    <a href="cases.html">Кейсы</a> <a href="index.html#approach">Подход</a> <a href="index.html#services">Услуги</a> <a href="experience.html">Опыт</a> <a href="configurator.html">Логика</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
 </body>

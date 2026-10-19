@@ -16,7 +16,7 @@ export class CaseStudyNav {
                 const targetEl = document.getElementById(targetId);
                 if (targetEl) {
                     if (window.lenis) {
-                        window.lenis.scrollTo(targetEl, { offset: -100 });
+                        targetEl.scrollIntoView({ behavior: "smooth" });
                     } else {
                         targetEl.scrollIntoView({ behavior: 'smooth' });
                     }

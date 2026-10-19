@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+    <meta name="theme-color" content="#0f0e0c">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -18,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap"
         rel="stylesheet">
 
     <!-- GEO Schema: Карьерный путь для ИИ -->
@@ -64,7 +65,7 @@
 
         .job-site:hover {
             color: var(--accent-purple);
-            text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+            text-shadow: 0 0 10px rgba(242, 107, 58, 0.4);
         }
     </style>
 
@@ -79,65 +80,36 @@
 
 <body>
 
-    <div class="preloader">
-        <div class="loader-content">
-            <div class="case-id">ЗАГРУЗКА ЛОГОВ</div>
-            <div class="loader-bar-wrap">
-                <div class="bar-fill"></div>
-            </div>
-        </div>
     </div>
 
-    <div class="bg-wrapper">
-        <canvas id="webgl"></canvas>
-        <div class="glass-overlay"></div>
-    </div>
+    
 
-    <nav class="ui-layer">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-        <div class="ui-corner top-center">
-            <a href="index.html" style="text-decoration: none;">
-                <div class="logo-badge-lg">
-                    <span class="status-dot"></span>
-                    PAVEL GULIAEV
-                </div>
-            </a>
-        </div>
-
-        <div class="ui-corner bottom-center">
-            <div class="nav-group">
-                <a href="index.html" class="nav-item" aria-label="Главная">
-                    <svg class="home-icon-svg" viewBox="0 0 24 24">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                </a>
-                <a href="cases.html" class="nav-item item-cases">Кейсы</a>
-                <a href="experience.html" class="nav-item item-exp"
-                    style="opacity: 1; text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);">Опыт</a>
-                <a href="configurator.html" class="nav-item item-config">Логика</a>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Павел Гуляев — главная">Павел <span>Гуляев</span></a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                    <a href="cases.html">Кейсы</a>
+                    <a href="index.html#approach">Подход</a>
+                    <a href="index.html#services">Услуги</a>
+                    <a href="experience.html" aria-current="page">Опыт</a>
+                    <a href="configurator.html">Логика</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-toggle" aria-label="Language"><a href="../experience.html" hreflang="en" lang="en">EN</a><span aria-current="true">RU</span></div>
+                <a class="btn header-cta" href="mailto:hello@gpaul.xyz">Связаться</a>
+                <button class="menu-btn" type="button" aria-label="Меню" aria-expanded="false" aria-controls="site-nav"><span></span></button>
             </div>
         </div>
+    </header>
 
-        <div class="ui-corner bottom-left">
-            РЕЖИМ: <span class="loader-counter">ЧТЕНИЕ</span>
-        </div>
-        <div class="ui-corner bottom-right">
-            SCROLL TO READ
-        </div>
-    </nav>
 
-    <main id="smooth-wrapper">
+    <main id="main">
 
-        <section class="hero" style="height: 60vh; min-height: 500px;">
-            <h1>ПРОФЕССИОНАЛЬНЫЙ<br>ОПЫТ</h1>
-            <p class="hero-desc">
-                Детальный разбор построенных систем, управления кризисами и сгенерированной выручки на ключевых ролях.
-            </p>
-            <div class="scroll-down-line"></div>
-        </section>
+        <div class="wrap"><div class="page-hero"><p class="eyebrow accent">Опыт</p><h1>Шесть ролей, один принцип</h1><p>Детальный разбор построенных систем, управления кризисами и сгенерированной выручки на ключевых ролях.</p></div></div>
 
-        <section class="experience-feed" id="experience" style="padding-top: 50px;">
+        <section class="experience-feed" id="experience">
 
             <!-- 1. BeWell -->
             <div class="job-block">
@@ -193,8 +165,8 @@
                     </div>
 
                     <div style="margin-top: 10px; display: flex;">
-                        <a href="case-bewell.html" class="btn-glitch" style="width: 100%; justify-content: center;">
-                            [ ОТКРЫТЬ КЕЙС ]
+                        <a href="case-bewell.html" class="btn" style="width: 100%; justify-content: center;">
+                            Открыть кейс →
                         </a>
                     </div>
                 </div>
@@ -250,9 +222,8 @@
                     </div>
 
                     <div style="margin-top: 10px; display: flex;">
-                        <a href="#" class="btn-glitch"
-                            style="width: 100%; justify-content: center; opacity: 0.5; pointer-events: none;">[ ЛОГ
-                            ЗАБЛОКИРОВАН ]</a>
+                        <a href="#" class="btn"
+                            style="width: 100%; justify-content: center; opacity: 0.5; pointer-events: none;">Кейс не публикуется</a>
                     </div>
                 </div>
             </div>
@@ -306,8 +277,8 @@
                     </div>
 
                     <div style="margin-top: 10px; display: flex;">
-                        <a href="case-nycwc.html" class="btn-glitch" style="width: 100%; justify-content: center;">
-                            [ ОТКРЫТЬ КЕЙС ]
+                        <a href="case-nycwc.html" class="btn" style="width: 100%; justify-content: center;">
+                            Открыть кейс →
                         </a>
                     </div>
                 </div>
@@ -371,14 +342,14 @@
                     </div>
 
                     <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
-                        <a href="case-procter.html" class="btn-glitch" style="width: 100%; justify-content: center;">
-                            КЕЙС - PROCTER & GAMBLE ↗
+                        <a href="case-procter.html" class="btn" style="width: 100%; justify-content: center;">
+                            Кейс: Procter &amp; Gamble ↗
                         </a>
-                        <a href="case-borges.html" class="btn-glitch" style="width: 100%; justify-content: center;">
-                            КЕЙС - BORGES STREAMS ↗
+                        <a href="case-borges.html" class="btn" style="width: 100%; justify-content: center;">
+                            Кейс: Borges ↗
                         </a>
-                        <a href="case-fmcg-nda.html" class="btn-glitch" style="width: 100%; justify-content: center;">
-                            КЕЙС - PIM SPINAL (NDA) ↗
+                        <a href="case-fmcg-nda.html" class="btn" style="width: 100%; justify-content: center;">
+                            Кейс: PIM (NDA) ↗
                         </a>
                     </div>
                 </div>
@@ -436,8 +407,8 @@
                     </div>
 
                     <div style="margin-top: 10px; display: flex;">
-                        <a href="case-vivienne.html" class="btn-glitch" style="width: 100%; justify-content: center;">
-                            [ ОТКРЫТЬ КЕЙС ]
+                        <a href="case-vivienne.html" class="btn" style="width: 100%; justify-content: center;">
+                            Открыть кейс →
                         </a>
                     </div>
                 </div>
@@ -495,8 +466,8 @@
                     </div>
 
                     <div style="margin-top: 10px; display: flex;">
-                        <a href="case-fragrance.html" class="btn-glitch" style="width: 100%; justify-content: center;">
-                            [ ОТКРЫТЬ КЕЙС ]
+                        <a href="case-fragrance.html" class="btn" style="width: 100%; justify-content: center;">
+                            Открыть кейс →
                         </a>
                     </div>
                 </div>
@@ -505,6 +476,25 @@
         </section>
 
     </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-cta">
+                <h2>Давайте пересоберём <em>маршрут.</em></h2>
+                <p>Открыт к сложным консалтинговым проектам и full-time ролям, где выручку, данные и команды нужно собрать в одну систему.</p>
+                <div class="footer-actions">
+                    <a class="btn" href="mailto:hello@gpaul.xyz">Написать на почту <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    <a class="btn ghost" href="https://www.linkedin.com/in/paul-guliaev/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Павел Гуляев. Архитектура роста и RevOps.</span>
+                <nav aria-label="Footer">
+                    <a href="cases.html">Кейсы</a> <a href="index.html#approach">Подход</a> <a href="index.html#services">Услуги</a> <a href="experience.html">Опыт</a> <a href="configurator.html">Логика</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
 

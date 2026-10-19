@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="theme-color" content="#0f0e0c">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -17,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap"
         rel="stylesheet">
 
     <script type="application/ld+json">
@@ -72,44 +73,6 @@
     }
     </script>
 
-    <style>
-        .seo-enhanced-block {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            background: rgba(15, 23, 42, 0.4);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        .seo-highlight-purple {
-            color: #c084fc;
-            font-weight: 600;
-        }
-
-        .seo-highlight-green {
-            color: #4ade80;
-            font-weight: 600;
-        }
-
-        .seo-highlight-blue {
-            color: #60a5fa;
-            font-weight: 600;
-        }
-
-        .seo-list {
-            margin: 30px 0;
-            padding-left: 20px;
-            border-left: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .seo-list li {
-            margin-bottom: 12px;
-            list-style: none;
-        }
-    </style>
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -121,269 +84,195 @@
 
 <body>
 
-    <div class="preloader">
-        <div class="loader-content">
-            <div class="case-id">SYSTEM INITIALIZATION</div>
-            <div class="loader-bar-wrap">
-                <div class="bar-fill"></div>
-            </div>
-        </div>
     </div>
 
-    <div class="bg-wrapper">
-        <canvas id="webgl"></canvas>
-        <div class="glass-overlay"></div>
-    </div>
+    
 
-    <nav class="ui-layer">
-        <div class="ui-corner top-center">
-            <a href="index.html" style="text-decoration: none;">
-                <div class="logo-badge-lg">
-                    <span class="status-dot"></span>
-                    PAVEL GULIAEV
-                </div>
-            </a>
-        </div>
-        <div class="ui-corner bottom-center">
-            <div class="nav-group">
-                <a href="index.html" class="nav-item" aria-label="Home">
-                    <svg class="home-icon-svg" viewBox="0 0 24 24">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                </a>
-                <a href="cases.html" class="nav-item item-cases">Cases</a>
-                <a href="experience.html" class="nav-item item-exp">Experience</a>
-                <a href="configurator.html" class="nav-item item-config">Logic</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Pavel Guliaev — home">Pavel <span>Guliaev</span></a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                    <a href="cases.html">Cases</a>
+                    <a href="index.html#approach">Approach</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="configurator.html">Logic</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-toggle" aria-label="Language"><span aria-current="true">EN</span><a href="ru/index.html" hreflang="ru" lang="ru">RU</a></div>
+                <a class="btn header-cta" href="mailto:hello@gpaul.xyz">Get in touch</a>
+                <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
             </div>
         </div>
-        <div class="ui-corner bottom-left">
-            COORDS: <span class="loader-counter">00</span>
-        </div>
-        <div class="ui-corner bottom-right">
-            SCROLL TO NAVIGATE
-        </div>
-    </nav>
+    </header>
 
-    <main id="smooth-wrapper">
+
+    <main id="main">
 
         <section class="hero">
-            <div class="slot-machine-wrapper">
-                <div class="slot-column" id="slot-left">
-                    <div class="slot-word">System</div>
-                </div>
-                <div class="slot-static">MARKETING</div>
-                <div class="slot-column" id="slot-right">
-                    <div class="slot-word">Architecture</div>
-                </div>
-            </div>
-
-            <h1>CHAOS DEMANDS<br>STRUCTURE</h1>
-            <p class="hero-desc">
-                [ I TREAT MARKETING AS AN ENGINEERING DISCIPLINE ]<br>
-                BUILDING INFRASTRUCTURE, DATA SPINES, AND PROCESSES<br>
-                THAT ALLOW COMPANIES TO SCALE WITHOUT BREAKING.
-            </p>
-            <div class="scroll-down-line"></div>
-        </section>
-
-        <section class="identity-section">
-            <div class="identity-container">
-                <div class="section-label">// OPERATIONAL CAPABILITY CORE (SELECT MODULE)</div>
-
-                <div class="capability-grid">
-                    <div class="cap-item active" data-cap="launch">Zero-to-One Launch</div>
-                    <div class="cap-item" data-cap="crisis">Crisis Management</div>
-                    <div class="cap-item" data-cap="digital">Digital Transformation</div>
-                    <div class="cap-item" data-cap="team">Team Engineering</div>
-
-                    <div class="cap-item" data-cap="unit">Unit Economics</div>
-                    <div class="cap-item" data-cap="gtm">GTM Strategy</div>
-                    <div class="cap-item" data-cap="tech">MarTech Architecture</div>
-                    <div class="cap-item" data-cap="cross">Cross-func Leadership</div>
-                </div>
-
-                <div class="identity-decoder">
-                    <p class="decoder-text" id="decoder-content">
-                        Launching is not magic; it's an algorithm. I define "Minimum Viable Value," identify real
-                        Product-Market Fit, and engineer the route from cold contact to transaction.
-                        No hallucinations, just data-driven execution.
-                    </p>
+            <div class="wrap">
+                <p class="eyebrow accent">Growth architect &middot; RevOps &middot; FMCG, MedTech, Tourism</p>
+                <h1>Chaos demands <em>structure.</em></h1>
+                <p class="hero-lead">I treat marketing as an engineering discipline. I build the infrastructure, data and processes that let <strong>product companies scale without breaking.</strong></p>
+                <div class="hero-actions">
+                    <a class="btn" href="#work">See selected work <span class="arrow" aria-hidden="true">&darr;</span></a>
+                    <a class="btn ghost" href="mailto:hello@gpaul.xyz">Start a conversation</a>
                 </div>
             </div>
         </section>
 
-        <section class="exp-intro-block">
-            <div class="intro-container">
-                <div class="intro-label">SYSTEM LOGS</div>
-                <h2>TRACK RECORD</h2>
-                <div class="intro-desc">Brief scan of key architectural roles.</div>
+        <div class="wrap">
+            <div class="proof reveal">
+                <div class="proof-item"><div class="proof-value">+180%</div><p class="proof-label"><b>NYC Water Cruises</b>total revenue</p></div>
+                <div class="proof-item"><div class="proof-value">16 &rarr; 21%</div><p class="proof-label"><b>Vivienne Sabó</b>marketplace share</p></div>
+                <div class="proof-item"><div class="proof-value">+40%</div><p class="proof-label"><b>Procter &amp; Gamble</b>portfolio revenue lift</p></div>
+                <div class="proof-item"><div class="proof-value">150 &rarr; 3,500</div><p class="proof-label"><b>Borges</b>viewers per live stream</p></div>
             </div>
-            <div class="pipeline-connector-vertical"></div>
-        </section>
+        </div>
 
-        <section class="directory-container" id="experience">
-            <div class="directory-panel">
-                <div class="dir-header">
-                    <span>Year</span>
-                    <span>Company / Asset</span>
-                    <span style="text-align: right;">Role</span>
+        <section class="section" id="work">
+            <div class="wrap">
+                <div class="section-head">
+                    <div><p class="eyebrow">Selected work</p><h2>Systems that changed the numbers</h2></div>
+                    <p>Four of seven case studies. Each one starts with the broken mechanism, not the campaign.</p>
                 </div>
-
-                <a href="experience.html" class="dir-row">
-                    <div class="dir-year">2024</div>
-                    <div class="dir-company">BeWell Medical</div>
-                    <div class="dir-role-col">
-                        <div class="dir-role">Senior Strategy Manager</div>
-                        <span class="dir-link">bewellalert.com</span>
-                    </div>
-                </a>
-
-                <a href="experience.html" class="dir-row">
-                    <div class="dir-year">2023</div>
-                    <div class="dir-company">NYC Water Cruises</div>
-                    <div class="dir-role-col">
-                        <div class="dir-role">Senior Marketing Manager</div>
-                        <span class="dir-link">nycwatercruises.com</span>
-                    </div>
-                </a>
-
-                <a href="experience.html" class="dir-row">
-                    <div class="dir-year">2023</div>
-                    <div class="dir-company">ALIDI Group</div>
-                    <div class="dir-role-col">
-                        <div class="dir-role">Head of E-commerce</div>
-                        <span class="dir-link">alidi.ru</span>
-                    </div>
-                </a>
-
-                <a href="experience.html" class="dir-row">
-                    <div class="dir-year">2022</div>
-                    <div class="dir-company">Socialist Agency</div>
-                    <div class="dir-role-col">
-                        <div class="dir-role">Head of E-com Dept</div>
-                        <span class="dir-link">socialist.pro</span>
-                    </div>
-                </a>
-
-                <a href="experience.html" class="dir-row">
-                    <div class="dir-year">2021</div>
-                    <div class="dir-company">Publicis Groupe</div>
-                    <div class="dir-role-col">
-                        <div class="dir-role">Group Head (E-com Practice)</div>
-                        <span class="dir-link">publicisgroupe.com</span>
-                    </div>
-                </a>
-
-                <div class="cta-container">
-                    <a href="experience.html" class="btn-glitch">
-                        [ ACCESS FULL LOGS ]
-                    </a>
-                </div>
+                <ul class="work-list reveal">
+                <li><a class="work-row" href="case-nycwc.html">
+                    <span class="work-num">01</span>
+                    <span class="work-main"><span class="work-title">NYC Water Cruises</span><span class="work-sector">Tourism</span></span>
+                    <span class="work-brief">Demand engineered in a market where most people simply default to the incumbent.</span>
+                    <span class="work-result"><b>+180%</b><span>total revenue</span></span>
+                    <span class="work-go" aria-hidden="true">&rarr;</span>
+                </a></li>
+                <li><a class="work-row" href="case-vivienne.html">
+                    <span class="work-num">02</span>
+                    <span class="work-main"><span class="work-title">Vivienne Sabó</span><span class="work-sector">Beauty &middot; marketplaces</span></span>
+                    <span class="work-brief">Owned the vacuum between cheap survival and premium escape in a panic market.</span>
+                    <span class="work-result"><b>#1</b><span>brand on marketplaces</span></span>
+                    <span class="work-go" aria-hidden="true">&rarr;</span>
+                </a></li>
+                <li><a class="work-row" href="case-procter.html">
+                    <span class="work-num">03</span>
+                    <span class="work-main"><span class="work-title">Procter &amp; Gamble</span><span class="work-sector">FMCG &middot; portfolio</span></span>
+                    <span class="work-brief">Turned a cluttered marketplace shelf into a 21-day rotation standard.</span>
+                    <span class="work-result"><b>+40%</b><span>portfolio revenue lift</span></span>
+                    <span class="work-go" aria-hidden="true">&rarr;</span>
+                </a></li>
+                <li><a class="work-row" href="case-bewell.html">
+                    <span class="work-num">04</span>
+                    <span class="work-main"><span class="work-title">BeWell Medical</span><span class="work-sector">MedTech</span></span>
+                    <span class="work-brief">Fixed the route, not the engine: R&amp;D data into CRM and a B2B portal for partners.</span>
+                    <span class="work-result"><b>+30%</b><span>total sales growth</span></span>
+                    <span class="work-go" aria-hidden="true">&rarr;</span>
+                </a></li>
+                </ul>
+                <p class="section-foot"><a class="text-link" href="cases.html">All 7 case studies &rarr;</a></p>
             </div>
         </section>
 
-        <section class="site-purpose-section" style="padding: 100px 20px; max-width: 900px; margin: 0 auto;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 50px; text-align: center; color: var(--accent-green);">SYSTEM
-                ARCHITECTURE LOG</h2>
-
-            <div class="seo-enhanced-block">
-                <p style="margin-bottom: 25px;">
-                    This domain serves as the technical documentation for <strong>Pavel Guliaev</strong>. It is not a
-                    standard portfolio; it is a log of how I deconstruct market entropy into scalable <strong>Revenue
-                        Operations (RevOps)</strong>.
-                </p>
-
-                <p style="margin-bottom: 35px;">
-                    I treat Marketing as an Engineering discipline. I do not "run campaigns." I architect <span
-                        class="seo-highlight-purple">Growth Infrastructures</span>. My role is to eliminate "random acts
-                    of marketing" and replace them with precise, data-governed loops that generate predictable revenue.
-                </p>
-
-                <div class="seo-list" style="border-left-color: var(--accent-green);">
-                    <p
-                        style="color: var(--accent-green); font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 15px;">
-                        // CORE PHILOSOPHY: FORENSIC GTM</p>
-                    <p style="margin-bottom: 15px;">
-                        Most strategies copy the leader. My approach <span class="seo-highlight-green">Decodes Market
-                            Reality</span>.
-                        Using deep forensic data analysis, I identify <strong>Behavioral Vacuums</strong>—gaps in demand
-                        that competitors are structurally unable to see or fill.
-                    </p>
-
-                    <div
-                        style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; font-size: 0.95rem;">
-                        <div style="margin-bottom: 5px;"><span style="color: #94a3b8;">Input (Market):</span> Crisis,
-                            panic, falling demand.</div>
-                        <div style="margin-bottom: 5px;"><span style="color: #fff;">Analysis (My Logic):</span> A
-                            structural shift in price-tiering (e.g., the "Masstige Vacuum").</div>
-                        <div><span style="color: var(--accent-green);">Output (Result):</span> A growth engine built on
-                            mathematical truth, not creative guessing.</div>
+        <section class="section" id="approach">
+            <div class="wrap">
+                <div class="section-head">
+                    <div><p class="eyebrow">Approach</p><h2>How I work</h2></div>
+                    <p>Four ideas that show up in every project, whatever the industry.</p>
+                </div>
+                <div class="approach-grid reveal">
+                <article class="principle"><span class="principle-num">01</span><h3>Fix the route, not the engine</h3><p>Traffic poured into a broken process is vanity. Before touching the media budget I map where data breaks and where leads leak.</p></article>
+                <article class="principle"><span class="principle-num">02</span><h3>Economics before scale</h3><p>Growth without profit is vanity. I work from cohorts and LTV/CAC, and cut channels that bring volume but burn cash.</p></article>
+                <article class="principle"><span class="principle-num">03</span><h3>One source of truth</h3><p>CRM, analytics, product data and ad platforms feed a single picture of the business. If it isn&rsquo;t tracked, it didn&rsquo;t happen.</p></article>
+                <article class="principle"><span class="principle-num">04</span><h3>Owners, not hands</h3><p>I build small teams of specialists with clear ownership, rhythm and KPIs, so work moves without constant oversight.</p></article>
+                </div>
+                <div class="about-lede">
+                    <h3>Forensic GTM</h3>
+                    <div>
+                    <p>Most strategies copy the category leader. I start from the data and look for <strong>behavioral vacuums</strong>: gaps in demand that competitors are structurally unable to see or fill.</p>
+                    <p>I&rsquo;ve done this as head of e-commerce, agency practice lead and growth strategist across FMCG, beauty, MedTech and tourism &mdash; from Publicis Groupe and ALIDI to BeWell Medical and NYC Water Cruises.</p>
+                        <dl class="thinking-note">
+                        <dt>Input (market)</dt><dd>Crisis, panic, falling demand.</dd>
+                        <dt>Analysis</dt><dd>A structural shift in price tiering &mdash; for example the &ldquo;masstige vacuum&rdquo;.</dd>
+                        <dt>Output</dt><dd>A growth engine built on measured demand, not creative guessing.</dd>
+                        </dl>
                     </div>
                 </div>
-
-                <div class="seo-list" style="border-left-color: #3b82f6;">
-                    <p
-                        style="color: #3b82f6; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 15px;">
-                        // OPERATING PROTOCOLS</p>
-                    <p style="margin-bottom: 15px;">
-                        I operate at the intersection of Strategic Analytics, Product Data, and Platform Algorithms. My
-                        stack consists of three layers:
-                    </p>
-                    <ul>
-                        <li><span style="color: #3b82f6;">►</span> <strong>Strategy as Code (GTM)</strong>:
-                            Diagnosing portfolio entropy and engineering routes to market that bypass competition.
-                        </li>
-                        <li><span style="color: #3b82f6;">►</span> <strong>Revenue Architecture (RevOps)</strong>:
-                            Aligning the funnel with P&L. Fixing unit economics before scaling media spend.</li>
-                        <li><span style="color: #3b82f6;">►</span> <strong>The Data Spine (PIM & Infra)</strong>:
-                            Building the "nervous system" of the brand. Ensuring product truth flows from HQ to the
-                            digital shelf with zero latency.</li>
-                    </ul>
-                </div>
-
-                <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
-                    <p
-                        style="color: var(--text-dim); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 10px;">
-                        // DEPLOYED LOGS</p>
-                    <p>
-                        Below are the logs of deployed architectures across high-stakes sectors. From re-engineering
-                        global FMCG portfolios (P&G) to building reputation moats in closed markets (NYC Tourism). Read
-                        the case studies to see the logic in execution.
-                    </p>
-                </div>
             </div>
-
-            <button id="seo-toggle-btn" class="seo-toggle-btn">[ EXPAND FULL TEXT ]</button>
         </section>
 
-        <section class="contact-terminal-section">
-            <div class="terminal-box">
-                <div class="terminal-status-bar">
-                    <span class="status-dot blink"></span>
-                    <span>STATUS: ONLINE</span>
+        <section class="section" id="services">
+            <div class="wrap">
+                <div class="section-head">
+                    <div><p class="eyebrow">Services</p><h2>What I can take on</h2></div>
+                    <p>Four kinds of work, each aimed at one broken system.</p>
                 </div>
-                <div class="cmd-line">
-                    <span class="prompt">></span> Initiate_Connection
+                <div class="services-list reveal">
+                <article class="service">
+                    <h3>Zero-to-one system build</h3>
+                    <p>I package the product, find the first groups that respond, test the language the audience uses for its problem, and run the route from first signs of demand to the first paying customers.</p>
+                    <div class="for"><b>Good fit when</b><span>A product exists, but revenue is unstable.</span></div>
+                </article>
+                <article class="service">
+                    <h3>Revenue &amp; unit-economics audit</h3>
+                    <p>Cohort and LTV/CAC analysis to see real profitability: which channels earn and which only burn cash. Then I rebuild the monetary cycle, not just the ads.</p>
+                    <div class="for"><b>Good fit when</b><span>The business is scaling on broken logic.</span></div>
+                </article>
+                <article class="service">
+                    <h3>Data route &amp; MarTech architecture</h3>
+                    <p>CRM, analytics, ad platforms and product data (PIM) in one source of truth, so customer signals turn into memory instead of noise.</p>
+                    <div class="for"><b>Good fit when</b><span>Signals are collected but never structured.</span></div>
+                </article>
+                <article class="service">
+                    <h3>Crisis re-alignment &amp; team design</h3>
+                    <p>When the graphs drop: freeze non-essential spend, audit the funnel for leaks, re-point the message &mdash; and assemble the specialist team that can run it.</p>
+                    <div class="for"><b>Good fit when</b><span>Revenue has stalled, or the vision has no operating system.</span></div>
+                </article>
                 </div>
-                <p class="cmd-response">
-                    Currently accepting architectural challenges, full-time roles, or complex advisory projects.
-                </p>
-                <div class="cmd-actions">
-                    <a href="https://www.linkedin.com/in/paul-guliaev/" target="_blank" class="terminal-btn">
-                        LinkedIn Profile
-                    </a>
-                    <a href="mailto:hello@gpaul.xyz" class="terminal-btn">
-                        Email Signal
-                    </a>
+                <h3 class="formats-title">Ways to work together</h3>
+                <div class="formats reveal">
+                <div class="format"><span class="eyebrow accent">01</span><h3>Full-time role</h3><p>Head of growth, e-commerce or strategy: embedded in the company, owning the system and the number.</p></div>
+                <div class="format"><span class="eyebrow accent">02</span><h3>Advisory project</h3><p>A scoped engagement around one system &mdash; the route, the economics or the data spine.</p></div>
+                <div class="format"><span class="eyebrow accent">03</span><h3>Architectural challenge</h3><p>One hard, specific problem: a leaking funnel, a stalled launch, a catalog that can&rsquo;t keep up.</p></div>
                 </div>
-                <div class="terminal-footer-line">
-                    <span>// PAVEL GULIAEV</span>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <div class="wrap">
+                <div class="section-head">
+                    <div><p class="eyebrow">Track record</p><h2>Where I&rsquo;ve done it</h2></div>
+                    <p>Five recent roles. The full chronology has context, architecture and outcomes for each.</p>
                 </div>
+                <div class="track-table reveal">
+                <a class="track-row" href="experience.html"><span class="track-year">2024</span><span class="track-company">BeWell Medical</span><span class="track-role">Senior Strategy Manager</span><span class="track-site">bewellalert.com</span></a>
+                <a class="track-row" href="experience.html"><span class="track-year">2023</span><span class="track-company">NYC Water Cruises</span><span class="track-role">Senior Marketing Manager</span><span class="track-site">nycwatercruises.com</span></a>
+                <a class="track-row" href="experience.html"><span class="track-year">2023</span><span class="track-company">ALIDI Group</span><span class="track-role">Head of E-commerce</span><span class="track-site">alidi.ru</span></a>
+                <a class="track-row" href="experience.html"><span class="track-year">2022</span><span class="track-company">Socialist Agency</span><span class="track-role">Head of E-com Dept</span><span class="track-site">socialist.pro</span></a>
+                <a class="track-row" href="experience.html"><span class="track-year">2021</span><span class="track-company">Publicis Groupe</span><span class="track-role">Group Head (E-com Practice)</span><span class="track-site">publicisgroupe.com</span></a>
+                </div>
+                <p class="section-foot"><a class="text-link" href="experience.html">Full chronology &rarr;</a></p>
             </div>
         </section>
 
     </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-cta">
+                <h2>Let&rsquo;s rebuild the <em>route.</em></h2>
+                <p>Open to complex advisory projects and full-time roles where revenue, data and teams need one coherent system.</p>
+                <div class="footer-actions">
+                    <a class="btn" href="mailto:hello@gpaul.xyz">Email me <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    <a class="btn ghost" href="https://www.linkedin.com/in/paul-guliaev/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Pavel Guliaev. Growth architecture &amp; RevOps.</span>
+                <nav aria-label="Footer">
+                    <a href="cases.html">Cases</a> <a href="index.html#approach">Approach</a> <a href="index.html#services">Services</a> <a href="experience.html">Experience</a> <a href="configurator.html">Logic</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
 

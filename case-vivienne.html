@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="theme-color" content="#0f0e0c">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -18,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap"
         rel="stylesheet">
 
     <!-- GEO / AI Schema -->
@@ -56,96 +57,10 @@
     </script>
 
     <style>
-        .article-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 120px 20px 100px 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .article-header {
-            margin-bottom: 80px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 40px;
-        }
-
-        .article-meta {
-            display: flex;
-            gap: 20px;
-            font-family: var(--font-mono);
-            font-size: 10px;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-        }
-
-        h1.article-title {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            color: var(--text-main);
-            margin-bottom: 30px;
-        }
-
-        .article-lead {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            font-weight: 400;
-            max-width: 90%;
-        }
-
-        .chapter {
-            margin-bottom: 100px;
-            position: relative;
-            scroll-margin-top: 20vh;
-        }
-
-        .chapter-marker {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-            display: block;
-            border-left: 2px solid var(--accent-purple);
-            padding-left: 10px;
-        }
-
-        .chapter h2 {
-            font-size: 2rem;
-            color: var(--text-main);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .text-block {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #d1d5db;
-            margin-bottom: 30px;
-        }
-
-        .highlight-quote {
-            border-left: 2px solid var(--accent-green);
-            padding-left: 30px;
-            margin: 40px 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            color: #fff;
-            line-height: 1.4;
-        }
 
         .stat-panel {
-            background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(34, 31, 26, 0.4);
+            border: 1px solid rgba(240, 232, 220, 0.2);
             border-radius: 12px;
             padding: 30px;
             margin: 40px 0;
@@ -173,8 +88,8 @@
             margin: 40px 0;
             padding: 24px;
             border-radius: 12px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(240, 232, 220, 0.25);
+            background: rgba(26, 24, 20, 0.7);
         }
 
         .diagram-label {
@@ -198,7 +113,7 @@
         .segment-cell {
             border-radius: 10px;
             padding: 12px;
-            border: 1px dashed rgba(148, 163, 184, 0.5);
+            border: 1px dashed rgba(240, 232, 220, 0.5);
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -247,8 +162,8 @@
         .matrix-item,
         .result-item {
             border-radius: 12px;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(240, 232, 220, 0.2);
+            background: rgba(26, 24, 20, 0.7);
             padding: 20px;
         }
 
@@ -311,47 +226,6 @@
             font-size: 0.9rem;
             margin-left: 4px;
         }
-
-        .back-nav {
-            position: fixed;
-            top: 50%;
-            left: 40px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 20;
-        }
-
-        .nav-dot {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .nav-dot:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .nav-dot.active {
-            background: var(--accent-purple);
-            box-shadow: 0 0 10px var(--accent-purple);
-            transform: scale(1.2);
-        }
-
-        @media (max-width: 1024px) {
-            .back-nav {
-                display: none;
-            }
-
-            .article-wrapper {
-                padding-top: 100px;
-            }
-        }
     </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -365,51 +239,30 @@
 
 <body>
 
-    <div class="preloader">
-        <div class="loader-content">
-            <div class="case-id">LOADING CASE STUDY</div>
-            <div class="loader-bar-wrap">
-                <div class="bar-fill"></div>
-            </div>
-        </div>
     </div>
 
-    <div class="bg-wrapper">
-        <canvas id="webgl"></canvas>
-        <div class="glass-overlay"></div>
-    </div>
+    
 
-    <nav class="ui-layer">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="ui-corner top-center">
-            <a href="index.html" style="text-decoration: none;">
-                <div class="logo-badge-lg">
-                    <span class="status-dot"></span>
-                    PAVEL GULIAEV
-                </div>
-            </a>
-        </div>
-
-        <div class="ui-corner bottom-center">
-            <div class="nav-group">
-                <a href="index.html" class="nav-item" aria-label="Home">
-                    <svg class="home-icon-svg" viewBox="0 0 24 24">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                </a>
-                <a href="cases.html" class="nav-item item-cases">Cases</a>
-                <a href="experience.html" class="nav-item item-exp">Experience</a>
-                <a href="configurator.html" class="nav-item item-config">Logic</a>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Pavel Guliaev — home">Pavel <span>Guliaev</span></a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                    <a href="cases.html" aria-current="page">Cases</a>
+                    <a href="index.html#approach">Approach</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="configurator.html">Logic</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-toggle" aria-label="Language"><span aria-current="true">EN</span><a href="ru/case-vivienne.html" hreflang="ru" lang="ru">RU</a></div>
+                <a class="btn header-cta" href="mailto:hello@gpaul.xyz">Get in touch</a>
+                <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
             </div>
         </div>
+    </header>
 
-        <div class="ui-corner top-right">
-            <a href="experience.html" class="nav-item"
-                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ CLOSE LOG ]</a>
-        </div>
-
-    </nav>
 
     <!-- Side Navigation Indicators -->
     <div class="back-nav">
@@ -422,7 +275,7 @@
         <div class="nav-dot" data-target="summary"></div>
     </div>
 
-    <main id="smooth-wrapper">
+    <main id="main">
         <div class="article-wrapper">
 
             <header class="article-header" id="intro">
@@ -743,14 +596,32 @@
 
             <div class="article-header"
                 style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
-                <a href="experience.html" class="btn-glitch"
-                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
-                    ← Return to Experience Logs
+                <a href="experience.html" class="btn ghost">
+                    ← Back to experience
                 </a>
             </div>
 
         </div>
     </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-cta">
+                <h2>Let&rsquo;s rebuild the <em>route.</em></h2>
+                <p>Open to complex advisory projects and full-time roles where revenue, data and teams need one coherent system.</p>
+                <div class="footer-actions">
+                    <a class="btn" href="mailto:hello@gpaul.xyz">Email me <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    <a class="btn ghost" href="https://www.linkedin.com/in/paul-guliaev/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Pavel Guliaev. Growth architecture &amp; RevOps.</span>
+                <nav aria-label="Footer">
+                    <a href="cases.html">Cases</a> <a href="index.html#approach">Approach</a> <a href="index.html#services">Services</a> <a href="experience.html">Experience</a> <a href="configurator.html">Logic</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
 </body>

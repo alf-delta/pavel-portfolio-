@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+    <meta name="theme-color" content="#0f0e0c">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -18,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap"
         rel="stylesheet">
 
     <script type="application/ld+json">
@@ -83,99 +84,13 @@
     </script>
 
     <style>
-        .article-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 120px 20px 100px 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .article-header {
-            margin-bottom: 80px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 40px;
-        }
-
-        .article-meta {
-            display: flex;
-            gap: 20px;
-            font-family: var(--font-mono);
-            font-size: 10px;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-        }
-
-        h1.article-title {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            color: var(--text-main);
-            margin-bottom: 30px;
-        }
-
-        .article-lead {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            font-weight: 400;
-            max-width: 90%;
-        }
-
-        .chapter {
-            margin-bottom: 100px;
-            position: relative;
-            scroll-margin-top: 20vh;
-        }
-
-        .chapter-marker {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-            display: block;
-            border-left: 2px solid var(--accent-purple);
-            padding-left: 10px;
-        }
-
-        .chapter h2 {
-            font-size: 2rem;
-            color: var(--text-main);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .text-block {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #d1d5db;
-            margin-bottom: 30px;
-        }
-
-        .highlight-quote {
-            border-left: 2px solid var(--accent-green);
-            padding-left: 30px;
-            margin: 40px 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            color: #fff;
-            line-height: 1.4;
-        }
 
         .diagram-container {
             margin: 40px 0;
             padding: 24px;
             border-radius: 16px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(240, 232, 220, 0.25);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(26, 24, 20, 0.9));
         }
 
         .diagram-label {
@@ -198,8 +113,8 @@
         .force-node {
             border-radius: 12px;
             padding: 16px;
-            border: 1px dashed rgba(148, 163, 184, 0.5);
-            background: rgba(15, 23, 42, 0.6);
+            border: 1px dashed rgba(240, 232, 220, 0.5);
+            background: rgba(26, 24, 20, 0.6);
         }
 
         .force-title {
@@ -228,8 +143,8 @@
         }
 
         .stack-layer {
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(240, 232, 220, 0.4);
+            background: rgba(26, 24, 20, 0.8);
             border-radius: 8px;
             padding: 16px;
             display: flex;
@@ -255,7 +170,7 @@
         .stack-arrow {
             height: 12px;
             width: 2px;
-            background: rgba(148, 163, 184, 0.3);
+            background: rgba(240, 232, 220, 0.3);
             margin: 0 auto;
         }
 
@@ -272,7 +187,7 @@
             align-items: baseline;
             gap: 10px;
             padding: 12px;
-            background: rgba(30, 41, 59, 0.3);
+            background: rgba(34, 31, 26, 0.3);
             border-radius: 8px;
             border-left: 2px solid var(--accent-purple);
         }
@@ -286,7 +201,7 @@
         .ops-content {
             font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
-            color: #d1d5db;
+            color: #d6cfc2;
         }
 
         /* Summary Matrix styles */
@@ -317,8 +232,8 @@
         .matrix-item,
         .result-item {
             border-radius: 12px;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(240, 232, 220, 0.2);
+            background: rgba(26, 24, 20, 0.7);
             padding: 20px;
         }
 
@@ -376,47 +291,6 @@
             font-size: 0.9rem;
             margin-left: 4px;
         }
-
-        .back-nav {
-            position: fixed;
-            top: 50%;
-            left: 40px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 20;
-        }
-
-        .nav-dot {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .nav-dot:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .nav-dot.active {
-            background: var(--accent-purple);
-            box-shadow: 0 0 10px var(--accent-purple);
-            transform: scale(1.2);
-        }
-
-        @media (max-width: 1024px) {
-            .back-nav {
-                display: none;
-            }
-
-            .article-wrapper {
-                padding-top: 100px;
-            }
-        }
     </style>
 
     <script type="text/javascript">
@@ -430,51 +304,30 @@
 
 <body>
 
-    <div class="preloader">
-        <div class="loader-content">
-            <div class="case-id">ЗАГРУЗКА КЕЙСА</div>
-            <div class="loader-bar-wrap">
-                <div class="bar-fill"></div>
-            </div>
-        </div>
     </div>
 
-    <div class="bg-wrapper">
-        <canvas id="webgl"></canvas>
-        <div class="glass-overlay"></div>
-    </div>
+    
 
-    <nav class="ui-layer">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-        <div class="ui-corner top-center">
-            <a href="index.html" style="text-decoration: none;">
-                <div class="logo-badge-lg">
-                    <span class="status-dot"></span>
-                    PAVEL GULIAEV
-                </div>
-            </a>
-        </div>
-
-        <div class="ui-corner bottom-center">
-            <div class="nav-group">
-                <a href="index.html" class="nav-item" aria-label="Главная">
-                    <svg class="home-icon-svg" viewBox="0 0 24 24">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                </a>
-                <a href="cases.html" class="nav-item item-cases">Кейсы</a>
-                <a href="experience.html" class="nav-item item-exp">Опыт</a>
-                <a href="configurator.html" class="nav-item item-config">Логика</a>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Павел Гуляев — главная">Павел <span>Гуляев</span></a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                    <a href="cases.html" aria-current="page">Кейсы</a>
+                    <a href="index.html#approach">Подход</a>
+                    <a href="index.html#services">Услуги</a>
+                    <a href="experience.html">Опыт</a>
+                    <a href="configurator.html">Логика</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-toggle" aria-label="Language"><a href="../case-nycwc.html" hreflang="en" lang="en">EN</a><span aria-current="true">RU</span></div>
+                <a class="btn header-cta" href="mailto:hello@gpaul.xyz">Связаться</a>
+                <button class="menu-btn" type="button" aria-label="Меню" aria-expanded="false" aria-controls="site-nav"><span></span></button>
             </div>
         </div>
+    </header>
 
-        <div class="ui-corner top-right">
-            <a href="experience.html" class="nav-item"
-                style="color: var(--text-dim); text-transform: uppercase; text-decoration: none;">[ ЗАКРЫТЬ ЛОГ ]</a>
-        </div>
-
-    </nav>
 
     <div class="back-nav">
         <div class="nav-dot active" data-target="intro"></div>
@@ -485,7 +338,7 @@
         <div class="nav-dot" data-target="summary"></div>
     </div>
 
-    <main id="smooth-wrapper">
+    <main id="main">
         <div class="article-wrapper">
 
             <header class="article-header" id="intro">
@@ -567,7 +420,7 @@
                         <span class="diagram-label">FIG 2.0 // АРХИТЕКТУРА СЛОЕВ</span>
                         <div class="stack-visual">
                             <div class="stack-layer"
-                                style="border-color: var(--accent-purple); background: rgba(168,85,247,0.05);">
+                                style="border-color: var(--accent-purple); background: rgba(242, 107, 58,0.05);">
                                 <span class="layer-name">VIP TIER (ЭМОЦИЯ)</span>
                                 <span class="layer-val">Решение: «Значимое событие»</span>
                             </div>
@@ -669,14 +522,32 @@
 
             <div class="article-header"
                 style="border-top: 1px solid var(--border-color); border-bottom: none; padding-top: 40px; margin-top: 80px;">
-                <a href="experience.html" class="btn-glitch"
-                    style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); padding: 15px 30px; border-radius: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
-                    ← Вернуться к Логам Опыта
+                <a href="experience.html" class="btn ghost">
+                    ← Назад к опыту
                 </a>
             </div>
 
         </div>
     </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-cta">
+                <h2>Давайте пересоберём <em>маршрут.</em></h2>
+                <p>Открыт к сложным консалтинговым проектам и full-time ролям, где выручку, данные и команды нужно собрать в одну систему.</p>
+                <div class="footer-actions">
+                    <a class="btn" href="mailto:hello@gpaul.xyz">Написать на почту <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    <a class="btn ghost" href="https://www.linkedin.com/in/paul-guliaev/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Павел Гуляев. Архитектура роста и RevOps.</span>
+                <nav aria-label="Footer">
+                    <a href="cases.html">Кейсы</a> <a href="index.html#approach">Подход</a> <a href="index.html#services">Услуги</a> <a href="experience.html">Опыт</a> <a href="configurator.html">Логика</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
 </body>
