@@ -2225,3 +2225,15 @@ h1.article-title {
         font-size: 0.75rem;
     }
 }
+
+/* Case pages put "[ CLOSE LOG ]" in the top-right corner: stack the switch below it */
+.ui-corner.top-right ~ .lang-switch {
+    top: 78px;
+}
+
+@media (max-width: 600px) {
+    .ui-corner.top-right ~ .lang-switch {
+        top: 60px;
+        right: 12px;
+    }
+}

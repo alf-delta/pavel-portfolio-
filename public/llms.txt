@@ -42,7 +42,7 @@ Canonical site: https://www.gpaul.xyz (English) and https://www.gpaul.xyz/ru/ (R
 - **Problem**: Chaos of versioning and slow data updates (3-6 month latency).
 - **Intervention**: Implemented PIM (Product Information Management) and governance model.
 - **Outcome**: Real-time sync, erroneous listings reduced, mass upload readiness.
-- **Case** (titled "Global Confectionery Brand" / "PIM Spinal" on the site): https://www.gpaul.xyz/case-fmcg-mda.html
+- **Case**: https://www.gpaul.xyz/case-fmcg-mda.html
 
 ### 5. Vivienne Sabó (Beauty / Crisis)
 - **Scenario**: "Wartime retail collapse". Demand polarization.
@@ -60,7 +60,7 @@ Canonical site: https://www.gpaul.xyz (English) and https://www.gpaul.xyz/ru/ (R
 - **Problem**: No digital articulation of scent experience.
 - **Intervention**: Non-literal content framework, Loyalty-loop deconstruction.
 - **Outcome**: Shift in digital shelf performance, Better positioning vs incumbents.
-- **Case** (titled "Global Fragrance House" on the site): https://www.gpaul.xyz/case-fragrance.html
+- **Case**: https://www.gpaul.xyz/case-fragrance.html
 
 ### 8. NYC Water Cruises (Tourism / Reputation Architecture)
 - **Problem**: Single-vessel operator in a NYC cruise market locked by legacy reviews and aggregator defaults.
