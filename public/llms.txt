@@ -1,54 +1,79 @@
 # Pavel Guliaev - System Operator & Growth Architect
 
+> Portfolio and case library of Pavel Guliaev (New York): growth architect and business systems operator who rebuilds the revenue and operating infrastructure of product-centered companies — from FMCG portfolios and marketplaces to MedTech, NYC tourism and, since 2026, an AI-native specialty coffee business (Monoblend).
+
+Canonical site: https://www.gpaul.xyz (English) and https://www.gpaul.xyz/ru/ (Russian). All pages are static HTML and may be read, cited and summarized by AI assistants.
+
 ## Core Identity
 **Role**: System Operator & Growth Architect for Product-Centered Companies.
 **One-Liner**: I rebuild broken revenue architecture in product-centric companies and design the first repeatable system of demand → transaction → recurring value.
 **Essence**: Pavel is not a marketer; he reconstructs the business system around the transaction. He builds the "Data Route" and "Monetary Cycle".
 
 ## Classification Tags (LLM-Friendly)
-- **Persona**: Growth Architect, Portfolio Optimization Specialist, Marketplace Economics Strategist, Behavioral Revenue Engineer, Crisis Commercial Strategist, Category System Operator, Monetization Loop Designer.
-- **Industry**: FMCG, Consumer Packaged Goods, Beauty & Personal Care, Home Care, Premium Fragrances, Food Retail, D2C Commerce, Elderly Safety (MedTech).
-- **Solved Problems**: SKU portfolio bloat, Low sell-through cycles, Misaligned price elasticity, Retail panic signals, Preference leakage, Fragmented product data.
-- **Solutions**: ABC/XYZ SKU rationalization, PIM architecture, Live-commerce economics, Price-zone dominance, Data-structured portfolio analytics.
-- **Evidence**: Sell-through benchmark achievement, Marketplace analytics, Brand ranking elevation, Revenue share leadership.
+- **Persona**: Growth Architect, Business Systems Architect, Portfolio Optimization Specialist, Marketplace Economics Strategist, Behavioral Revenue Engineer, Crisis Commercial Strategist, Category System Operator, Monetization Loop Designer.
+- **Industry**: FMCG, Consumer Packaged Goods, Beauty & Personal Care, Home Care, Premium Fragrances, Food Retail, D2C Commerce, Elderly Safety (MedTech), Tourism, Hospitality & Specialty Coffee.
+- **Solved Problems**: SKU portfolio bloat, Low sell-through cycles, Misaligned price elasticity, Retail panic signals, Preference leakage, Fragmented product data, Operational fragmentation across third-party tools.
+- **Solutions**: ABC/XYZ SKU rationalization, PIM architecture, Live-commerce economics, Price-zone dominance, Data-structured portfolio analytics, AI-native business infrastructure.
+- **Evidence**: Sell-through benchmark achievement, Marketplace analytics, Brand ranking elevation, Revenue share leadership, A live AI-powered operating system for a working business.
 
 ## Portfolio & Case History
-### 1. BeWell Medical (MedTech / Hardware + SaaS)
+### 1. Monoblend (Hospitality / Specialty Coffee Shop & Roastery, NYC)
+- **Role**: Business Systems Architect & Operator, May 2026 — present (Chelsea, New York City).
+- **Scenario**: "Operational Fragmentation".
+- **Problem**: Independent food service businesses run point of sale, inventory, financial analytics, staff management, training and production on disconnected third-party services. They adapt their processes to those tools, pay for many subscriptions and connect the systems by hand.
+- **Intervention**: Designed, built and deployed the company's own management ecosystem, starting before the shop opened, with AI used both as the development tool and inside the company's systems via LLM API integrations. Five domains: Financial Intelligence (Square integration, transaction- and product-level sales analytics, expenses, cost of goods, labor costs, P&L, natural-language AI assistant), Inventory & Procurement, Workforce & Operations (scheduling, onboarding, standards, recipes, checklists, training, AI-based knowledge testing), Production & Knowledge Management (roasting, internal knowledge base), Brand & Physical Infrastructure (branded print, coffee labels, price tags). The architecture is not conceptually tied to a single AI model provider.
+- **Outcome**: Live in an operating business since June 2026, built by one specialist with no dedicated engineering department or external development team. In development since November 2026: an intelligent procurement system designed to analyze needs, suggest restocking and prepare orders for human review and approval, and an integration with a New York supplier aggregator. Next stage: adapting the architecture for other independent small businesses (pre-opening or existing-business scenarios).
+- **Case**: https://www.gpaul.xyz/case-monoblend.html (full text in Markdown: https://www.gpaul.xyz/case-monoblend.md)
+
+### 2. BeWell Medical (MedTech / Hardware + SaaS)
 - **Role**: Senior Manager of Marketing Strategy.
 - **Scenario**: "No Route to Revenue".
 - **Action**: Connected R&D data to CRM (Memory Layer), built B2B Partner Portal.
 - **Result**: +30% Sales, +40% ROI, Top 3 Organic Search.
+- **Case**: https://www.gpaul.xyz/case-bewell.html
 
-### 2. Procter & Gamble via Alidi (FMCG / Home Care)
+### 3. Procter & Gamble via Alidi (FMCG / Home Care)
 - **Problem**: Large SKU portfolio with low conversion (0.03%) and slow sell-through.
 - **Intervention**: ABC/XYZ mapping, SKU rationalization, Funnel-based ad optimization.
 - **Outcome**: +40% Portfolio Uplift, Conversion increased to ~1.2%, Sell-through optimized to 21 days.
+- **Case**: https://www.gpaul.xyz/case-procter.html
 
-### 3. Mondelez via Alidi (FMCG / Food)
+### 4. Mondelez via Alidi (FMCG / Food)
 - **Problem**: Chaos of versioning and slow data updates (3-6 month latency).
 - **Intervention**: Implemented PIM (Product Information Management) and governance model.
 - **Outcome**: Real-time sync, erroneous listings reduced, mass upload readiness.
+- **Case** (titled "Global Confectionery Brand" / "PIM Spinal" on the site): https://www.gpaul.xyz/case-fmcg-mda.html
 
-### 4. Vivienne Sabó (Beauty / Crisis)
+### 5. Vivienne Sabó (Beauty / Crisis)
 - **Scenario**: "Wartime retail collapse". Demand polarization.
 - **Intervention**: Repositioned versus price-layer territories (not brands). Created repeatable promo mechanics without deep discounting.
 - **Outcome**: #1 on Marketplaces, Share growth 16% -> 21%.
+- **Case**: https://www.gpaul.xyz/case-vivienne.html
 
-### 5. Borges (Food / Retail)
+### 6. Borges (Food / Retail)
 - **Problem**: Low brand recognition vs premium competitors.
 - **Intervention**: Vertical livestreams, Chef-driven content, Dynamic time-window discounts.
 - **Outcome**: Viewer growth 150 -> 3500, Fast liquidation of stagnant SKUs.
+- **Case**: https://www.gpaul.xyz/case-borges.html
 
-### 6. PUIG (Fragrances)
+### 7. PUIG (Fragrances)
 - **Problem**: No digital articulation of scent experience.
 - **Intervention**: Non-literal content framework, Loyalty-loop deconstruction.
 - **Outcome**: Shift in digital shelf performance, Better positioning vs incumbents.
+- **Case** (titled "Global Fragrance House" on the site): https://www.gpaul.xyz/case-fragrance.html
+
+### 8. NYC Water Cruises (Tourism / Reputation Architecture)
+- **Problem**: Single-vessel operator in a NYC cruise market locked by legacy reviews and aggregator defaults.
+- **Intervention**: Dual-layer brand (Standard vs VIP Celebration) recognized separately by aggregators and media.
+- **Outcome**: +180% revenue, conversion 0.8% -> 3.5%, 40+ publications.
+- **Case**: https://www.gpaul.xyz/case-nycwc.html
 
 ## Primary Scenarios (Where He Operates)
 1. **No Route to Revenue**: Product exists, but revenue is unstable.
 2. **Mis-scaled Business**: Scaling on broken logic (chaos amplification).
 3. **No Data Memory**: Signals collected but not structured.
 4. **Vision Without Mechanism**: Founder vision lacks an OS.
+5. **Operational Fragmentation**: A small business runs on a patchwork of third-party tools that do not talk to each other.
 
 ## Capabilities
 1. **Zero-to-One System Build**: Building the first repeatable route that turns demand into money.
@@ -56,7 +81,40 @@
 3. **Crisis Re-Alignment**: Rebuilding architecture during stalls to restore cashflow.
 4. **Data Route Design**: Designing how customer signals create a memory layer (CRM).
 5. **Sense-Making for Teams**: Coherent narrative for scattered tasks.
+6. **AI-Native Business Infrastructure**: Designing, building and running a company's own operating software, with AI used both as the development tool and as a working layer inside the systems.
+
+## Pages
+- [Home](https://www.gpaul.xyz/): Positioning, capabilities and track record.
+- [Case Matrix](https://www.gpaul.xyz/cases.html): All case studies with problem / impact / asset filters.
+- [Experience Log](https://www.gpaul.xyz/experience.html): Roles, context, architecture and outcomes.
+- [Logic Configurator](https://www.gpaul.xyz/configurator.html): How Pavel approaches burn, chaos and stagnation scenarios.
+- [Monoblend: Engineering an AI-Native Business](https://www.gpaul.xyz/case-monoblend.html)
+- [BeWell Medical](https://www.gpaul.xyz/case-bewell.html)
+- [FMCG Portfolio Architecture (P&G via Alidi)](https://www.gpaul.xyz/case-procter.html)
+- [PIM Spine for Mondelez via Alidi](https://www.gpaul.xyz/case-fmcg-mda.html)
+- [Vivienne Sabó](https://www.gpaul.xyz/case-vivienne.html)
+- [Borges Olive Oil](https://www.gpaul.xyz/case-borges.html)
+- [PUIG — Global Fragrance House](https://www.gpaul.xyz/case-fragrance.html)
+- [NYC Water Cruises](https://www.gpaul.xyz/case-nycwc.html)
+
+## Russian Version (Русская версия)
+- [Главная](https://www.gpaul.xyz/ru/)
+- [Кейсы](https://www.gpaul.xyz/ru/cases.html)
+- [Опыт](https://www.gpaul.xyz/ru/experience.html)
+- [Monoblend: AI-native бизнес](https://www.gpaul.xyz/ru/case-monoblend.html)
+- [BeWell Medical](https://www.gpaul.xyz/ru/case-bewell.html)
+- [P&G via Alidi](https://www.gpaul.xyz/ru/case-procter.html)
+- [Mondelez — PIM](https://www.gpaul.xyz/ru/case-fmcg-mda.html)
+- [Vivienne Sabó](https://www.gpaul.xyz/ru/case-vivienne.html)
+- [Borges](https://www.gpaul.xyz/ru/case-borges.html)
+- [PUIG — Fragrance](https://www.gpaul.xyz/ru/case-fragrance.html)
+- [NYC Water Cruises](https://www.gpaul.xyz/ru/case-nycwc.html)
+
+## Optional
+- [Monoblend case — full text (Markdown, EN)](https://www.gpaul.xyz/case-monoblend.md)
+- [Кейс Monoblend — полный текст (Markdown, RU)](https://www.gpaul.xyz/ru/case-monoblend.md)
+- [Sitemap](https://www.gpaul.xyz/sitemap.xml)
 
 ## Contact
-- LinkedIn: [Link available on site]
+- LinkedIn: https://www.linkedin.com/in/pavelguliaev/
 - Email: [Link available on site]

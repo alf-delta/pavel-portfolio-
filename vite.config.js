@@ -20,6 +20,7 @@ export default defineConfig({
                 caseNycwc: 'case-nycwc.html',
                 caseProcter: 'case-procter.html',
                 caseVivienne: 'case-vivienne.html',
+                caseMonoblend: 'case-monoblend.html',
                 // RU Versions
                 ruMain: 'ru/index.html',
                 ruExperience: 'ru/experience.html',
@@ -31,7 +32,8 @@ export default defineConfig({
                 ruCaseFragrance: 'ru/case-fragrance.html',
                 ruCaseNycwc: 'ru/case-nycwc.html',
                 ruCaseProcter: 'ru/case-procter.html',
-                ruCaseVivienne: 'ru/case-vivienne.html'
+                ruCaseVivienne: 'ru/case-vivienne.html',
+                ruCaseMonoblend: 'ru/case-monoblend.html'
             }
         }
     },
